@@ -7,13 +7,10 @@ _bookdown_files
 rsconnect
 
 R/private_info.R
-data/inputs_extracted
 *~$*
-hold
 *.gpkg-wal
 *.gpkg-shm
 *.jpeg
-20211016b_parker_uav_plan.kmz
 *.kml
 *.PNG
 *.sqlite
@@ -21,6 +18,6 @@ hold
 *.JPG
 !crossing_all.JPG
 !*_k_*
-!docs/ELK2021_files/**
+!docs/ELK2022_files/**
 !fig/**
 !docs/fig/**

@@ -1,5 +1,5 @@
 --- 
-title: "Elk River Watershed Group Fish Passage Restoration Planning 2021"
+title: "Elk River Watershed Group Fish Passage Restoration Planning 2022"
 author: |
  |
  |
@@ -13,7 +13,7 @@ author: |
 
 date: |
  |
- | Version 1.0.2
+ | Version 0.0.1
  | `r format(Sys.Date(), "%Y-%m-%d")`
 toc-title: Table of Contents
 site: bookdown::bookdown_site
@@ -28,7 +28,7 @@ bibliography: [book.bib, references.bib, packages.bib]
 biblio-style: apalike
 link-citations: no
 github-repo: rstudio/bookdown-demo
-description: "2021 Reporting for Fish Passage Restoration Planning Assessments in the Elk River watershed group."
+description: "2022 Reporting for Fish Passage Restoration Planning Assessments in the Elk River watershed group."
 
 ---
 
@@ -51,9 +51,9 @@ options(knitr.kable.NAN = '--')
 
 ```{r load-data}
 source('R/packages.R')
-source('R/functions.R')
-source('R/private_info.R')
-source('R/tables.R')
+# source('R/functions.R')
+# source('R/private_info.R')
+# source('R/tables.R')
 ```
 
 

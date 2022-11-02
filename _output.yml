@@ -4,10 +4,10 @@ bookdown::gitbook:
   config:
     toc:
       before: |
-        <li><a href="./">Elk River Watershed Group Fish Passage Restoration Planning 2021</a></li>
+        <li><a href="./">Elk River Watershed Group Fish Passage Restoration Planning 2022</a></li>
       after: |
-        <li><a href="https://github.com/NewGraphEnvironment/fish_passage_elk_2021_reporting" target="blank">Scripts and Data</a></li>
-    download: ["Elk2021.pdf", "Elk2021.html"]
+        <li><a href="https://github.com/NewGraphEnvironment/fish_passage_elk_2022_reporting" target="blank">Scripts and Data</a></li>
+    download: ["Elk2022.pdf", "Elk2022.html"]
     fontsettings:
       theme: night
       family: sans
