@@ -1,0 +1,454 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: inline
+---
+# Results and Discussion
+
+`r if(gitbook_on)knitr::asis_output("Results of Planning, Phase 1 and Phase 2 assessments are summarized in Figure \\@ref(fig:map-interactive) with additional details provided in sections below.")` 
+
+
+<br>
+
+```{r map-interactive, eval= gitbook_on, fig.cap='Map of fish passage and habitat confirmation results'}
+##make colors for the priorities
+pal <- 
+   colorFactor(palette = c("red", "yellow", "grey", "black"), 
+               levels = c("high", "moderate", "low", "no fix"))
+
+pal_phase1 <- 
+   colorFactor(palette = c("red", "yellow", "grey", "black"), 
+               levels = c("high", "moderate", "low", NA))
+
+tab_map_phase2 <- tab_map %>% filter(source %like% 'phase2')
+#https://stackoverflow.com/questions/61026700/bring-a-group-of-markers-to-front-in-leaflet
+# marker_options <- markerOptions(  
+#   zIndexOffset = 1000)
+tracks <- sf::read_sf("./data/habitat_confirmation_tracks.gpx", layer = "tracks")
+  # filter(!pscis_crossing_id %in% c(62423, 62426, 50181, 50159)) ##these ones are not correct - fix later
+
+wshd_study_areas <- sf::read_sf('data/fishpass_mapping/fishpass_mapping.gpkg', layer = 'wshd_study_areas')
+  # st_transform(crs = 4326)
+# photo_metadata <- readr::read_csv(file = 'data/photo_metadata.csv')
+  
+  
+map <- leaflet(height=500, width=780) %>%
+  # leaflet() %>% 
+  addTiles()  %>% 
+  # leafem::addMouseCoordinates(proj4 = 26911) %>% ##can't seem to get it to render utms yet
+  # addProviderTiles(providers$"Esri.DeLorme") %>% 
+  addProviderTiles("Esri.WorldTopoMap", group = "Topo") %>%
+  addProviderTiles("Esri.WorldImagery", group = "ESRI Aerial") %>% 
+  
+  addPolygons(data = wshd_study_areas %>% 
+                filter(watershed_group_code == 'ELKR'), 
+              color = "#C39D50", 
+              weight = 1, 
+              smoothFactor = 0.5,
+              opacity = 1.0, 
+              fillOpacity = 0.2,
+              fillColor = "#C39D50", 
+              label = 'Elk River Watershed Group') %>%
+  addPolygons(data = wshds, color = "#0859C6", weight = 1, smoothFactor = 0.5,
+    opacity = 1.0, fillOpacity = 0.25,
+    fillColor = "#00DBFF", 
+    label = wshds$stream_crossing_id, 
+    popup = leafpop::popupTable(x = select(wshds %>% st_set_geometry(NULL),
+                                           Site = stream_crossing_id, 
+                                           elev_min:area_km),
+                                feature.id = F,
+                                row.numbers = F),
+    group = "Phase 2") %>%
+  # addPolygons(data = wshd_study_areas %>% filter(watershed_group_code == 'MORR'), color = "#C39D50", weight = 1, smoothFactor = 0.5,
+  #   opacity = 1.0, fillOpacity = 0,
+  #   fillColor = "#C39D50", label = 'Morice River') %>%
+  # addPolylines(data=forest_tenure_road_lines,  opacity=1, color = '#ff7f00',
+  #              fillOpacity = 0.75, weight=2) %>%
+    addLegend(
+    position = "topright",
+    colors = c("red", "yellow", "grey", "black"),
+    labels = c("High", "Moderate", "Low", 'No fix'), opacity = 1,
+    title = "Fish Passage Priorities",
+  ) %>%
+    # addCircleMarkers(
+    # data=tab_plan_sf,
+    # label = tab_plan_sf$Comments,
+    # labelOptions = labelOptions(noHide = F, textOnly = F),
+    # popup = leafpop::popupTable(x = tab_plan_sf %>% st_drop_geometry(),
+    #                             feature.id = F,
+    #                             row.numbers = F),
+    # radius = 9,
+    # fillColor = ~pal_phase1(tab_plan_sf$Priority),
+    # color= "#ffffff",
+    # stroke = TRUE,
+    # fillOpacity = 1.0,
+    # weight = 2,
+    # opacity = 1.0,
+    # group = "Planning") %>% 
+
+    addCircleMarkers(data=tab_map %>% filter(source %like% 'phase1' | source %like% 'pscis_reassessments'),
+    label = tab_map %>% filter(source %like% 'phase1' | source %like% 'pscis_reassessments') %>% pull(pscis_crossing_id),               
+    # label = tab_map$pscis_crossing_id,
+    labelOptions = labelOptions(noHide = F, textOnly = TRUE),
+    popup = leafpop::popupTable(x = select((tab_map %>% st_set_geometry(NULL) %>% filter(source %like% 'phase1' | source %like% 'pscis_reassessments')),
+                                           Site = pscis_crossing_id, 
+                                           Priority = priority_phase1, 
+                                           Stream = stream_name, 
+                                           Road = road_name, 
+                                           `Habitat value`= habitat_value, 
+                                           `Barrier Result` = barrier_result, 
+                                           `Culvert data` = data_link, 
+                                           `Culvert photos` = photo_link),
+                                feature.id = F,
+                                row.numbers = F),
+    radius = 9,
+    fillColor = ~pal_phase1(priority_phase1),
+    color= "#ffffff",
+    stroke = TRUE,
+    fillOpacity = 1.0,
+    weight = 2,
+    opacity = 1.0,
+    group = "Phase 1"
+    ) %>% 
+  
+    addPolylines(data=tracks,  
+                 opacity=0.75, color = '#e216c4',
+               fillOpacity = 0.75, weight=5, group = "Phase 2") %>%
+  addAwesomeMarkers(
+    lng = photo_metadata$gps_longitude,
+    lat = photo_metadata$gps_latitude,
+    popup = leafpop::popupImage(photo_metadata$url, src = "remote"),
+    clusterOptions = markerClusterOptions(),
+    group = "Phase 2") %>%
+  
+    addCircleMarkers(
+    data=tab_hab_map,
+    label = tab_hab_map$pscis_crossing_id,
+    labelOptions = labelOptions(noHide = T, textOnly = TRUE),
+    popup = leafpop::popupTable(x = select((tab_hab_map %>% st_set_geometry(NULL)),
+                                           Site = pscis_crossing_id, 
+                                           Priority = priority, 
+                                           Stream = stream_name, 
+                                           Road = road_name, 
+                                           `Habitat (m)`= upstream_habitat_length_m, 
+                                           Comments = comments, 
+                                           `Culvert data` = data_link, 
+                                           `Culvert photos` = photo_link, 
+                                           `Model data` = model_link),
+                                feature.id = F,
+                                row.numbers = F),
+    radius = 9,
+    fillColor = ~pal(priority),
+    color= "#ffffff",
+    stroke = TRUE,
+    fillOpacity = 1.0,
+    weight = 2,
+    opacity = 1.0,
+    group = "Phase 2"
+    ) %>%
+  #     # addScaleBar(position = 'bottomleft', options = scaleBarOptions(imperial = FALSE)) %>% 
+  addLayersControl(
+    baseGroups = c(
+      "Esri.DeLorme",
+      "ESRI Aerial"),
+    overlayGroups = c("Phase 1", 
+                      "Phase 2"),
+    options = layersControlOptions(collapsed = F)) %>%
+  leaflet.extras::addFullscreenControl() %>% 
+  addMiniMap(tiles = providers$"Esri.NatGeoWorldMap",
+             zoomLevelOffset = -6, width = 100, height = 100)
+
+map %>% 
+  hideGroup(c("Phase 1")) %>% 
+  setView(lat = st_centroid(wshd_study_areas) %>% mutate(lat = sf::st_coordinates(.)[,2]) %>% pull(lat),
+          lng = st_centroid(wshd_study_areas) %>% mutate(lng = sf::st_coordinates(.)[,1])%>% pull(lng),
+          zoom = 8)
+
+ # mutate(long = sf::st_coordinates(.)[,1],
+ #        lat = sf::st_coordinates(.)[,2])
+```
+
+
+<br>
+
+## Phase 1
+
+Field assessments were conducted between `r format(min(pscis_phase1$date), format="%B %d %Y")` and `r format(max(pscis_phase1$date), format="%B %d %Y")` by Allan Irvine, R.P.Bio., Kyle Prince, P.Biol., Stevie Syer, Environmental Technician, Rafael Acosta Lugo, M.Sc., Environmental Technician and Brody Klenk, Environmental Technician. A total of `r n_distinct(pscis_phase1$my_crossing_reference)` Phase 1 assessments were conducted at `r pscis_phase1 %>% nrow()` sites with `r pscis_phase1 %>% filter(barrier_result == 'Passable') %>% nrow()` crossings considered "passable", `r pscis_phase1 %>% filter(barrier_result == 'Potential') %>% nrow() %>% english::as.english()` crossing considered "potential" barriers and `r pscis_phase1 %>% filter(barrier_result == 'Barrier') %>% nrow() ` crossing considered "barriers" according to threshold values based on culvert embedment, outlet drop, slope, diameter (relative to channel size) and length [@fish_passage_assessments].  Additionally, although all were considered fully passable, `r pscis_phase1 %>% filter(barrier_result == 'Unknown') %>% nrow() %>% english::as.english()` crossings assessed were fords. Georeferenced field maps are presented `r if(gitbook_on){knitr::asis_output("[here](https://hillcrestgeo.ca/outgoing/fishpassage/projects/elk/) and available for bulk download as [Attachment 1](https://hillcrestgeo.ca/outgoing/fishpassage/projects/elk/archive/2022-03-17/elk_2022-03-17.zip).")} else knitr::asis_output("in [Attachment 1](https://hillcrestgeo.ca/outgoing/fishpassage/projects/elk/archive/2022-03-17/elk_2022-03-17.zip).")` A summary of crossings assessed, a cost benefit analysis and priority ranking for follow up for Phase 1 sites with barrier status of "barrier" or "potential barrier" according to provincial metric are presented in Table \@ref(tab:cost-est-phase-1). Detailed data with photos are presented in `r if(gitbook_on){knitr::asis_output("[Appendix - Phase 1 Fish Passage Assessment Data and Photos]")} else knitr::asis_output("[Attachment 2](https://github.com/NewGraphEnvironment/fish_passage_elk_2021_reporting/raw/master/docs/Attachment_2.pdf)")`.
+
+
+<br>
+
+"Barrier" and "Potential Barrier" rankings used in this project followed @fish_passage_assessments and reflect an assessment of passability for juvenile salmon or small resident rainbow trout at any flows potentially present throughout the year [@clarkinNationalInventoryAssessment2005 ;@bellFisheriesHandbookEngineering1991; @thompsonAssessingFishPassage2013].  As noted in @bourne_etal2011Barriersfish, with a detailed review of different criteria in @kemp_ohanley2010Proceduresevaluating, passability of barriers can be quantified in many different ways. Fish physiology (i.e. species, length, swim speeds) can make defining passability complex but with important implications for evaluating connectivity and prioritizing remediation candidates [@bourne_etal2011Barriersfish; @shaw_etal2016Importancepartial; @mahlum_etal2014EvaluatingBarrier; @kemp_ohanley2010Proceduresevaluating].  @washingtondepartmentoffishwildlife2009FishPassage present criteria for assigning passability scores to culverts that have already been assessed as barriers in coarser level assessments.  These passability scores provide additional information to feed into decision making processes related to the prioritization of remediation site candidates and have potential for application in British Columbia.  
+
+
+`r if(identical(gitbook_on, FALSE)){knitr::asis_output("\\pagebreak")}`
+
+<br>
+
+
+```{r cost-est-phase-1}
+#`r if(identical(gitbook_on, FALSE)){knitr::asis_output("<br>")}`
+if(gitbook_on){
+  tab_cost_est_phase1 %>% 
+  my_kable_scroll(caption_text = 'Upstream habitat estimates and cost benefit analysis for Phase 1 assessments with barrier status of "barrier" or "potential barrier" according to provincial metric.  ')
+} else tab_cost_est_phase1 %>% 
+  my_kable(caption_text = 'Upstream habitat estimates and cost benefit analysis for Phase 1 assessments with barrier status of "barrier" or "potential barrier" according to provincial metric.')
+```
+
+<br>
+
+## Dam Assessments
+Three historic dam locations were assessed for fish passage including sites on `r tab_dams_raw %>% arrange(id) %>% pull(stream) %>% knitr::combine_words()`.  Results are presented in Table \@ref(tab:tab-dams)
+
+```{r tab-dams}
+tab_dams_raw %>% 
+  select(-utm_zone) %>% 
+  arrange(id) %>% 
+  purrr::set_names(nm = c('Site', 'Stream', 'Easting', 'Northing', 'Mapsheet', 'Barrier', 'Notes')) %>% 
+  my_kable(caption_text = 'Results from fish passability assessments at dams.',
+           footnote_text = 'UTM Zone 11')
+```
+
+<br>
+```{r photo-dams-01-prep, eval=T}
+my_site = 197542
+my_photo1 = pull_photo_by_str(str_to_pull = '_1_')
+
+my_caption1 = paste0('Small dam ~7m upstream of PSCIS crossing ', my_site, ' on Hartley Creek.')
+
+```
+
+```{r photo-dams-01, fig.cap= my_caption1, out.width = photo_width, eval=gitbook_on}
+grid::grid.raster(get_img(photo = my_photo1))
+```
+
+<br>
+
+```{r photo-dams-02-prep}
+my_photo2 = pull_photo_by_str(str_to_pull = '_2_')
+
+my_caption2 = paste0('Small dam ~20m upstream of PSCIS crossing ', my_site, ' on Hartley Creek.')
+```
+
+```{r photo-dams-02, fig.cap= my_caption2, out.width = photo_width, eval=gitbook_on}
+grid::grid.raster(get_img(photo = my_photo2))
+
+```
+
+<br>
+
+```{r photo-dams-d01, fig.cap = my_caption, fig.show="hold", out.width= c("49.5%","1%","49.5%"), eval=identical(gitbook_on, FALSE)}
+
+my_caption <- paste0('Left: ', my_caption1, ' Right: ', my_caption2)
+
+knitr::include_graphics(get_img_path(photo = my_photo1))
+knitr::include_graphics("fig/pixel.png")
+knitr::include_graphics(get_img_path(photo = my_photo2))
+```
+
+
+```{r photo-dams-03-prep}
+my_site = 1063 #old id
+my_photo1 = pull_photo_by_str(str_to_pull = '_1_')
+
+my_caption1 = paste0('Teck Coal Limited dam (15m high and 55% gradient) on Harmer Creek.')
+```
+
+```{r photo-dams-03, fig.cap= my_caption1, out.width = photo_width, eval=gitbook_on}
+grid::grid.raster(get_img(photo = my_photo1))
+
+```
+
+<br>
+
+```{r photo-dams-04-prep}
+my_site2 = 2606
+my_photo2 = pull_photo_by_str(site_id = my_site2,str_to_pull = '_1_')
+
+my_caption2 = paste0('Historic dam structure adjacent to Boivin Creek.')
+
+```
+
+```{r photo-dams-04, fig.cap= my_caption2, out.width = photo_width, eval=gitbook_on}
+grid::grid.raster(get_img(site = my_site2, photo = my_photo2))
+```
+
+```{r photo-dams-d02, fig.cap = my_caption, fig.show="hold", out.width= c("49.5%","1%","49.5%"), eval=identical(gitbook_on, FALSE)}
+
+my_caption <- paste0('Left: ', my_caption1, ' Right: ', my_caption2)
+
+knitr::include_graphics(get_img_path(photo = my_photo1))
+knitr::include_graphics("fig/pixel.png")
+knitr::include_graphics(get_img_path(site = my_site2, photo = my_photo2))
+```
+
+
+
+## Phase 2
+
+During 2021 field assessments, habitat confirmation assessments were conducted at `r hab_site_priorities %>% nrow()` sites in the Elk River watershed group with a total of approximately `r habitat_confirmations_priorities %>% pull(survey_length_m) %>% sum() %>% round(-3)/1000`km of stream assessed.  Georeferenced field maps are presented `r if(gitbook_on){knitr::asis_output("[here](https://hillcrestgeo.ca/outgoing/fishpassage/projects/elk/) and available for bulk download as [Attachment 1](https://hillcrestgeo.ca/outgoing/fishpassage/projects/elk/archive/2021-01-31/elk_2021-01-31.zip).")} else knitr::asis_output("in [Attachment 1](https://hillcrestgeo.ca/outgoing/fishpassage/projects/elk/archive/2021-01-31/elk_2021-01-31.zip).")`
+
+<br>
+
+As collaborative decision making was ongoing at the time of reporting, site prioritization can be considered preliminary.  `r hab_site_priorities %>% filter(priority %ilike% 'high') %>% nrow() %>% english::as.english() %>% str_to_title()` crossings were rated as high priorities for proceeding to design for replacement, `r hab_site_priorities %>% filter(priority %ilike% 'Moderate') %>% nrow() %>% english::as.english()` crossings were rated as moderate priorities, and `r hab_site_priorities %>% filter(priority %ilike% 'Low') %>% nrow() %>% english::as.english()` crossings were rated as low priorities. Results are summarized in `r if(gitbook_on){knitr::asis_output("Figure \\@ref(fig:map-interactive) and ")}`Table \@ref(tab:tab-overview)) with raw habitat assessment data included in digital format as [Attachment 3](https://github.com/NewGraphEnvironment/fish_passage_elk_2021_reporting/raw/master/data/habitat_confirmations.xls).  A summary of watershed statistics from derived watershed areas and preliminary modeling results illustrating the quantities of westslope cutthrout trout spawning and rearing habitat potentially available upstream of each crossing as estimated by upstream accessible stream length are presented in Table \@ref(tab:tab-wshd-sum-all) and Figure \@ref(fig:plot-model-all). Only summary tables and raw data is provided for surveys conducted within the Flathead River sub-basin (Parker Creek, Morris Creek, Fuel Creek and Kisoo Creek) with detailed reporting potentially provided in the future under separate cover. Detailed information for each site assessed with Phase 2 assessments (including georeferenced maps) on streams that drain into the Elk River are presented within site specific appendices to this document.
+
+
+
+`r if(gitbook_on){knitr::asis_output("<br>")} else knitr::asis_output("\\pagebreak")`
+
+```{r tab-overview}
+#`r if(gitbook_on){knitr::asis_output("<br>")} else knitr::asis_output("<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>")`
+if(gitbook_on){
+tab_overview %>% 
+  select(-Tenure) %>%
+  my_tab_overview_scroll(caption_text = 'Overview of habitat confirmation sites.')
+} else tab_overview %>% 
+  select(-Tenure) %>% 
+  my_kable(caption_text = 'Overview of habitat confirmation sites.')
+
+```
+
+`r if(gitbook_on){knitr::asis_output("<br>")} else knitr::asis_output("\\pagebreak")`
+
+
+```{r}
+
+fpr_make_tab_cv(dat = pscis_phase2) %>% 
+  my_kable(caption_text = 'Summary of Phase 2 fish passage reassessments.')
+```
+
+
+`r if(gitbook_on){knitr::asis_output("<br>")} else knitr::asis_output("\\pagebreak")`
+
+
+```{r cost-est-phase-2}
+tab_cost_est_phase2_report %>% 
+  my_kable(caption_text = 'Cost benefit analysis for Phase 2 assessments.')
+  # kable(caption = 'Modelled upstream habitat estimate and cost benefit.',
+  #       escape = T) %>% 
+  # kableExtra::kable_styling(c("condensed"), full_width = T, font_size = 11) %>% 
+  # kableExtra::scroll_box(width = "100%", height = "500px")
+
+```
+
+
+
+`r if(gitbook_on){knitr::asis_output("<br>")} else knitr::asis_output("\\pagebreak")`
+
+
+
+```{r tab-habitat-summary}
+tab_hab_summary %>% 
+  filter(Location %ilike% 'upstream') %>% 
+  select(-Location) %>% 
+  rename(`PSCIS ID` = Site, `Length surveyed upstream (m)` = `Length Surveyed (m)`) %>%
+  my_kable(caption_text = 'Summary of Phase 2 habitat confirmation details.')
+
+```
+```{r}
+## Fish Sampling
+
+# Fish sampling was conducted at five sites with a total of `r tab_fish_summary %>% filter(species_code == 'WCT') %>% pull(count_fish) %>% sum()` westslope cutthout trout,  `r tab_fish_summary %>% filter(species_code == 'EB') %>% pull(count_fish) %>% sum()` eastern brook trout and `r tab_fish_summary %>% filter(species_code == 'BT') %>% pull(count_fish) %>% sum()` bull trout captured.  Westslope cutthrout trout were captured at three of the sites sampled with fork length data delineated into life stages: fry (&le;60mm), parr (>60 to 110mm), juvenile (>110mm to 140mm) and adult (>140mm) by visually assessing the histogram presented in Figure \@ref(fig:fish-histogram).  Fish sampling results are presented in detail within individual habitat confirmation site memos within the appendices of this document with westslope cutthrout trout density results also presented in Figure \@ref(fig:plot-fish-all).  
+```
+
+
+```{r fish-histogram, fig.cap= 'Histogram of westslope cutthrout trout captured during electrofishing surveys.', eval =F}
+knitr::include_graphics("fig/fish_histogram.png")
+
+```
+
+<br>
+
+```{r plot-fish-all, fig.cap='Boxplots of densities (fish/100m2) of fish captured by life stage and site for data collected during habitat confirmation assessments.', eval=F}
+plot_fish_box_all2 <- function(dat = hab_fish_dens){#, sp = 'RB'
+  dat %>%
+    filter(
+      species_code  != 'MW'
+      # &
+      #   species_code == species
+    ) %>%
+    ggplot(., aes(x = location, y =density_100m2)) +
+    geom_boxplot()+
+    facet_grid(site ~ species_code, scales ="fixed", #life_stage
+               as.table = T)+
+    # theme_bw()+
+    theme(legend.position = "none", axis.title.x=element_blank()) +
+    geom_dotplot(binaxis='y', stackdir='center', dotsize=1)+
+    ylab(expression(Density ~ (Fish/100 ~  m^2))) +
+    ggdark::dark_theme_bw()
+}
+
+
+plot_fish_box_all2()
+```
+
+
+<br>
+
+
+```{r tab-wshd-sum-all}
+fpr_tab_wshd_sum() %>% 
+  my_kable(caption_text = paste0('Summary of watershed area statistics upstream of Phase 2 crossings.'),
+                                 footnote_text = 'Elev P60 = Elevation at which 60% of the watershed area is above')
+
+```
+
+<br>
+
+```{r plot-model-all, fig.cap='Summary of linear lengths of potential habitat upstream of habitat confirmation assessment sites estimated based on modelled discharge and gradient.', eval=T}
+
+bcfp_xref_plot <- xref_bcfishpass_names %>% 
+  filter(
+    !is.na(id_join) &
+      !bcfishpass %ilike% 'slopeclass' &
+      # !bcfishpass %ilike% '30' &
+      !bcfishpass %ilike% 'wetland' &
+      !bcfishpass %ilike% 'Lake' &
+      !bcfishpass %ilike% 'waterbodies' &
+      !bcfishpass %ilike% 'network' &
+      (bcfishpass %ilike% 'below' |
+         bcfishpass %ilike% 'rearing_km' | 
+         bcfishpass %ilike% 'spawning_km' |
+         # bcfishpass %ilike% 'slopeclass' |
+         bcfishpass %ilike% 'stream')
+  ) %>% 
+  select(-column_comment)
+
+#            !bcfishpass %ilike% 'all' &
+#            (bcfishpass %ilike% 'rearing' | 
+#               bcfishpass %ilike% 'spawning')) 
+# 
+# bcfp_xref_plot <- xref_bcfishpass_names %>% 
+#   filter((bcfishpass %ilike% 'rearing_km' | 
+#               bcfishpass %ilike% 'spawning_km') &
+#            !is.na(id_join)) %>% 
+#   select(-column_comment) 
+
+bcfishpass_phase2_plot_prep <- bcfishpass %>% 
+  mutate(across(where(is.numeric), round, 1)) %>%
+    filter(stream_crossing_id %in% (pscis_phase2 %>% pull(pscis_crossing_id))) %>% 
+  select(stream_crossing_id, all_of(bcfp_xref_plot$bcfishpass)) %>% 
+  rename(wct_stream_belowupstrbarriers_km    = wct_belowupstrbarriers_stream_km) %>% 
+  # filter(stream_crossing_id != 197665) %>% 
+  mutate(stream_crossing_id = as.factor(stream_crossing_id)) %>% 
+  pivot_longer(cols = wct_stream_km:wct_rearing_belowupstrbarriers_km)  %>% 
+  filter(
+    value > 0.0 &
+           !is.na(value)
+         ) %>% 
+  mutate(name = stringr::str_replace_all(name, '_belowupstrbarriers_km', ' belowupstrbarriers km'),
+         name = stringr::str_replace_all(name, '_rearing', ' rearing'),
+         name = stringr::str_replace_all(name, '_spawning', ' spawning'),
+         name = stringr::str_replace_all(name, '_stream', ' stream'))
+    # rename('Habitat type' = name,
+    #        "Habitat (km)" = value)
+  
+bcfishpass_phase2_plot_prep %>% 
+  ggplot(aes(x = stream_crossing_id, y = value)) +
+  geom_bar(stat = "identity")+
+  facet_wrap(~name, ncol = 2)+
+  ggdark::dark_theme_bw(base_size = 11)+
+  theme(axis.text.x=element_text(angle=90, hjust=1, vjust=0.5)) +
+  labs(x = "Site", y = "Modelled habitat (km)")
+
+```
