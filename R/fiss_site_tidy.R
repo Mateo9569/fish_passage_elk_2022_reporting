@@ -46,6 +46,9 @@ names(form)
 form_raw_names_site <- fpr::fpr_import_hab_con(backup = F) %>%
   # pull out just the site info page for now
   pluck(4) %>%
+  #see what the types are
+#glimpse(form_raw_names_site)
+
   # only keep the names of the columns
   names()
 
@@ -112,9 +115,10 @@ form_site <- bind_rows(
   fpr::fpr_import_hab_con(backup = F) %>%
     # pull out just the site info page for now - should use the name but will use index bc short on time
     pluck("step_4_stream_site_data") %>%
-    mutate(waterbody_id = as.character(waterbody_id), gazetted_names = as.character(gazetted_names),
-           feature_type = as.character(feature_type), feature_height_length_method = as.character(feature_height_length_method),
-           l_bank_texture_dominant_2 = as.character(l_bank_texture_dominant_2)) %>%
+    mutate(feature_height_length_method = as.character(feature_height_length_method),
+           l_bank_texture_dominant_2 = as.logical(l_bank_texture_dominant_2),
+           r_bank_texture_dominant_2 = as.logical(r_bank_texture_dominant_2),
+           morphology = as.logical(morphology)) %>%
     slice(0),
 
   form_site_info_prep %>%
