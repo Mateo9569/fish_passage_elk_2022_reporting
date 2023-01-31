@@ -14,7 +14,7 @@ R/private_info.R
 *.kml
 *.PNG
 *.sqlite
-*.gpkg
+#*.gpkg
 *.JPG
 !crossing_all.JPG
 !*_k_*
