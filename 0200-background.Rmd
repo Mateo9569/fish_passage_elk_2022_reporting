@@ -103,7 +103,7 @@ fiss_species_table <- readr::read_csv(file = paste0(getwd(), '/data/inputs_extra
   # filter(`Species Code` != 'CT') %>% 
 fiss_species_table %>%  
   rename(Elk = `Upper Elk`) %>% 
-  my_kable(caption_text = 'Fish species recorded in the study area (FISS 2020).')
+  fpr::fpr_kable(caption_text = 'Fish species recorded in the study area (FISS 2020).')
 
 
 ```
