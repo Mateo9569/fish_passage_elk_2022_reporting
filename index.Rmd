@@ -50,7 +50,7 @@ options(knitr.kable.NAN = '--')
 ```
 
 ```{r load-data}
-source('R/packages.R')
+source('scripts/packages.R')
 # source('R/functions.R')
 # source('R/private_info.R')
 # source('R/tables.R')
