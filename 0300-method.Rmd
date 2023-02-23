@@ -41,7 +41,7 @@ table_thresh_average <- tibble::tibble(`Gradient` = c('0 - 3% and 3 - 5%', '5 - 
                                        `Channel Type` = c('Riffle and cascade pool', 'Step pool', 'Step pool - very steep', 'Step pool - extremely steep', 'Non WCT habitat'))
 
 table_thresh_average %>% 
-    my_kable(caption_text = 'Stream gradient categories (threshold and average) and associated channel type.')
+    fpr::fpr_kable(caption_text = 'Stream gradient categories (threshold and average) and associated channel type.')
 
 ```
 
@@ -80,7 +80,7 @@ bcfishpass_spawn_rear_model %>%
   select(Species, all_of(contains('Cutthroat'))) %>% 
   set_names(c('Variable', 'Value')) %>% 
   filter(!Variable %ilike% 'Width') %>% 
-  my_kable(caption_text = 'Stream gradient and channel width thresholds used to model potentially highest value westslope cutthrout trout habitat.')
+  fpr::fpr_kable(caption_text = 'Stream gradient and channel width thresholds used to model potentially highest value westslope cutthrout trout habitat.')
 
 ```
 
@@ -92,7 +92,7 @@ xref_bcfishpass_names %>%
   filter(id_side == 1) %>% 
   arrange(id_join) %>%  
   select(Attribute = report, Definition = column_comment) %>% 
-  my_kable(caption_text = 'bcfishpass outputs and associated definitions')
+  fpr::fpr_kable(caption_text = 'bcfishpass outputs and associated definitions')
 ```
 
 <!-- <br> -->
@@ -120,7 +120,7 @@ bcfishpass_spawn_rear_model_references %>%
   as_tibble(rownames = "row_names") %>% 
   janitor::row_to_names(row_number = 1) %>% 
   rename(Variable = Species) %>% 
-  my_kable(caption_text = 'References for stream gradient and channel width thresholds used to model potentially highest value fish habitat. Preliminary and subject to revisions.')
+  fpr::fpr_kable(caption_text = 'References for stream gradient and channel width thresholds used to model potentially highest value fish habitat. Preliminary and subject to revisions.')
 ```
 
 
@@ -160,7 +160,7 @@ tab <- as_tibble(t(tab_barrier_scoring)) %>%
                           T ~ Risk))
 
 tab %>% 
-  my_kable(caption_text = 'Fish Barrier Risk Assessment (MoE 2011).')
+  fpr::fpr_kable(caption_text = 'Fish Barrier Risk Assessment (MoE 2011).')
 
 ```
 
@@ -169,7 +169,7 @@ tab %>%
 
 ```{r tab-barrier-result, eval = F}
 tab_barrier_result %>% 
-  my_kable(caption_text = 'Fish Barrier Scoring Results (MoE 2011).') 
+  fpr::fpr_kable(caption_text = 'Fish Barrier Scoring Results (MoE 2011).') 
 
 ```
 
@@ -218,7 +218,7 @@ Base costs for installation of bridges on forest service roads and permit roads 
 ```{r tab-cost-mult, eval = F}
 # print_tab_cost_mult(caption_text = 'Cost multiplier table based on road class and surface type.')
 tab_cost_rd_mult_report %>%
-  my_kable(caption_text = 'Cost multiplier table based on road class and surface type.')
+  fpr::fpr_kable(caption_text = 'Cost multiplier table based on road class and surface type.')
 ```
 
 <br>
