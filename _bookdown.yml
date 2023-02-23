@@ -2,6 +2,6 @@ book_filename: "Elk2022"
 language:
   ui:
     chapter_name: ""
-delete_merged_file: false
+delete_merged_file: TRUE
 output_dir: "docs"
 
