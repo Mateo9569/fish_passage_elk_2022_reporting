@@ -29,7 +29,7 @@ Sparwood. Crossing
 upstream from the confluence with the Elk River and is the
 responsibility of the Ministry of Transportation and Infrastructure.
 
-```{r tab-wshd-197534, eval = F}
+```{r tab-wshd-197534, eval = T}
 fpr::fpr_table_wshd_sum(site_id = my_site) %>% 
   select(-'Elev Min') %>% 
   fpr::fpr_kable(caption_text = paste0('Summary of derived upstream watershed statistics for PSCIS crossing ', my_site, '.'),
@@ -57,10 +57,8 @@ fpr::fpr_table_bcfp(scroll = gitbook_on)
 
 ## Fish Sampling {.unnumbered}
 
-Electrofishing was conducted with results summarised in Tables
-\@ref(tab:tab-fish-site-197534) - \@ref(tab:tab-fish-dens-197534) and Figure
-\@ref(fig:plot-fish-box-197534). Habitat details are summarised in Table
-\@ref(tab:tab-habitat-summary-197534). 
+Electrofishing was conducted with results summarised in Tables \@ref(tab:tab-fish-site-197534) - \@ref(tab:tab-fish-dens-197534) and Figure
+\@ref(fig:plot-fish-box-197534). Habitat details are summarised in Table \@ref(tab:tab-habitat-summary-197534). 
 
 `r if(gitbook_on){knitr::asis_output("<br>")} else knitr::asis_output("\\pagebreak")`
 
