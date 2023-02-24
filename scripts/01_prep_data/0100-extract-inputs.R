@@ -536,7 +536,12 @@ hab_priority_prep <- left_join(
 # hab_priority_prep %>%
 #   readr::write_csv('data/habitat_confirmations_priorities_raw.csv', na = '')
 
+# separate local site names into site, location, and ef
 
+habitat_confirmations_priorities <- readr::read_csv(
+  file = "./data/habitat_confirmations_priorities.csv") %>%
+  separate(alias_local_name, c("site", "location", "ef"), sep = "_", remove = FALSE) %>%
+  readr::write_csv(file = "./data/habitat_confirmations_priorities.csv", na = "")
 
 
 # extract rd cost multiplier ----------------------------------------------
