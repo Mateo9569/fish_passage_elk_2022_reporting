@@ -22,15 +22,14 @@ my_site <- 197559
 
 ## Site Location {.unnumbered}
 
-PSCIS crossing `r as.character(my_site)` is located on
-Highway 43 approximately 20km north of the town of
-Sparwood. Crossing
-`r as.character(my_site)` was located approximately 0.7km upstream from the confluence with the Elk River and is the
-responsibility of the Ministry of Transportation and Infrastructure.
+PSCIS crossings 197533 and `r as.character(my_site)` are located approximately 20km north of the town of Sparwood approximately 0.6 and 0.7km upstream from the confluence with the Elk River.  The crossings are located on Busato Road and Highway 43 and are the responsibility of the Ministry of Transportation and Infrastructure.
 
 <br>
 
-```{r tab-wshd-197559, eval = F}
+## Background
+At the highway, Brule Creek is a 5th order stream with watershed characteristics detailed in Table \@ref(tab:tab-wshd-197559). Brule Creek is known to contain westslope cutthrout trout, rainbow trout and bull trout downstream of the subject culverts and westslope cutthrout trout and rainbow trout above (MoE 2020b). On the south side of the upper watershed, at an elevation of 2000m, is the 5ha Josephine Lake (also known as Big Lake). The lake was stocked with westslope cutthrout trout from 1983 - 2000 (MoE 2020b; “Fish Inventories Data Queries” 2020).  PSCIS stream crossings 197533 and 197559 were ranked as high priorities for follow up with new structure designs following habitat confirmations by @irvine2021UpperElk due to the large size of the stream network upstream of the highway and because Brule Creek is a 5th order stream. Detailed reporting can be found [here](https://newgraphenvironment.github.io/fish_passage_elk_2020_reporting_cwf/appendix---197533-197559---brule-creek.html).
+
+```{r tab-wshd-197559, eval = T}
 fpr::fpr_table_wshd_sum(site_id = my_site) %>% 
   select(-'Elev Min') %>% 
   fpr::fpr_kable(caption_text = paste0('Summary of derived upstream watershed statistics for PSCIS crossing ', my_site, '.'),
@@ -39,10 +38,8 @@ fpr::fpr_table_wshd_sum(site_id = my_site) %>%
 
 ```
 
-A summary of habitat modelling outputs is presented in Table
-\@ref(tab:tab-culvert-bcfp-197559) and a map of the watershed is
-provided in map attachment
-[`r fpr::fpr_my_bcfishpass(col_pull = dbm_mof_50k_grid)`](`r fpr::fpr_my_mapsheet(wshd = "elkr", archive_date = "2022-03-17")`).
+A summary of habitat modelling outputs is presented in Table \@ref(tab:tab-culvert-bcfp-197559) and a map of the watershed is
+provided in map attachment [`r fpr::fpr_my_bcfishpass(col_pull = dbm_mof_50k_grid)`](`r fpr::fpr_my_mapsheet(wshd = "elkr", archive_date = "2022-03-17")`).
 
 `r if(identical(gitbook_on, FALSE)){knitr::asis_output("\\pagebreak")}`
 
@@ -55,9 +52,7 @@ fpr::fpr_table_bcfp(scroll = gitbook_on)
 
 ## Fish Sampling {.unnumbered}
 
-Electrofishing was conducted with results summarised in Tables
-\@ref(tab:tab-fish-site-197559) - \@ref(tab:tab-fish-dens-197559). Habitat details are summarised in Table
-\@ref(tab:tab-habitat-summary-197559). 
+Electrofishing was conducted at two sites upstream of the highway with no fish captured at either site Tables \@ref(tab:tab-fish-site-197559) - \@ref(tab:tab-fish-dens-197559). Habitat details are summarised in Table \@ref(tab:tab-habitat-summary-197559). 
 
 `r if(gitbook_on){knitr::asis_output("<br>")} else knitr::asis_output("\\pagebreak")`
 
