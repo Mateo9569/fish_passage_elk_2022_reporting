@@ -67,7 +67,7 @@ bcfishpass <- readwritesqlite::rws_read_table("bcfishpass", conn = conn) %>%
 # #   mutate(downstream_route_measure = as.integer(downstream_route_measure))
 # # pscis_historic_phase1 <- readwritesqlite::rws_read_table("pscis_historic_phase1", conn = conn)
 # bcfishpass_spawn_rear_model <- readwritesqlite::rws_read_table("bcfishpass_spawn_rear_model", conn = conn)
-# wshds <- readwritesqlite::rws_read_table("wshds", conn = conn)
+wshds <- readwritesqlite::rws_read_table("wshds", conn = conn)
 # photo_metadata <- readwritesqlite::rws_read_table("photo_metadata", conn = conn)
 # # fiss_sum <- readwritesqlite::rws_read_table("fiss_sum", conn = conn)
 rws_disconnect(conn)
