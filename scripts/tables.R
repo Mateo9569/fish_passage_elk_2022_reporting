@@ -370,6 +370,66 @@ fish_nfc_tag<- fish_abund_prep2 %>%
 #   species_code != 'NFC' ~ 'TRUE',
 #   T ~ NA_character_))
 
+####-----------------FHAP XREF
+xref_fhap <- tibble::tribble(
+                                ~spdsht,                               ~report, ~type_readxl, ~id_join, ~id_side,
+                    "location_waypoint",                            "Waypoint",       "text",       NA,       NA,
+                "location_reach_number",                        "Reach Number",       "text",       NA,       NA,
+                  "location_distance_m",                        "Distance (m)",    "numeric",       NA,       NA,
+                    "habitat_unit_type",                   "Habitat Unit Type",       "text",       NA,       NA,
+                     "habitat_unit_cat",                    "Habitat Unit Cat",       "text",       NA,       NA,
+                "habitat_unit_length_m",             "Habitat Unit Length (m)",    "numeric",       NA,       NA,
+        "habitat_unit_gradient_percent",       "Habitat Unit Gradient Percent",    "numeric",       NA,       NA,
+                "mean_depth_bankfull_m",             "Mean Depth Bankfull (m)",    "numeric",       NA,       NA,
+                   "mean_depth_water_m",                "Mean Depth Water (m)",    "numeric",       NA,       NA,
+                 "mean_depth_water_m_2",               "Mean Depth Water (m)2",    "numeric",       NA,       NA,
+                 "mean_depth_water_m_3",               "Mean Depth Water (m)3",    "numeric",       NA,       NA,
+                "mean_width_bankfull_m",             "Mean Width Bankfull (m)",    "numeric",       NA,       NA,
+                  "mean_width_wetted_m",               "Mean Width Wetted (m)",    "numeric",       NA,       NA,
+               "pools_only_max_depth_m",            "Pools Only Max Depth (m)",    "numeric",       NA,       NA,
+                   "pools_only_crest_m",                "Pools Only Crest (m)",    "numeric",       NA,       NA,
+                "pools_only_residual_m",             "Pools Only Residual (m)",    "numeric",       NA,       NA,
+                 "pools_only_pool_type",                "Pools Only Pool Type",       "text",       NA,       NA,
+                "bed_material_type_dom",               "Bed Material Type Dom",    "numeric",       NA,       NA,
+            "bed_material_type_sub_dom",           "Bed Material Type Sub Dom",    "numeric",       NA,       NA,
+    "bed_material_type_spawning_gravel",   "Bed Material Type Spawning Gravel",    "numeric",       NA,       NA,
+  "bed_material_type_spawning_gravel_2", "Bed Material Type Spawning Gravel 2",    "numeric",       NA,       NA,
+      "total_lwd_tally_spawning_gravel",     "Total Lwd Tally Spawning Gravel",       "text",       NA,       NA,
+                "functional_lwd10_20cm",               "Functional Lwd10 20cm",    "numeric",       NA,       NA,
+                "functional_lwd20_50cm",               "Functional Lwd20 50cm",    "numeric",       NA,       NA,
+                  "functional_lwd_50cm",                 "Functional Lwd 50cm",    "numeric",       NA,       NA,
+                           "cover_type",                          "Cover Type",       "text",       NA,       NA,
+                        "cover_percent",                       "Cover Percent",    "numeric",       NA,       NA,
+                         "cover_type_2",                        "Cover Type 2",       "text",       NA,       NA,
+                      "cover_percent_2",                     "Cover Percent 2",    "numeric",       NA,       NA,
+              "offchannel_habitat_type",             "Offchannel Habitat Type",       "text",       NA,       NA,
+            "offchannel_habitat_access",           "Offchannel Habitat Access",       "text",       NA,       NA,
+          "offchannel_habitat_length_m",       "Offchannel Habitat Length (m)",    "numeric",       NA,       NA,
+      "disturbance_indicators_length_m",   "Disturbance Indicators Length (m)",    "numeric",       NA,       NA,
+    "disturbance_indicators_length_m_2",  "Disturbance Indicators Length (m)2",    "numeric",       NA,       NA,
+    "disturbance_indicators_length_m_3",  "Disturbance Indicators Length (m)3",    "numeric",       NA,       NA,
+             "riparian_vegetation_type",            "Riparian Vegetation Type",       "text",       NA,       NA,
+        "riparian_vegetation_structure",       "Riparian Vegetation Structure",       "text",       NA,       NA,
+   "riparian_vegetation_canopy_closure",  "Riparian Vegetation Canopy Closure",       "text",       NA,       NA,
+                     "general_barriers",                            "Barriers",       "text",       NA,       NA,
+                     "general_comments",                            "Comments",       "text",       NA,       NA,
+                  "general_survey_date",                         "Survey Date",       "text",       NA,       NA,
+                    "general_watershed",                           "Watershed",       "text",       NA,       NA,
+                    "general_sub_basin",                           "Sub Basin",       "text",       NA,       NA,
+                      "general_weather",                             "Weather",       "text",       NA,       NA,
+                   "general_surveyor_1",                          "Surveyor 1",       "text",       NA,       NA,
+                   "general_surveyor_2",                          "Surveyor 2",       "text",       NA,       NA,
+                   "general_surveyor_3",                          "Surveyor 3",       "text",       NA,       NA,
+               "general_discharge_m3_s",                      "Discharge M3 S",    "numeric",       NA,       NA,
+        "subsampling_fractions_riffles",       "Subsampling Fractions Riffles",    "numeric",       NA,       NA,
+          "subsampling_fractions_pools",         "Subsampling Fractions Pools",    "numeric",       NA,       NA,
+         "subsampling_fractions_glides",        "Subsampling Fractions Glides",    "numeric",       NA,       NA,
+       "subsampling_fractions_cascades",      "Subsampling Fractions Cascades",    "numeric",       NA,       NA,
+          "subsampling_fractions_other",         "Subsampling Fractions Other",    "numeric",       NA,       NA
+  )
+
+
+
 
 # calculate abundance for each site regardless of whether a nfc_pass occurred.
 fish_abund_prep3 <- left_join(
