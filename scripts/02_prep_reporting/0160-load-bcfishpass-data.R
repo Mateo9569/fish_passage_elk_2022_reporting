@@ -2,25 +2,16 @@
 ## simons db will not have the updated pscis names so we we include workflows to see that our new pscis crossings match our old modelled crossings
 
 source('R/packages.R')
-source('R/functions.R')
-source('R/private_info.R')
+#source('R/private_info.R')
 
-# conn <- DBI::dbConnect(
-#   RPostgres::Postgres(),
-#   dbname = dbname_wsl,
-#   host = host_wsl,
-#   port = port_wsl,
-#   user = user_wsl,
-#   password = password_wsl
-# )
 
 conn <- DBI::dbConnect(
   RPostgres::Postgres(),
-  dbname = dbname,
-  host = host,
-  port = port,
-  user = user,
-  password = password
+  dbname = Sys.getenv('PG_DB_BCBARRIERS'),
+  host = Sys.getenv('PG_HOST_BCBARRIERS'),
+  port = Sys.getenv('PG_PORT_BCBARRIERS'),
+  user = Sys.getenv('PG_USER_BCBARRIERS'),
+  password = Sys.getenv('PG_PASS_BCBARRIERS')
 )
 
 #
@@ -99,7 +90,7 @@ CROSS JOIN LATERAL
 
 ##get all the data and save it as an sqlite database as a snapshot of what is happening.  we can always hopefully update it
 query <- "SELECT *
-   FROM bcfishpass.crossings_20220228
+   FROM bcfishpass.crossings
    WHERE watershed_group_code IN ('ELKR')"
 
 
@@ -145,7 +136,7 @@ my_pscis_modelledcrossings_streams_xref <- dat_joined %>%
 
 ##this is how we update our local db.
 ##my time format format(Sys.time(), "%Y%m%d-%H%M%S")
-# mydb <- DBI::dbConnect(RSQLite::SQLite(), "data/bcfishpass.sqlite")
+mydb <- DBI::dbConnect(RSQLite::SQLite(), "data/bcfishpass.sqlite")
 conn <- rws_connect("data/bcfishpass.sqlite")
 rws_list_tables(conn)
 ##archive the last version for now
@@ -209,7 +200,7 @@ pscis_modelledcrossings_streams_xref %>%
 ##nope - all good
 
 ##grab the bcfishpass spawning and rearing table and put in the database so it can be used to populate the methods and tie to the references table
-urlfile="https://github.com/smnorris/bcfishpass/raw/main/02_model/parameters_wcrp/param_habitat.csv"
+urlfile="https://raw.githubusercontent.com/smnorris/bcfishpass/main/parameters/parameters_newgraph/habitat.csv"
 
 bcfishpass_spawn_rear_model <- read_csv(url(urlfile))
 

@@ -136,7 +136,7 @@ In the field, crossings prioritized for follow-up were first assessed for fish p
 
  
 ```{r tab-hab-value, eval = F}
-tab_habvalue %>% 
+fpr_table_habvalue %>% 
   knitr::kable(caption = 'Habitat value criteria (Fish Passage Technical Working Group, 2011).', booktabs = T) %>% 
     kableExtra::column_spec(column = 1, width_min = '1.5in') %>% 
     kableExtra::kable_styling(c("condensed"), full_width = T, font_size = font_set) 
@@ -152,15 +152,15 @@ Fish passage potential was determined for each stream crossing identified as a c
 <br>
 
 ```{r tab-barrier-scoring, eval=F}
-tab <- as_tibble(t(tab_barrier_scoring)) %>% 
-  mutate(V4 = names(tab_barrier_scoring)) %>% 
+tab <- as_tibble(t(fpr_table_barrier_scoring)) %>% 
+  mutate(V4 = names(fpr_table_barrier_scoring)) %>% 
   select(V4, everything()) %>% 
   janitor::row_to_names(1) %>%  ##turn the table sideways
   mutate(Risk = case_when(Risk == 'Value' ~ '  Value',
                           T ~ Risk))
 
 tab %>% 
-  fpr::fpr_kable(caption_text = 'Fish Barrier Risk Assessment (MoE 2011).')
+  fpr::fpr_kable(caption_text = 'Fish Barrier Risk Assessment (MoE 2011).', scroll = F)
 
 ```
 
@@ -168,8 +168,8 @@ tab %>%
 
 
 ```{r tab-barrier-result, eval = F}
-tab_barrier_result %>% 
-  fpr::fpr_kable(caption_text = 'Fish Barrier Scoring Results (MoE 2011).') 
+fpr_table_barrier_result %>% 
+  fpr::fpr_kable(caption_text = 'Fish Barrier Scoring Results (MoE 2011).', scroll = F)  
 
 ```
 

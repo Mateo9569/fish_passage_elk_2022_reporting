@@ -1,0 +1,66 @@
+reference_number,gazetted_names,local_name,waterbody_id,reach_number,site_number,sampling_method,method_number,haul_number_pass_number,species,length_mm,weight_g,sex,maturity,age_structure,age_sample_number,age,genetic_structure,genetic_sample_number,comments
+1,Weigert Creek,197534_ds_ef1,00000ELKR,0,1,electrofishing,1,1,Brook Trout,78,,,,,,,,,AI Photo 13:13:26
+1,Weigert Creek,197534_ds_ef1,00000ELKR,0,1,electrofishing,1,1,Brook Trout,65,,,,,,,,,AI Photo 13:24:54
+1,Weigert Creek,197534_ds_ef1,00000ELKR,0,1,electrofishing,1,1,Westslope Cutthroat Trout,90,,,,,,,,,AI Photo 13:26:19
+1,Weigert Creek,197534_ds_ef1,00000ELKR,0,1,electrofishing,1,1,Westslope Cutthroat Trout,100,,,,,,,,,AI Photo 13:53:26
+1,Weigert Creek,197534_ds_ef1,00000ELKR,0,1,electrofishing,1,1,Westslope Cutthroat Trout,125,,,,,,,,,
+1,Weigert Creek,197534_ds_ef1,00000ELKR,0,1,electrofishing,1,1,Mountain Whitefish,139,,,,,,,,,AI Photo 14:03:50
+1,Weigert Creek,197534_ds_ef1,00000ELKR,0,1,electrofishing,1,1,Westslope Cutthroat Trout,103,,,,,,,,,
+1,Weigert Creek,197534_ds_ef1,00000ELKR,0,1,electrofishing,1,1,Brook Trout,135,,,,,,,,,AI Photo 15:03:22
+1,Weigert Creek,197534_ds_ef1,00000ELKR,0,1,electrofishing,1,1,Bull Trout,164,,,,,,,,,AI Photo 15:23:42
+1,Weigert Creek,197534_ds_ef1,00000ELKR,0,1,electrofishing,1,1,Westslope Cutthroat Trout,117,,,,,,,,,
+1,Weigert Creek,197534_ds_ef1,00000ELKR,0,1,visual observation above water,1,1,Westslope Cutthroat Trout,110,,,,,,,,,Length estimated
+2,Weigert Creek,197534_ds_ef2,00000ELKR,0,2,electrofishing,1,1,Westslope Cutthroat Trout,144,,,,,,,,,
+2,Weigert Creek,197534_ds_ef2,00000ELKR,0,2,visual observation above water,1,1,Westslope Cutthroat Trout,100,,,,,,,,,Length estimated
+2,Weigert Creek,197534_ds_ef2,00000ELKR,0,2,visual observation above water,1,1,Westslope Cutthroat Trout,120,,,,,,,,,Length estimated
+2,Weigert Creek,197534_ds_ef2,00000ELKR,0,2,visual observation above water,1,1,Westslope Cutthroat Trout,90,,,,,,,,,Length estimated
+2,Weigert Creek,197534_ds_ef2,00000ELKR,0,2,visual observation above water,1,1,Westslope Cutthroat Trout,150,,,,,,,,,Length estimated
+2,Weigert Creek,197534_ds_ef2,00000ELKR,0,2,visual observation above water,1,1,Westslope Cutthroat Trout,170,,,,,,,,,Length estimated
+2,Weigert Creek,197534_ds_ef2,00000ELKR,0,2,visual observation above water,1,1,Westslope Cutthroat Trout,75,,,,,,,,,Length estimated
+3,Weigert Creek,197534_us_ef2,00000ELKR,0,3,electrofishing,1,1,Westslope Cutthroat Trout,135,,,,,,,,,AI Photo
+3,Weigert Creek,197534_us_ef2,00000ELKR,0,3,electrofishing,1,1,Westslope Cutthroat Trout,243,,,,,,,,,MW Photo 13:02:31
+3,Weigert Creek,197534_us_ef2,00000ELKR,0,3,electrofishing,1,1,Westslope Cutthroat Trout,223,,,,,,,,,MW Photo 13:15:49
+3,Weigert Creek,197534_us_ef2,00000ELKR,0,3,visual observation above water,1,1,Westslope Cutthroat Trout,220,,,,,,,,,
+3,Weigert Creek,197534_us_ef2,00000ELKR,0,3,visual observation above water,1,1,Westslope Cutthroat Trout,220,,,,,,,,,
+3,Weigert Creek,197534_us_ef2,00000ELKR,0,3,electrofishing,1,1,Westslope Cutthroat Trout,265,,,,,,,,,AI Photo. Caught in mouth of side channel.
+3,Weigert Creek,197534_us_ef2,00000ELKR,0,3,visual observation above water,1,1,Westslope Cutthroat Trout,230,,,,,,,,,
+3,Weigert Creek,197534_us_ef2,00000ELKR,0,3,visual observation above water,1,1,Westslope Cutthroat Trout,230,,,,,,,,,
+3,Weigert Creek,197534_us_ef2,00000ELKR,0,3,electrofishing,1,1,Westslope Cutthroat Trout,205,,,,,,,,,
+3,Weigert Creek,197534_us_ef2,00000ELKR,0,3,visual observation above water,1,1,Westslope Cutthroat Trout,180,,,,,,,,,MW Photo 14:07:51
+3,Weigert Creek,197534_us_ef2,00000ELKR,0,3,electrofishing,1,1,Westslope Cutthroat Trout,235,,,,,,,,,
+3,Weigert Creek,197534_us_ef2,00000ELKR,0,3,visual observation above water,1,1,Westslope Cutthroat Trout,215,,,,,,,,,
+3,Weigert Creek,197534_us_ef2,00000ELKR,0,3,electrofishing,1,1,Westslope Cutthroat Trout,340,,,,,,,,,MW Photo 14:25:27
+5,Bighorn Creek,197844_ds_ef1,00000ELKR,0,5,electrofishing,1,1,Bull Trout,198,,,,,,,,,
+5,Bighorn Creek,197844_ds_ef1,00000ELKR,0,5,electrofishing,1,1,Bull Trout,153,,,,,,,,,
+5,Bighorn Creek,197844_ds_ef1,00000ELKR,0,5,electrofishing,1,1,Bull Trout,154,,,,,,,,,
+5,Bighorn Creek,197844_ds_ef1,00000ELKR,0,5,electrofishing,1,1,Bull Trout,102,,,,,,,,,
+5,Bighorn Creek,197844_ds_ef1,00000ELKR,0,5,visual observation above water,1,1,Bull Trout,115,,,,,,,,,
+5,Bighorn Creek,197844_ds_ef1,00000ELKR,0,5,electrofishing,1,1,Bull Trout,104,,,,,,,,,
+5,Bighorn Creek,197844_ds_ef1,00000ELKR,0,5,electrofishing,1,1,Bull Trout,105,,,,,,,,,
+5,Bighorn Creek,197844_ds_ef1,00000ELKR,0,5,electrofishing,1,1,Bull Trout,141,,,,,,,,,
+5,Bighorn Creek,197844_ds_ef1,00000ELKR,0,5,electrofishing,1,1,Bull Trout,144,,,,,,,,,
+5,Bighorn Creek,197844_ds_ef1,00000ELKR,0,5,electrofishing,1,1,Bull Trout,172,,,,,,,,,
+5,Bighorn Creek,197844_ds_ef1,00000ELKR,0,5,electrofishing,1,1,Bull Trout,110,,,,,,,,,
+5,Bighorn Creek,197844_ds_ef1,00000ELKR,0,5,electrofishing,1,1,Bull Trout,130,,,,,,,,,
+5,Bighorn Creek,197844_ds_ef1,00000ELKR,0,5,electrofishing,1,1,Bull Trout,170,,,,,,,,,
+5,Bighorn Creek,197844_ds_ef1,00000ELKR,0,5,electrofishing,1,1,Bull Trout,134,,,,,,,,,
+5,Bighorn Creek,197844_ds_ef1,00000ELKR,0,5,electrofishing,1,1,Bull Trout,147,,,,,,,,,
+5,Bighorn Creek,197844_ds_ef1,00000ELKR,0,5,electrofishing,1,1,Bull Trout,128,,,,,,,,,
+5,Bighorn Creek,197844_ds_ef1,00000ELKR,0,5,visual observation above water,1,1,Bull Trout,140,,,,,,,,,
+5,Bighorn Creek,197844_ds_ef1,00000ELKR,0,5,electrofishing,1,1,Fish Unidentified Species,120,,,,,,,,,
+5,Bighorn Creek,197844_ds_ef1,00000ELKR,0,5,electrofishing,1,1,Bull Trout,182,,,,,,,,,
+5,Bighorn Creek,197844_ds_ef1,00000ELKR,0,5,electrofishing,1,1,Bull Trout,101,,,,,,,,,
+5,Bighorn Creek,197844_ds_ef1,00000ELKR,0,5,electrofishing,1,1,Bull Trout,114,,,,,,,,,
+5,Bighorn Creek,197844_ds_ef1,00000ELKR,0,5,electrofishing,1,1,Bull Trout,116,,,,,,,,,
+5,Bighorn Creek,197844_ds_ef1,00000ELKR,0,5,electrofishing,1,1,Westslope Cutthroat Trout,189,,,,,,,,,
+5,Bighorn Creek,197844_ds_ef1,00000ELKR,0,5,electrofishing,1,1,Bull Trout,162,,,,,,,,,
+5,Bighorn Creek,197844_ds_ef1,00000ELKR,0,5,electrofishing,1,1,Bull Trout,120,,,,,,,,,
+9,Tributary to Bighorn Creek,197844_ds_ef2,00000ELKR,0,9,electrofishing,1,1,Bull Trout,205,,,,,,,,,
+9,Tributary to Bighorn Creek,197844_ds_ef2,00000ELKR,0,9,electrofishing,1,1,Bull Trout,249,,,,,,,,,
+9,Tributary to Bighorn Creek,197844_ds_ef2,00000ELKR,0,9,electrofishing,1,1,Bull Trout,220,,,,,,,,,
+9,Tributary to Bighorn Creek,197844_ds_ef2,00000ELKR,0,9,electrofishing,1,1,Bull Trout,160,,,,,,,,,
+9,Tributary to Bighorn Creek,197844_ds_ef2,00000ELKR,0,9,electrofishing,1,1,Bull Trout,165,,,,,,,,,
+16,Weigert Creek,197534_us_ef6,00000ELKR,0,16,electrofishing,1,1,Westslope Cutthroat Trout,245,,,,,,,,,
+16,Weigert Creek,197534_us_ef6,00000ELKR,0,16,visual observation above water,1,1,Westslope Cutthroat Trout,,,,,,,,,,
+16,Weigert Creek,197534_us_ef6,00000ELKR,0,16,visual observation above water,1,1,Westslope Cutthroat Trout,,,,,,,,,,
+16,Weigert Creek,197534_us_ef6,00000ELKR,0,16,electrofishing,1,1,Westslope Cutthroat Trout,125,,,,,,,,,

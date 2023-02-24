@@ -1,0 +1,84 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+  markdown: 
+    wrap: 72
+---
+
+```{r setup-197559, eval = F}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE)
+source('scripts/packages.R')
+source('scripts/tables.R')
+
+```
+
+```{r  load-data-197559}
+my_site <- 197559
+
+```
+
+# Brule Creek - 197559 - Appendix {-}
+
+## Site Location {.unnumbered}
+
+PSCIS crossing `r as.character(my_site)` is located on
+Highway 43 approximately 20km north of the town of
+Sparwood. Crossing
+`r as.character(my_site)` was located approximately 0.7km upstream from the confluence with the Elk River and is the
+responsibility of the Ministry of Transportation and Infrastructure.
+
+<br>
+
+```{r tab-wshd-197559, eval = F}
+fpr::fpr_table_wshd_sum(site_id = my_site) %>% 
+  select(-'Elev Min') %>% 
+  fpr::fpr_kable(caption_text = paste0('Summary of derived upstream watershed statistics for PSCIS crossing ', my_site, '.'),
+           footnote_text = 'Elev P60 = Elevation at which 60% of the watershed area is above',
+           scroll = F)
+
+```
+
+A summary of habitat modelling outputs is presented in Table
+\@ref(tab:tab-culvert-bcfp-197559) and a map of the watershed is
+provided in map attachment
+[`r fpr::fpr_my_bcfishpass(col_pull = dbm_mof_50k_grid)`](`r fpr::fpr_my_mapsheet(wshd = "elkr", archive_date = "2022-03-17")`).
+
+`r if(identical(gitbook_on, FALSE)){knitr::asis_output("\\pagebreak")}`
+
+<br>
+
+```{r tab-culvert-bcfp-197559, eval = T}
+fpr::fpr_table_bcfp(scroll = gitbook_on) 
+```
+
+
+## Fish Sampling {.unnumbered}
+
+Electrofishing was conducted with results summarised in Tables
+\@ref(tab:tab-fish-site-197559) - \@ref(tab:tab-fish-dens-197559). Habitat details are summarised in Table
+\@ref(tab:tab-habitat-summary-197559). 
+
+`r if(gitbook_on){knitr::asis_output("<br>")} else knitr::asis_output("\\pagebreak")`
+
+```{r tab-habitat-summary-197559, eval=T}
+tab_hab_summary %>% 
+  filter(Site == my_site) %>% 
+  fpr::fpr_kable(caption_text = paste0('Summary of habitat details for electrofishing sites upstream of PSCIS crossing ', my_site, '.'),
+                 scroll = F) 
+
+```
+
+<br>
+
+```{r tab-fish-site-197559, eval=T}
+fpr_table_fish_site()
+
+```
+
+<br>
+
+```{r tab-fish-dens-197559, eval=T}
+fpr_table_fish_density()
+
+```

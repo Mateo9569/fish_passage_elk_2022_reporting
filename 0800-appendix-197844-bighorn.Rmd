@@ -1,0 +1,97 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+  markdown: 
+    wrap: 72
+---
+
+```{r setup-197844, eval = F}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE)
+source('scripts/packages.R')
+source('scripts/tables.R')
+
+```
+
+```{r  load-data-197844}
+my_site <- 197844
+
+```
+
+# Bighorn Creek - 197844 - Appendix {-}
+
+## Site Location {.unnumbered}
+
+PSCIS crossing `r as.character(my_site)` is located on a tributary to Bighorn Creek on the Cabin FSR. The site is located approximately 11km west of the junction with the Wigwam FSR at a point approximately 30k south of Morrissey. Cabin FSR(forest file ID 5466) is ultimately the responsibility of Ministry of Forests, Lands, Natural Resource Operations and Rural Development - Rocky Mountain Forest District. Although unconfirmed, Canfor may have a road use permit for this section of FSR.
+
+<br>
+
+## Background {.unnumbered}
+
+```{r tab-wshd-197844, eval = F}
+fpr::fpr_table_wshd_sum(site_id = my_site) %>% 
+  select(-'Elev Min') %>% 
+  fpr::fpr_kable(caption_text = paste0('Summary of derived upstream watershed statistics for PSCIS crossing ', my_site, '.'),
+           footnote_text = 'Elev P60 = Elevation at which 60% of the watershed area is above',
+           scroll = F)
+
+```
+
+
+PSCIS crossing `r as.character(my_site)` was assessed in 2021 by [@irvine2022ElkRiver] and ranked as a barrier for upstream fish migration. There was 0.8km of steep but viable juvenile rearing habitat surveyed upstream of crossing 197844 in 2021. A detailed write up of habitat details and stream characteristics can be found in the 2021 report memo linked [here](https://www.newgraphenvironment.com/fish_passage_elk_2021_reporting/appendix---197844---tributary-to-bighorn-creek.html). A summary of habitat modelling outputs is presented in Table
+\@ref(tab:tab-culvert-bcfp-197844) and a map of the watershed is
+provided in map attachment
+[`r fpr::fpr_my_bcfishpass(col_pull = dbm_mof_50k_grid)`](`r fpr::fpr_my_mapsheet(wshd = "elkr", archive_date = "2022-03-17")`).
+ 
+`r if(identical(gitbook_on, FALSE)){knitr::asis_output("\\pagebreak")}`
+
+<br>
+
+```{r tab-culvert-bcfp-197844, eval = T}
+fpr::fpr_table_bcfp(scroll = gitbook_on) 
+```
+
+<br>
+
+## Fish Sampling {.unnumbered}
+
+Electrofishing was conducted with results summarised in Tables
+\@ref(tab:tab-fish-site-197844) - \@ref(tab:tab-fish-dens-197844) and Figure
+\@ref(fig:plot-fish-box-197844). Habitat details are summarised in Table
+\@ref(tab:tab-habitat-summary-197844).  Note that the first site (197844_ds_ef1) was located on the mainstem of Bighorn Creek, while all other sites were located on a tributary to Bighorn Creek.
+
+<br>
+
+`r if(gitbook_on){knitr::asis_output("<br>")} else knitr::asis_output("\\pagebreak")`
+
+```{r tab-habitat-summary-197844, eval=T}
+tab_hab_summary %>% 
+  filter(Site  == my_site) %>% 
+  fpr::fpr_kable(caption_text = paste0('Summary of habitat details for electrofishing sites upstream and downstream of PSCIS crossing ', my_site, '.'),
+                 scroll = F) 
+
+```
+
+<br>
+
+```{r tab-fish-site-197844, eval=T}
+fpr_table_fish_site()
+
+```
+
+<br>
+
+```{r tab-fish-dens-197844, eval=T}
+fpr_table_fish_density()
+
+```
+
+`r if(gitbook_on){knitr::asis_output("<br>")} else knitr::asis_output("\\pagebreak")`
+
+```{r plot-fish-box-197844, fig.cap= my_caption, eval=T}
+my_caption <- paste0('Densites of fish (fish/100m2) captured downstream of PSCIS crossing ', my_site, '.')
+
+fpr_plot_fish_box() 
+
+```
+
