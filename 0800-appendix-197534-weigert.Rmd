@@ -24,14 +24,26 @@ my_site <- 197534
 
 PSCIS crossing `r as.character(my_site)` is located on
 Highway 43, approximately 23.5km north of the town of
-Sparwood. Crossing
-`r as.character(my_site)` was located approximately 1.3km
+Sparwood. The culvert is located approximately 1.3km
 upstream from the confluence with the Elk River and is the
 responsibility of the Ministry of Transportation and Infrastructure.
 
+<br>
+
+## Background {.unnumbered}
+
+At crossing `r as.character(my_site)`, Weigert Creek is a
+`r fpr::fpr_my_bcfishpass() %>% english::ordinal()` order stream with a
+watershed area upstream of the crossing of approximately
+`r fpr::fpr_my_wshd()`km^2^. The elevation of the watershed ranges from
+a maximum of `r fpr::fpr_my_wshd(col = 'elev_max')`m to
+`r fpr::fpr_my_wshd(col = 'elev_site')`m at the crossing (Table
+\@ref(tab:tab-wshd-197534)). Although multiple upstream survey sites are recorded within provincial databases, there have been no fish recorded upstream [@moe2020KnownBC].
+
+<br>
+
 ```{r tab-wshd-197534, eval = T}
 fpr::fpr_table_wshd_sum(site_id = my_site) %>% 
-  select(-'Elev Min') %>% 
   fpr::fpr_kable(caption_text = paste0('Summary of derived upstream watershed statistics for PSCIS crossing ', my_site, '.'),
            footnote_text = 'Elev P60 = Elevation at which 60% of the watershed area is above',
            scroll = F)
@@ -39,6 +51,8 @@ fpr::fpr_table_wshd_sum(site_id = my_site) %>%
 ```
 
 <br>
+
+PSCIS crossing `r as.character(my_site)` was assessed in 2020 by [@irvine2021UpperElk] and ranked as a barrier for upstream fish migration. The site was noted as having a significantly sized outlet drop (1.2m) and good flow with a location very close to the mainstem of Bighorn Creek which contains confirmed spawning habitat for westslope cutthrout trout. There was 0.8km of steep but viable juvenile rearing habitat surveyed upstream of crossing 197844 in 2021. Bighorn Creek has been noted as contributing significantly to habitat suitable for bull trout spawning in the Wigwam River system with spawning been noted just upstream of the confluence with the Wigwam River. The Wigwam River has been characterized as the most important spawning system in the East Kootenay region, supporting some of the largest westslope cutthrout trout in the Kootenay Region and is located ~11.5km downstream of the subject culvert [@strong_k_d_2015McNeilSubstrate; @cope_morris2001WigwamRiver].  A detailed write up of habitat details and stream characteristics can be found in the 2021 report memo linked [here](https://www.newgraphenvironment.com/fish_passage_elk_2021_reporting/appendix---197844---tributary-to-bighorn-creek.html).
 
 A summary of habitat modelling outputs is presented in Table
 \@ref(tab:tab-culvert-bcfp-197534) and a map of the watershed is
@@ -62,9 +76,15 @@ Electrofishing was conducted with results summarised in Tables \@ref(tab:tab-fis
 
 `r if(gitbook_on){knitr::asis_output("<br>")} else knitr::asis_output("\\pagebreak")`
 
+<br>
+
+## Results {.unnumbered}
+
+
+
 ```{r tab-habitat-summary-197534, eval=T}
 tab_hab_summary %>% 
-  filter(Site  == my_site) %>% 
+  filter(Site %like% my_site) %>%
   fpr::fpr_kable(caption_text = paste0('Summary of habitat details for electrofishing sites upstream and downstream of PSCIS crossing ', my_site, '.'),
                  scroll = F) 
 
