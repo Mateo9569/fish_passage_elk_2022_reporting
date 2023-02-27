@@ -51,7 +51,7 @@ wkb_col_names <-  function(wkb,
   return(b)
 }
 
-xref_fhap <- tibble::tribble(
+xref_fhap_hu <- tibble::tribble(
                                              ~spdsht,                               ~report, ~type_readxl, ~id_join, ~id_side,
                                      "location_site",                                "Site",       "text",       NA,       NA,
                                  "location_waypoint",                            "Waypoint",       "text",       NA,       NA,
@@ -92,20 +92,36 @@ xref_fhap <- tibble::tribble(
                           "riparian_vegetation_type",            "Riparian Vegetation Type",       "text",       NA,       NA,
                      "riparian_vegetation_structure",       "Riparian Vegetation Structure",       "text",       NA,       NA,
                 "riparian_vegetation_canopy_closure",  "Riparian Vegetation Canopy Closure",       "text",       NA,       NA,
-                                  "general_barriers",                            "Barriers",       "text",       NA,       NA,
-                                  "general_comments",                            "Comments",       "text",       NA,       NA,
-                               "general_survey_date",                         "Survey Date",       "text",       NA,       NA,
-                                 "general_watershed",                           "Watershed",       "text",       NA,       NA,
-                                 "general_sub_basin",                           "Sub Basin",       "text",       NA,       NA,
-                                   "general_weather",                             "Weather",       "text",       NA,       NA,
-                                "general_surveyor_1",                          "Surveyor 1",       "text",       NA,       NA,
-                                "general_surveyor_2",                          "Surveyor 2",       "text",       NA,       NA,
-                                "general_surveyor_3",                          "Surveyor 3",       "text",       NA,       NA,
-                            "general_discharge_m3_s",                      "Discharge M3 S",    "numeric",       NA,       NA,
-                     "subsampling_fractions_riffles",       "Subsampling Fractions Riffles",    "numeric",       NA,       NA,
-                       "subsampling_fractions_pools",         "Subsampling Fractions Pools",    "numeric",       NA,       NA,
-                      "subsampling_fractions_glides",        "Subsampling Fractions Glides",    "numeric",       NA,       NA,
-                    "subsampling_fractions_cascades",      "Subsampling Fractions Cascades",    "numeric",       NA,       NA,
-                       "subsampling_fractions_other",         "Subsampling Fractions Other",    "numeric",       NA,       NA
+                                    "notes_barriers",                            "Barriers",       "text",       NA,       NA,
+                                    "notes_comments",                            "Comments",       "text",       NA,       NA
                )
+
+xref_fhap_site <- tibble::tribble(
+                           ~spdsht,                          ~report, ~type_readxl, ~id_join, ~id_side,
+                   "location_site",                           "Site",       "text",       NA,       NA,
+              "location_watershed",                      "Watershed",       "text",       NA,       NA,
+              "location_sub_basin",                      "Sub Basin",       "text",       NA,       NA,
+         "location_waypoint_start",                 "Waypoint Start",       "text",       NA,       NA,
+           "location_waypoint_end",                   "Waypoint End",       "text",       NA,       NA,
+            "location_utm_easting",                        "Easting",    "numeric",       NA,       NA,
+           "location_utm_northing",                       "Northing",    "numeric",       NA,       NA,
+        "location_utm_easting_end",                    "Easting End",    "numeric",       NA,       NA,
+       "location_utm_northing_end",                   "Northing End",    "numeric",       NA,       NA,
+       "general_survey_date_start",                    "Survey Date",       "date",       NA,       NA,
+         "general_survey_date_end",                "Survey Date End",       "date",       NA,       NA,
+                 "general_weather",                        "Weather",       "text",       NA,       NA,
+              "general_surveyor_1",                     "Surveyor 1",       "text",       NA,       NA,
+              "general_surveyor_2",                     "Surveyor 2",       "text",       NA,       NA,
+              "general_surveyor_3",                     "Surveyor 3",       "text",       NA,       NA,
+          "general_discharge_m3_s",                 "Discharge M3 S",    "numeric",       NA,       NA,
+                "general_comments",                       "Comments",       "text",       NA,       NA,
+   "subsampling_fractions_riffles",  "Subsampling Fractions Riffles",    "numeric",       NA,       NA,
+     "subsampling_fractions_pools",    "Subsampling Fractions Pools",    "numeric",       NA,       NA,
+    "subsampling_fractions_glides",   "Subsampling Fractions Glides",    "numeric",       NA,       NA,
+  "subsampling_fractions_cascades", "Subsampling Fractions Cascades",    "numeric",       NA,       NA,
+     "subsampling_fractions_other",    "Subsampling Fractions Other",    "numeric",       NA,       NA
+  )
+
+
+
 
