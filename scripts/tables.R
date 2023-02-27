@@ -120,8 +120,8 @@ hab_site <- left_join(
   by = 'reference_number'
 ) %>%
   tidyr::separate(alias_local_name, into = c('site', 'location'), remove = F) %>%
-  mutate(site = as.numeric(site)) %>%
-  dplyr::filter(!alias_local_name %like% '_ef') ##get rid of the ef sites
+  mutate(site = as.numeric(site))
+  #plyr::filter(!alias_local_name %like% '_ef') ##get rid of the ef sites
 
 hab_fish_collect_map_prep <- habitat_confirmations %>%
   purrr::pluck("step_2_fish_coll_data") %>%
@@ -599,7 +599,7 @@ hab_site <- left_join(
   hab_site_prep,
   by = 'reference_number'
 ) %>%
-  tidyr::separate(alias_local_name, into = c('site', 'location'), remove = F) %>%
+  tidyr::separate(alias_local_name, into = c('site', 'location') , remove = F) %>%
   mutate(site = as.numeric(site))
   #dplyr::filter(!alias_local_name %like% '_ef') ##get rid of the ef sites
 
@@ -946,10 +946,7 @@ tab_hab_summary <- left_join(
 
   by = c('alias_local_name' = 'local_name')
 ) %>%
-  separate(alias_local_name, c("local_name", "location"), sep = 7, remove = FALSE) %>%
-  arrange(site, location) %>%
-  select(Site = site,
-         Location = location,
+  select(Site = alias_local_name,
          `Length Surveyed (m)` = length_surveyed,
          `Channel Width (m)` = avg_channel_width_m,
          `Wetted Width (m)` = avg_wetted_width_m,
