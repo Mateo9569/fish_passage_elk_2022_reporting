@@ -1,22 +1,7 @@
 
 
 # Background
-As a result of high-level direction from the provincial government, a Fish Passage Strategic Approach protocol has been developed for British Columbia to ensure that the greatest opportunities for restoration of fish passage are pursued.  A Fish Passage Technical Working Group has been formed to coordinate the protocol and data is continuously amalgamated within the Provincial Steam Crossing Inventory System (PSCIS).  The strategic approach protocol involves a four-phase process as described in @fishpassagetechnicalworkinggroupFishPassageStrategic2014 :
-
- * Phase 1: Fish Passage Assessment – Fish stream crossings within watersheds with high fish values are assessed to determine barrier status of structures and document a general assessment of adjacent habitat quality and quantity.
- * Phase 2: Habitat Confirmation – Assessments of crossings prioritized for follow up in Phase 1 studies are conducted to confirm quality and quantity of habitat upstream and down as well as to scope for other potential nearby barriers that could affect the practicality of remediation.
- * Phase 3: Design – Site plans and designs are drawn for priority crossings where high value fish habitat has been confirmed. 
- * Phase 4: Remediation – Reconnecting of isolated habitats through replacement, rehabilitation or removal of prioritized crossing structure barriers. 
- 
-  
-<br>
-
-The Canadian Wildlife Federation has been working on a watershed connectivity remediation plan for the Elk River watershed that incorporates the provincial Strategic Approach, evolution of the `bcfishpass` analysis tools and local knowledge of the watershed to prioritize barriers and restore connectivity for westslope cutthroat trout and other species in a strategic manner. Nupqu Resource Limited Partnership was retained to conduct fish passage assessments and habitat confirmations to fill data gaps in support of this work.
-
-
-## Project Location
-
-To focus the project within habitat considered high value for conservation of westslope cutthrout trout, the study area included the Elk River watershed group with a focus on basins that flow into the Elk River (Figure \@ref(fig:overview-map)). The Elk River has a mean annual discharge of `r round(fasstr::calc_longterm_mean(station_number = "08NK016")$LTMAD,1)` m^3^/s at station 08NK016 near Sparwood and `r round(fasstr::calc_longterm_mean(station_number = "08NK002")$LTMAD,1)` m^3^/s at station 08NK016 near Fernie with flow patterns typical of high elevation watersheds on the west side of the Rocky Mountains which receive large amounts of precipitation as snow leading to peak levels of discharge during snowmelt, typically from May to July (Figures \@ref(fig:hydrology-plot) - \@ref(fig:hydrology-stats2)) [@canada2020NationalWater]. 
+Study areas are within the Elk River watershed group and flow into the Elk River (Figure \@ref(fig:overview-map)). The Elk River has a mean annual discharge of `r round(fasstr::calc_longterm_mean(station_number = "08NK016")$LTMAD,1)` m^3^/s at station 08NK016 near Sparwood and `r round(fasstr::calc_longterm_mean(station_number = "08NK002")$LTMAD,1)` m^3^/s at station 08NK016 near Fernie with flow patterns typical of high elevation watersheds on the west side of the Rocky Mountains which receive large amounts of precipitation as snow leading to peak levels of discharge during snowmelt, typically from May to July (Figures \@ref(fig:hydrology-plot) - \@ref(fig:hydrology-stats2)) [@canada2020NationalWater]. 
 
 <br>
 
@@ -102,7 +87,9 @@ Fish species recorded in the Elk River watershed group are detailed in Table \@r
 fiss_species_table <- readr::read_csv(file = paste0(getwd(), '/data/inputs_extracted/02_prep_report/fiss_species_table.csv'))
   # filter(`Species Code` != 'CT') %>% 
 fiss_species_table %>%  
-  rename(Elk = `Upper Elk`) %>% 
+  filter(`Upper Elk` != '--') %>% 
+  select(-`Upper Elk`, -Flathead) %>% 
+  # rename(Elk = `Upper Elk`) %>% 
   fpr::fpr_kable(caption_text = 'Fish species recorded in the study area (FISS 2020).')
 
 
