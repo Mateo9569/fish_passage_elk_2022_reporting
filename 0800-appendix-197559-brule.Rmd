@@ -22,16 +22,18 @@ my_site <- 197559
 
 ## Site Location {.unnumbered}
 
-PSCIS crossings 197533 and `r as.character(my_site)` are located approximately 20km north of the town of Sparwood approximately 0.6 and 0.7km upstream from the confluence with the Elk River.  The crossings are located on Busato Road and Highway 43 and are the responsibility of the Ministry of Transportation and Infrastructure.
+PSCIS crossing `r as.character(my_site)` is located on Highway 43 approximately 20km north of the town of Sparwood, 0.7km upstream from the confluence with the Elk River.  This crossing is the responsibility of the Ministry of Transportation and Infrastructure. This stream was assessed in 2020 by [@irvine2021UpperElk]. Two fords (PSCIS 197535 and 197536) were documented 700m and 2km upstream of crossing 197559 respectively. 
 
 <br>
 
 ## Background
-At the highway, Brule Creek is a 5th order stream with watershed characteristics detailed in Table \@ref(tab:tab-wshd-197559). Brule Creek is known to contain westslope cutthrout trout, rainbow trout and bull trout downstream of the subject culverts and westslope cutthrout trout and rainbow trout above (MoE 2020b). On the south side of the upper watershed, at an elevation of 2000m, is the 5ha Josephine Lake (also known as Big Lake). The lake was stocked with westslope cutthrout trout from 1983 - 2000 (MoE 2020b; “Fish Inventories Data Queries” 2020).  PSCIS stream crossings 197533 and 197559 were ranked as high priorities for follow up with new structure designs following habitat confirmations by @irvine2021UpperElk due to the large size of the stream network upstream of the highway and because Brule Creek is a 5th order stream. Detailed reporting can be found [here](https://newgraphenvironment.github.io/fish_passage_elk_2020_reporting_cwf/appendix---197533-197559---brule-creek.html).
+
+At the highway, Brule Creek is a 5th order stream with watershed characteristics detailed in Table \@ref(tab:tab-wshd-197559). Brule Creek is known to contain westslope cutthrout trout, rainbow trout and bull trout downstream of the subject culverts and westslope cutthrout trout and rainbow trout above (MoE 2020b). On the south side of the upper watershed, at an elevation of 2000m, is the 5ha Josephine Lake (also known as Big Lake). The lake was stocked with westslope cutthrout trout from 1983 - 2000 (MoE 2020b; “Fish Inventories Data Queries” 2020).  PSCIS stream crossing 197559 was ranked as a high priority for follow up with new structure designs following habitat confirmations by @irvine2021UpperElk due to the large size of the stream network upstream of the highway and because Brule Creek is a 5th order stream. Detailed reporting can be found [here](https://newgraphenvironment.github.io/fish_passage_elk_2020_reporting_cwf/appendix---197533-197559---brule-creek.html).
+
+<br>
 
 ```{r tab-wshd-197559, eval = T}
 fpr::fpr_table_wshd_sum(site_id = my_site) %>% 
-  select(-'Elev Min') %>% 
   fpr::fpr_kable(caption_text = paste0('Summary of derived upstream watershed statistics for PSCIS crossing ', my_site, '.'),
            footnote_text = 'Elev P60 = Elevation at which 60% of the watershed area is above',
            scroll = F)
@@ -49,16 +51,26 @@ provided in map attachment [`r fpr::fpr_my_bcfishpass(col_pull = dbm_mof_50k_gri
 fpr::fpr_table_bcfp(scroll = gitbook_on) 
 ```
 
+<br>
+
+## Stream Characteristics Upstream {.unnumbered}
+
+The stream was surveyed at two different sites upstream of crossing `r as.character(my_site)`. The first site was located approximately 1km from the culvert. This section was surveyed for `r fpr::fpr_my_priority_info(loc = 'us_ef1', col_pull = 'length_surveyed')`m (Figure \@ref(fig:photo-197559-01)). The second site was located approximately 1km upstream of modelled crossing 197536. This section was surveyed for `r fpr::fpr_my_priority_info(loc = 'us_ef2', col_pull = 'length_surveyed')`m to the location of a waterfall (Figure \@ref(fig:photo-197559-04)). This waterfall was approximately 5m in height, and blocks the upstream migration of all fish. This obstacle is listed in the Canadian Aquatic Barrier Database, as well as `bcfishpass` [@canadianwildlifefederation2023CanadianAquatic]. Stream habitat quality is shown in Figures \@ref(fig:photo-197559-02) - \@ref(fig:photo-197559-03).  
+
+<br>
+
 
 ## Fish Sampling {.unnumbered}
 
-Electrofishing was conducted at two sites upstream of the highway with no fish captured at either site Tables \@ref(tab:tab-fish-site-197559) - \@ref(tab:tab-fish-dens-197559). Habitat details are summarised in Table \@ref(tab:tab-habitat-summary-197559). 
+Electrofishing was conducted at two sites upstream of the highway with no fish captured at either site (Tables \@ref(tab:tab-fish-site-197559) - \@ref(tab:tab-fish-dens-197559)). Habitat details are summarised in Table \@ref(tab:tab-habitat-summary-197559). 
 
 `r if(gitbook_on){knitr::asis_output("<br>")} else knitr::asis_output("\\pagebreak")`
 
+<br>
+
 ```{r tab-habitat-summary-197559, eval=T}
 tab_hab_summary %>% 
-  filter(Site == my_site) %>% 
+  filter(Site %like% my_site) %>% 
   fpr::fpr_kable(caption_text = paste0('Summary of habitat details for electrofishing sites upstream of PSCIS crossing ', my_site, '.'),
                  scroll = F) 
 
@@ -76,4 +88,73 @@ fpr_table_fish_site()
 ```{r tab-fish-dens-197559, eval=T}
 fpr_table_fish_density()
 
+```
+
+<br>
+
+```{r photo-197559-01-prep}
+
+my_photo1 = fpr::fpr_photo_pull_by_str(site = my_site, str_to_pull = '_u1_')
+
+my_caption1 = paste0('Typical habitat upstream of PSCIS crossing ', my_site, ', on first electrofishing survey.')
+```
+
+```{r photo-197559-01, fig.cap= my_caption1, out.width = photo_width, eval=gitbook_on}
+grid::grid.raster(jpeg::readJPEG(my_photo1))
+```
+
+<br>
+
+```{r photo-197559-02-prep}
+my_photo2 = fpr::fpr_photo_pull_by_str(site = my_site, str_to_pull = '_u2_')
+
+my_caption2 = paste0('Typical habitat upstream of PSCIS crossing ', my_site, ' , on second electrofishing survey.')
+
+```
+
+```{r photo-197559-02, fig.cap= my_caption2, out.width = photo_width, eval=gitbook_on}
+grid::grid.raster(jpeg::readJPEG(my_photo2))
+```
+
+```{r photo-197559-u02, fig.cap = my_caption, fig.show="hold", out.width= c("49.5%","1%","49.5%"), eval=identical(gitbook_on, FALSE)}
+
+my_caption <- paste0('Left: ', my_caption1, ' Right: ', my_caption2)
+
+knitr::include_graphics(my_photo1)
+knitr::include_graphics("fig/pixel.png")
+knitr::include_graphics(my_photo2)
+```
+
+<br>
+
+```{r photo-197559-03-prep}
+my_photo1 = fpr::fpr_photo_pull_by_str(site = my_site, str_to_pull = '_u3_')
+
+my_caption1 = paste0('Habitat immediately downstream of waterfall.')
+```
+
+```{r photo-197559-03, fig.cap= my_caption1, out.width = photo_width, eval=gitbook_on}
+grid::grid.raster(jpeg::readJPEG(my_photo1))
+```
+
+<br>
+
+```{r photo-197559-04-prep}
+my_photo2 = fpr::fpr_photo_pull_by_str(site = my_site, str_to_pull = '_u4_')
+
+my_caption2 = paste0('Waterfall at end of second electrofishing survey, upstream of PSCIS crossing ', my_site, '.')
+
+```
+
+```{r photo-197559-04, fig.cap= my_caption2, out.width = photo_width, eval=gitbook_on}
+grid::grid.raster(jpeg::readJPEG(my_photo2))
+```
+
+```{r photo-197559-u04, fig.cap = my_caption, fig.show="hold", out.width= c("49.5%","1%","49.5%"), eval=identical(gitbook_on, FALSE)}
+
+my_caption <- paste0('Left: ', my_caption1, ' Right: ', my_caption2)
+
+knitr::include_graphics(my_photo1)
+knitr::include_graphics("fig/pixel.png")
+knitr::include_graphics(my_photo2)
 ```

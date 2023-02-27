@@ -15,11 +15,19 @@ my_site <- 197844
 
 ## Site Location {.unnumbered}
 
-PSCIS crossing `r as.character(my_site)` is located on a tributary to Bighorn Creek on the Cabin FSR approximately 11km west of the junction with the Wigwam FSR at a point approximately 30k south of Morrissey. Cabin FSR (forest file ID 5466) is ultimately the responsibility of Ministry of Forests - Rocky Mountain Forest District. Although unconfirmed, Canfor may have a road use permit for this section of FSR.
+PSCIS crossing `r as.character(my_site)` is located on a tributary to Bighorn Creek on the Cabin FSR approximately 11km west of the junction with the Wigwam FSR at a point approximately 30k south of Morrissey. Cabin FSR (forest file ID 5466) is ultimately the responsibility of the Ministry of Forests. Although unconfirmed, Canfor may have a road use permit for this section of FSR.
 
 <br>
 
 ## Background {.unnumbered}
+
+At crossing `r as.character(my_site)`, Bighorn Creek is a
+`r fpr::fpr_my_bcfishpass() %>% english::ordinal()` order stream with a
+watershed area upstream of the crossing of approximately
+`r fpr::fpr_my_wshd()`km^2^. The elevation of the watershed ranges from
+a maximum of `r fpr::fpr_my_wshd(col = 'elev_max')`m to
+`r fpr::fpr_my_wshd(col = 'elev_site')`m at the crossing (Table
+\@ref(tab:tab-wshd-197844)).
 
 ```{r tab-wshd-197844, eval = T}
 fpr::fpr_table_wshd_sum(site_id = my_site) %>% 
@@ -30,6 +38,7 @@ fpr::fpr_table_wshd_sum(site_id = my_site) %>%
 
 ```
 
+<br>
 
 PSCIS crossing `r as.character(my_site)` was assessed in 2021 by [@irvine2022ElkRiver] and ranked as a barrier for upstream fish migration. The site was noted as having a significantly sized outlet drop (1.2m) and good flow with a location very close to the mainstem of Bighorn Creek which contains confirmed spawning habitat for westslope cutthrout trout. There was 0.8km of steep but viable juvenile rearing habitat surveyed upstream of crossing 197844 in 2021. Bighorn Creek has been noted as contributing significantly to habitat suitable for bull trout spawning in the Wigwam River system with spawning been noted just upstream of the confluence with the Wigwam River. The Wigwam River has been characterized as the most important spawning system in the East Kootenay region, supporting some of the largest westslope cutthrout trout in the Kootenay Region and is located ~11.5km downstream of the subject culvert [@strong_k_d_2015McNeilSubstrate; @cope_morris2001WigwamRiver].  A detailed write up of habitat details and stream characteristics can be found in the 2021 report memo linked [here](https://www.newgraphenvironment.com/fish_passage_elk_2021_reporting/appendix---197844---tributary-to-bighorn-creek.html). A summary of habitat modelling outputs is presented in Table \@ref(tab:tab-culvert-bcfp-197844) and a map of the watershed is
 provided in map attachment [`r fpr::fpr_my_bcfishpass(col_pull = dbm_mof_50k_grid)`](`r fpr::fpr_my_mapsheet(wshd = "elkr", archive_date = "2022-03-17")`).
@@ -42,6 +51,7 @@ provided in map attachment [`r fpr::fpr_my_bcfishpass(col_pull = dbm_mof_50k_gri
 fpr::fpr_table_bcfp(scroll = gitbook_on) 
 ```
 
+
 <br>
 
 ## Fish Sampling {.unnumbered}
@@ -52,9 +62,10 @@ Electrofishing was conducted with results summarised in Tables \@ref(tab:tab-fis
 
 `r if(gitbook_on){knitr::asis_output("<br>")} else knitr::asis_output("\\pagebreak")`
 
+
 ```{r tab-habitat-summary-197844, eval=T}
 tab_hab_summary %>% 
-  filter(Site  == my_site) %>% 
+  filter(Site  %like% my_site) %>% 
   fpr::fpr_kable(caption_text = paste0('Summary of habitat details for electrofishing sites upstream and downstream of PSCIS crossing ', my_site, '.'),
                  scroll = F) 
 
