@@ -84,6 +84,6 @@ Modern civilization has a long journey ahead to acknowledge and address the hist
 
 ```{js, logo-header, echo = FALSE, eval= T}
 title=document.getElementById('header');
-title.innerHTML = '<img src="fig/logo.png" alt="NewGraph">' + title.innerHTML
+title.innerHTML = '<img src="fig/nge-full_white.png" alt="NewGraph">' + title.innerHTML
 ```
 
