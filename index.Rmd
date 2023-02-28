@@ -8,7 +8,8 @@ author: |
  |
  |
  | Prepared by
- | Al Irvine, B.Sc., R.P.Bio.
+ | Al Irvine, B.Sc., R.P.Bio. and 
+ | Mateo Winterscheidt
  | New Graph Environment Ltd.
 
 date: |
@@ -52,6 +53,7 @@ options(knitr.kable.NAN = '--')
 ```{r load-data}
 source('scripts/packages.R')
 source('scripts/tables.R')
+source('scripts/functions.R')
 ```
 
 

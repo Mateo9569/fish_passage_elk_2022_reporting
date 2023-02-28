@@ -1,5 +1,5 @@
 bookdown::gitbook:
-  toc_depth: 1
+  toc_depth: 2
   css: style.css
   config:
     toc:
@@ -12,10 +12,10 @@ bookdown::gitbook:
       theme: night
       family: sans
 pagedown::html_paged:
-  front_cover: "fig/logo.png"
+  front_cover: "fig/nge-full_black.png"
   css: ["style-pagedown.css", "default-page-custom.css", "default"] #
   toc: true
-  toc_depth: 1
+  toc_depth: 2
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex
