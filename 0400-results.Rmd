@@ -52,6 +52,7 @@ Fish habitat was assessed at four sites within three reaches of Weigert Creek.
 fhap_site %>% 
   select(
     location_site, 
+    location_reach_number,
     location_utm_easting,
     location_utm_northing,
     general_comments
