@@ -14,6 +14,7 @@ hab_site%>%
   fpr::fpr_kable()
 ```
 
+<br>
 
 ```{r}
 
@@ -55,13 +56,14 @@ fhap_site %>%
     location_utm_northing,
     general_comments
   ) %>% 
-    fpr::fpr_kable()
+    fpr::fpr_kable(scroll = F)
 ```
 
+<br>
 
 ```{r}
 fhap_hu_sum %>% 
-  fpr::fpr_kable()
+  fpr::fpr_kable(scroll = F)
 ```
 
 
