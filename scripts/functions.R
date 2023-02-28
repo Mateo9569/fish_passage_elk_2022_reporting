@@ -99,7 +99,7 @@ xref_fhap_hu <- tibble::tribble(
 xref_fhap_site <- tibble::tribble(
                            ~spdsht,                          ~report, ~type_readxl, ~id_join, ~id_side,
                    "location_site",                           "Site",       "text",       NA,       NA,
-           "location_reach_number",                   "Reach Number",       "text",       NA,       NA,
+           "location_reach_number",                   "Reach",       "text",       NA,       NA,
               "location_watershed",                      "Watershed",       "text",       NA,       NA,
               "location_sub_basin",                      "Sub Basin",       "text",       NA,       NA,
          "location_waypoint_start",                 "Waypoint Start",       "text",       NA,       NA,

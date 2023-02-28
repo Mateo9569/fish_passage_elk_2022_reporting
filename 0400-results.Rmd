@@ -44,7 +44,6 @@ fish_samp_sum <- left_join(
   relocate(
     gazetted_name, .before = local_name
   ) %>% 
-  mutate(test = ef_seconds/1000) %>% 
   mutate(CPUE = round(count_fish/(ef_seconds / 1000), 1))
 
 fish_samp_sum %>% 

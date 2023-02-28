@@ -227,10 +227,10 @@ div.csl-indent {
 <h2><span class="header-section-number">5.1</span> Background<a href="brule-creek---197559---appendix.html#background-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>At the highway, Brule Creek is a 5th order stream with watershed characteristics detailed in Table <a href="brule-creek---197559---appendix.html#tab:tab-wshd-197559">5.6</a>. Brule Creek is known to contain westslope cutthrout trout, rainbow trout and bull trout downstream of the subject culverts and westslope cutthrout trout and rainbow trout above (MoE 2020b). On the south side of the upper watershed, at an elevation of 2000m, is the 5ha Josephine Lake (also known as Big Lake). The lake was stocked with westslope cutthrout trout from 1983 - 2000 (MoE 2020b; “Fish Inventories Data Queries” 2020). PSCIS stream crossing 197559 was ranked as a high priority for follow up with new structure designs following habitat confirmations by <span class="citation">Irvine (2021)</span> due to the large size of the stream network upstream of the highway and because Brule Creek is a 5th order stream. Detailed reporting can be found <a href="https://newgraphenvironment.github.io/fish_passage_elk_2020_reporting_cwf/appendix---197533-197559---brule-creek.html">here</a>.</p>
 <p><br></p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="brule-creek---197559---appendix.html#cb27-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_wshd_sum</span>(<span class="at">site_id =</span> my_site) <span class="sc">%&gt;%</span> </span>
-<span id="cb27-2"><a href="brule-creek---197559---appendix.html#cb27-2" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="fu">paste0</span>(<span class="st">&#39;Summary of derived upstream watershed statistics for PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>),</span>
-<span id="cb27-3"><a href="brule-creek---197559---appendix.html#cb27-3" tabindex="-1"></a>           <span class="at">footnote_text =</span> <span class="st">&#39;Elev P60 = Elevation at which 60% of the watershed area is above&#39;</span>,</span>
-<span id="cb27-4"><a href="brule-creek---197559---appendix.html#cb27-4" tabindex="-1"></a>           <span class="at">scroll =</span> F)</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="brule-creek---197559---appendix.html#cb28-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_wshd_sum</span>(<span class="at">site_id =</span> my_site) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-2"><a href="brule-creek---197559---appendix.html#cb28-2" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="fu">paste0</span>(<span class="st">&#39;Summary of derived upstream watershed statistics for PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>),</span>
+<span id="cb28-3"><a href="brule-creek---197559---appendix.html#cb28-3" tabindex="-1"></a>           <span class="at">footnote_text =</span> <span class="st">&#39;Elev P60 = Elevation at which 60% of the watershed area is above&#39;</span>,</span>
+<span id="cb28-4"><a href="brule-creek---197559---appendix.html#cb28-4" tabindex="-1"></a>           <span class="at">scroll =</span> F)</span></code></pre></div>
 <table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;border-bottom: 0;">
 <caption style="font-size: initial !important;">
 <span id="tab:tab-wshd-197559">Table 5.6: </span>Summary of derived upstream watershed statistics for PSCIS crossing 197559.
@@ -302,7 +302,7 @@ SSE
 <p>A summary of habitat modelling outputs is presented in Table <a href="brule-creek---197559---appendix.html#tab:tab-culvert-bcfp-197559">5.7</a> and a map of the watershed is
 provided in map attachment <a href="https://hillcrestgeo.ca/outgoing/fishpassage/projects/elkr/archive/2022-03-17/FishPassage_082G.123.pdf">082G.123</a>.</p>
 <p><br></p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="brule-creek---197559---appendix.html#cb28-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_bcfp</span>(<span class="at">scroll =</span> gitbook_on) </span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="brule-creek---197559---appendix.html#cb29-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_bcfp</span>(<span class="at">scroll =</span> gitbook_on) </span></code></pre></div>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:100%; ">
 <table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;border-bottom: 0;">
 <caption style="font-size: initial !important;">
@@ -507,7 +507,7 @@ WCT Slopeclass22 (km)
 </div>
 <div id="stream-characteristics-upstream" class="section level2 unnumbered hasAnchor">
 <h2>Stream Characteristics Upstream<a href="brule-creek---197559---appendix.html#stream-characteristics-upstream" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The stream was surveyed at two different sites upstream of crossing 197559. The first site was located approximately 1km from the culvert. This section was surveyed for 600m (Figure <a href="brule-creek---197559---appendix.html#fig:photo-197559-01">5.2</a>). The second site was located approximately 1km upstream of modelled crossing 197536. This section was surveyed for 310m to the location of a waterfall (Figure <a href="brule-creek---197559---appendix.html#fig:photo-197559-04">5.5</a>). This waterfall was approximately 5m in height, and blocks the upstream migration of all fish. This obstacle is listed in the Canadian Aquatic Barrier Database, as well as <code>bcfishpass</code> <span class="citation">(Canadian Wildlife Federation 2023)</span>. Stream habitat quality is shown in Figures <a href="brule-creek---197559---appendix.html#fig:photo-197559-02">5.3</a> - <a href="brule-creek---197559---appendix.html#fig:photo-197559-03">5.4</a>.</p>
+<p>The stream was surveyed at two different sites upstream of crossing 197559. The first site was located approximately 1km from the culvert. This section was surveyed for 600m (Figure <a href="brule-creek---197559---appendix.html#fig:photo-197559-01">5.2</a>). The second site was located approximately 1km upstream of modelled crossing 197536. This section was surveyed for 310m to the location of a waterfall (Figure <a href="brule-creek---197559---appendix.html#fig:photo-197559-04">5.5</a>). This waterfall was approximately 5m in height, and blocks the upstream migration of all fish. This obstacle is listed in the Canadian Aquatic Barrier Database and the BC Provincial Obstacles to Fish Passage catalogue. <span class="citation">(Canadian Wildlife Federation 2023; BC Government 2023)</span>. Stream habitat quality is shown in Figures <a href="brule-creek---197559---appendix.html#fig:photo-197559-02">5.3</a> - <a href="brule-creek---197559---appendix.html#fig:photo-197559-03">5.4</a>.</p>
 <p><br></p>
 </div>
 <div id="fish-sampling-3" class="section level2 unnumbered hasAnchor">
@@ -515,10 +515,10 @@ WCT Slopeclass22 (km)
 <p>Electrofishing was conducted at two sites upstream of the highway with no fish captured at either site (Tables <a href="brule-creek---197559---appendix.html#tab:tab-fish-site-197559">5.9</a> - <a href="brule-creek---197559---appendix.html#tab:tab-fish-dens-197559">5.10</a>). Habitat details are summarised in Table <a href="brule-creek---197559---appendix.html#tab:tab-habitat-summary-197559">5.8</a>.</p>
 <p><br></p>
 <p><br></p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="brule-creek---197559---appendix.html#cb29-1" tabindex="-1"></a>tab_hab_summary <span class="sc">%&gt;%</span> </span>
-<span id="cb29-2"><a href="brule-creek---197559---appendix.html#cb29-2" tabindex="-1"></a>  <span class="fu">filter</span>(Site <span class="sc">%like%</span> my_site) <span class="sc">%&gt;%</span> </span>
-<span id="cb29-3"><a href="brule-creek---197559---appendix.html#cb29-3" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="fu">paste0</span>(<span class="st">&#39;Summary of habitat details for electrofishing sites upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>),</span>
-<span id="cb29-4"><a href="brule-creek---197559---appendix.html#cb29-4" tabindex="-1"></a>                 <span class="at">scroll =</span> F) </span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="brule-creek---197559---appendix.html#cb30-1" tabindex="-1"></a>tab_hab_summary <span class="sc">%&gt;%</span> </span>
+<span id="cb30-2"><a href="brule-creek---197559---appendix.html#cb30-2" tabindex="-1"></a>  <span class="fu">filter</span>(Site <span class="sc">%like%</span> my_site) <span class="sc">%&gt;%</span> </span>
+<span id="cb30-3"><a href="brule-creek---197559---appendix.html#cb30-3" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="fu">paste0</span>(<span class="st">&#39;Summary of habitat details for electrofishing sites upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>),</span>
+<span id="cb30-4"><a href="brule-creek---197559---appendix.html#cb30-4" tabindex="-1"></a>                 <span class="at">scroll =</span> F) </span></code></pre></div>
 <table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:tab-habitat-summary-197559">Table 5.8: </span>Summary of habitat details for electrofishing sites upstream of PSCIS crossing 197559.
@@ -607,7 +607,7 @@ abundant
 </tbody>
 </table>
 <p><br></p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="brule-creek---197559---appendix.html#cb30-1" tabindex="-1"></a><span class="fu">fpr_table_fish_site</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="brule-creek---197559---appendix.html#cb31-1" tabindex="-1"></a><span class="fu">fpr_table_fish_site</span>()</span></code></pre></div>
 <table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:tab-fish-site-197559">Table 5.9: </span>Fish sampling site summary for 197559.
@@ -678,7 +678,7 @@ open
 </tbody>
 </table>
 <p><br></p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="brule-creek---197559---appendix.html#cb31-1" tabindex="-1"></a><span class="fu">fpr_table_fish_density</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="brule-creek---197559---appendix.html#cb32-1" tabindex="-1"></a><span class="fu">fpr_table_fish_density</span>()</span></code></pre></div>
 <table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;border-bottom: 0;">
 <caption style="font-size: initial !important;">
 <span id="tab:tab-fish-dens-197559">Table 5.10: </span>Fish sampling density results summary for 197559.
@@ -756,10 +756,10 @@ TRUE
 </tfoot>
 </table>
 <p><br></p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="brule-creek---197559---appendix.html#cb32-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">site =</span> my_site, <span class="at">str_to_pull =</span> <span class="st">&#39;_u1_&#39;</span>)</span>
-<span id="cb32-2"><a href="brule-creek---197559---appendix.html#cb32-2" tabindex="-1"></a></span>
-<span id="cb32-3"><a href="brule-creek---197559---appendix.html#cb32-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;, on first electrofishing survey.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="brule-creek---197559---appendix.html#cb33-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="brule-creek---197559---appendix.html#cb33-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">site =</span> my_site, <span class="at">str_to_pull =</span> <span class="st">&#39;_u1_&#39;</span>)</span>
+<span id="cb33-2"><a href="brule-creek---197559---appendix.html#cb33-2" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="brule-creek---197559---appendix.html#cb33-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;, on first electrofishing survey.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="brule-creek---197559---appendix.html#cb34-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-197559-01"></span>
 <img src="Elk2022_files/figure-html/photo-197559-01-1.png" alt="Typical habitat upstream of PSCIS crossing 197559, on first electrofishing survey." width="100%" />
 <p class="caption">
@@ -767,26 +767,26 @@ Figure 5.2: Typical habitat upstream of PSCIS crossing 197559, on first electrof
 </p>
 </div>
 <p><br></p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="brule-creek---197559---appendix.html#cb34-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">site =</span> my_site, <span class="at">str_to_pull =</span> <span class="st">&#39;_u2_&#39;</span>)</span>
-<span id="cb34-2"><a href="brule-creek---197559---appendix.html#cb34-2" tabindex="-1"></a></span>
-<span id="cb34-3"><a href="brule-creek---197559---appendix.html#cb34-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39; , on second electrofishing survey.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="brule-creek---197559---appendix.html#cb35-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="brule-creek---197559---appendix.html#cb35-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">site =</span> my_site, <span class="at">str_to_pull =</span> <span class="st">&#39;_u2_&#39;</span>)</span>
+<span id="cb35-2"><a href="brule-creek---197559---appendix.html#cb35-2" tabindex="-1"></a></span>
+<span id="cb35-3"><a href="brule-creek---197559---appendix.html#cb35-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39; , on second electrofishing survey.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="brule-creek---197559---appendix.html#cb36-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-197559-02"></span>
 <img src="Elk2022_files/figure-html/photo-197559-02-1.png" alt="Typical habitat upstream of PSCIS crossing 197559 , on second electrofishing survey." width="100%" />
 <p class="caption">
 Figure 5.3: Typical habitat upstream of PSCIS crossing 197559 , on second electrofishing survey.
 </p>
 </div>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="brule-creek---197559---appendix.html#cb36-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
-<span id="cb36-2"><a href="brule-creek---197559---appendix.html#cb36-2" tabindex="-1"></a></span>
-<span id="cb36-3"><a href="brule-creek---197559---appendix.html#cb36-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
-<span id="cb36-4"><a href="brule-creek---197559---appendix.html#cb36-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
-<span id="cb36-5"><a href="brule-creek---197559---appendix.html#cb36-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
-<p><br></p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="brule-creek---197559---appendix.html#cb37-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">site =</span> my_site, <span class="at">str_to_pull =</span> <span class="st">&#39;_u3_&#39;</span>)</span>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="brule-creek---197559---appendix.html#cb37-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
 <span id="cb37-2"><a href="brule-creek---197559---appendix.html#cb37-2" tabindex="-1"></a></span>
-<span id="cb37-3"><a href="brule-creek---197559---appendix.html#cb37-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Habitat immediately downstream of waterfall.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="brule-creek---197559---appendix.html#cb38-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
+<span id="cb37-3"><a href="brule-creek---197559---appendix.html#cb37-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
+<span id="cb37-4"><a href="brule-creek---197559---appendix.html#cb37-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
+<span id="cb37-5"><a href="brule-creek---197559---appendix.html#cb37-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
+<p><br></p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="brule-creek---197559---appendix.html#cb38-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">site =</span> my_site, <span class="at">str_to_pull =</span> <span class="st">&#39;_u3_&#39;</span>)</span>
+<span id="cb38-2"><a href="brule-creek---197559---appendix.html#cb38-2" tabindex="-1"></a></span>
+<span id="cb38-3"><a href="brule-creek---197559---appendix.html#cb38-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Habitat immediately downstream of waterfall.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="brule-creek---197559---appendix.html#cb39-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-197559-03"></span>
 <img src="Elk2022_files/figure-html/photo-197559-03-1.png" alt="Habitat immediately downstream of waterfall." width="100%" />
 <p class="caption">
@@ -794,26 +794,26 @@ Figure 5.4: Habitat immediately downstream of waterfall.
 </p>
 </div>
 <p><br></p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="brule-creek---197559---appendix.html#cb39-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">site =</span> my_site, <span class="at">str_to_pull =</span> <span class="st">&#39;_u4_&#39;</span>)</span>
-<span id="cb39-2"><a href="brule-creek---197559---appendix.html#cb39-2" tabindex="-1"></a></span>
-<span id="cb39-3"><a href="brule-creek---197559---appendix.html#cb39-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Waterfall at end of second electrofishing survey, upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="brule-creek---197559---appendix.html#cb40-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="brule-creek---197559---appendix.html#cb40-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">site =</span> my_site, <span class="at">str_to_pull =</span> <span class="st">&#39;_u4_&#39;</span>)</span>
+<span id="cb40-2"><a href="brule-creek---197559---appendix.html#cb40-2" tabindex="-1"></a></span>
+<span id="cb40-3"><a href="brule-creek---197559---appendix.html#cb40-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Waterfall at end of second electrofishing survey, upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="brule-creek---197559---appendix.html#cb41-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-197559-04"></span>
 <img src="Elk2022_files/figure-html/photo-197559-04-1.png" alt="Waterfall at end of second electrofishing survey, upstream of PSCIS crossing 197559." width="100%" />
 <p class="caption">
 Figure 5.5: Waterfall at end of second electrofishing survey, upstream of PSCIS crossing 197559.
 </p>
 </div>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="brule-creek---197559---appendix.html#cb41-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
-<span id="cb41-2"><a href="brule-creek---197559---appendix.html#cb41-2" tabindex="-1"></a></span>
-<span id="cb41-3"><a href="brule-creek---197559---appendix.html#cb41-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
-<span id="cb41-4"><a href="brule-creek---197559---appendix.html#cb41-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
-<span id="cb41-5"><a href="brule-creek---197559---appendix.html#cb41-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="brule-creek---197559---appendix.html#cb42-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
+<span id="cb42-2"><a href="brule-creek---197559---appendix.html#cb42-2" tabindex="-1"></a></span>
+<span id="cb42-3"><a href="brule-creek---197559---appendix.html#cb42-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
+<span id="cb42-4"><a href="brule-creek---197559---appendix.html#cb42-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
+<span id="cb42-5"><a href="brule-creek---197559---appendix.html#cb42-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
 
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="brule-creek---197559---appendix.html#cb42-1" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo=</span><span class="cn">FALSE</span>, <span class="at">message=</span><span class="cn">FALSE</span>, <span class="at">warning=</span><span class="cn">FALSE</span>)</span>
-<span id="cb42-2"><a href="brule-creek---197559---appendix.html#cb42-2" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;scripts/packages.R&#39;</span>)</span>
-<span id="cb42-3"><a href="brule-creek---197559---appendix.html#cb42-3" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;scripts/tables.R&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="brule-creek---197559---appendix.html#cb43-1" tabindex="-1"></a>my_site <span class="ot">&lt;-</span> <span class="dv">197844</span></span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="brule-creek---197559---appendix.html#cb43-1" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo=</span><span class="cn">FALSE</span>, <span class="at">message=</span><span class="cn">FALSE</span>, <span class="at">warning=</span><span class="cn">FALSE</span>)</span>
+<span id="cb43-2"><a href="brule-creek---197559---appendix.html#cb43-2" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;scripts/packages.R&#39;</span>)</span>
+<span id="cb43-3"><a href="brule-creek---197559---appendix.html#cb43-3" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;scripts/tables.R&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="brule-creek---197559---appendix.html#cb44-1" tabindex="-1"></a>my_site <span class="ot">&lt;-</span> <span class="dv">197844</span></span></code></pre></div>
 </div>
 </div>
             </section>

@@ -218,17 +218,28 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="results" class="section level1 hasAnchor" number="4">
 <h1><span class="header-section-number">4</span> Results<a href="results.html#results" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="fish-sampling-1" class="section level2 hasAnchor" number="4.1">
-<h2><span class="header-section-number">4.1</span> Fish Sampling<a href="results.html#fish-sampling-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="project-location" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Project Location<a href="results.html#project-location" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="results.html#cb13-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/elk_fish_passage_2022.png&quot;</span>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:survey-site-map"></span>
+<img src="fig/elk_fish_passage_2022.png" alt="Map of Survey Sites" width="100%" />
+<p class="caption">
+Figure 4.1: Map of Survey Sites
+</p>
+</div>
+<p><br></p>
+</div>
+<div id="fish-sampling-1" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Fish Sampling<a href="results.html#fish-sampling-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A total of 14 sites were electrofished within 4 streams.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="results.html#cb13-1" tabindex="-1"></a>hab_site<span class="sc">%&gt;%</span> </span>
-<span id="cb13-2"><a href="results.html#cb13-2" tabindex="-1"></a>  <span class="fu">select</span>(gazetted_name,</span>
-<span id="cb13-3"><a href="results.html#cb13-3" tabindex="-1"></a>         alias_local_name,</span>
-<span id="cb13-4"><a href="results.html#cb13-4" tabindex="-1"></a>         utm_easting,</span>
-<span id="cb13-5"><a href="results.html#cb13-5" tabindex="-1"></a>         utm_northing,</span>
-<span id="cb13-6"><a href="results.html#cb13-6" tabindex="-1"></a>         comments</span>
-<span id="cb13-7"><a href="results.html#cb13-7" tabindex="-1"></a>         ) <span class="sc">%&gt;%</span> </span>
-<span id="cb13-8"><a href="results.html#cb13-8" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="results.html#cb14-1" tabindex="-1"></a>hab_site<span class="sc">%&gt;%</span> </span>
+<span id="cb14-2"><a href="results.html#cb14-2" tabindex="-1"></a>  <span class="fu">select</span>(gazetted_name,</span>
+<span id="cb14-3"><a href="results.html#cb14-3" tabindex="-1"></a>         alias_local_name,</span>
+<span id="cb14-4"><a href="results.html#cb14-4" tabindex="-1"></a>         utm_easting,</span>
+<span id="cb14-5"><a href="results.html#cb14-5" tabindex="-1"></a>         utm_northing,</span>
+<span id="cb14-6"><a href="results.html#cb14-6" tabindex="-1"></a>         comments</span>
+<span id="cb14-7"><a href="results.html#cb14-7" tabindex="-1"></a>         ) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-8"><a href="results.html#cb14-8" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>()</span></code></pre></div>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:100%; ">
 <table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
@@ -530,29 +541,28 @@ Electrofishing site was the first 400 to 450 m and then approximately 100 m furt
 </table>
 </div>
 <p><br></p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="results.html#cb14-1" tabindex="-1"></a>test <span class="ot">&lt;-</span> hab_site <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="fu">str_detect</span>(alias_local_name, <span class="st">&#39;_ef&#39;</span>)) <span class="sc">%&gt;%</span> <span class="fu">nrow</span>()</span>
-<span id="cb14-2"><a href="results.html#cb14-2" tabindex="-1"></a><span class="co"># sum of all the fish per site and the electrofishing seconds</span></span>
-<span id="cb14-3"><a href="results.html#cb14-3" tabindex="-1"></a><span class="co"># to do - define CPUE adn put units  (fish/1000s) in footnote</span></span>
-<span id="cb14-4"><a href="results.html#cb14-4" tabindex="-1"></a>fish_samp_sum <span class="ot">&lt;-</span> <span class="fu">left_join</span>(</span>
-<span id="cb14-5"><a href="results.html#cb14-5" tabindex="-1"></a>  hab_fish_indiv <span class="sc">%&gt;%</span></span>
-<span id="cb14-6"><a href="results.html#cb14-6" tabindex="-1"></a>  <span class="fu">group_by</span>(local_name, ef_length_m, ef_width_m, ef_seconds) <span class="sc">%&gt;%</span> </span>
-<span id="cb14-7"><a href="results.html#cb14-7" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count_fish =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
-<span id="cb14-8"><a href="results.html#cb14-8" tabindex="-1"></a>  <span class="fu">arrange</span>(local_name),</span>
-<span id="cb14-9"><a href="results.html#cb14-9" tabindex="-1"></a>  </span>
-<span id="cb14-10"><a href="results.html#cb14-10" tabindex="-1"></a>  hab_site <span class="sc">%&gt;%</span> </span>
-<span id="cb14-11"><a href="results.html#cb14-11" tabindex="-1"></a>    <span class="fu">select</span>(gazetted_name,</span>
-<span id="cb14-12"><a href="results.html#cb14-12" tabindex="-1"></a>         alias_local_name),</span>
-<span id="cb14-13"><a href="results.html#cb14-13" tabindex="-1"></a>  </span>
-<span id="cb14-14"><a href="results.html#cb14-14" tabindex="-1"></a>  <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&#39;local_name&#39;</span> <span class="ot">=</span> <span class="st">&#39;alias_local_name&#39;</span>)</span>
-<span id="cb14-15"><a href="results.html#cb14-15" tabindex="-1"></a>) <span class="sc">%&gt;%</span> </span>
-<span id="cb14-16"><a href="results.html#cb14-16" tabindex="-1"></a>  <span class="fu">relocate</span>(</span>
-<span id="cb14-17"><a href="results.html#cb14-17" tabindex="-1"></a>    gazetted_name, <span class="at">.before =</span> local_name</span>
-<span id="cb14-18"><a href="results.html#cb14-18" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb14-19"><a href="results.html#cb14-19" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">test =</span> ef_seconds<span class="sc">/</span><span class="dv">1000</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb14-20"><a href="results.html#cb14-20" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">CPUE =</span> <span class="fu">round</span>(count_fish<span class="sc">/</span>(ef_seconds <span class="sc">/</span> <span class="dv">1000</span>), <span class="dv">1</span>))</span>
-<span id="cb14-21"><a href="results.html#cb14-21" tabindex="-1"></a></span>
-<span id="cb14-22"><a href="results.html#cb14-22" tabindex="-1"></a>fish_samp_sum <span class="sc">%&gt;%</span> </span>
-<span id="cb14-23"><a href="results.html#cb14-23" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="results.html#cb15-1" tabindex="-1"></a>test <span class="ot">&lt;-</span> hab_site <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="fu">str_detect</span>(alias_local_name, <span class="st">&#39;_ef&#39;</span>)) <span class="sc">%&gt;%</span> <span class="fu">nrow</span>()</span>
+<span id="cb15-2"><a href="results.html#cb15-2" tabindex="-1"></a><span class="co"># sum of all the fish per site and the electrofishing seconds</span></span>
+<span id="cb15-3"><a href="results.html#cb15-3" tabindex="-1"></a><span class="co"># to do - define CPUE adn put units  (fish/1000s) in footnote</span></span>
+<span id="cb15-4"><a href="results.html#cb15-4" tabindex="-1"></a>fish_samp_sum <span class="ot">&lt;-</span> <span class="fu">left_join</span>(</span>
+<span id="cb15-5"><a href="results.html#cb15-5" tabindex="-1"></a>  hab_fish_indiv <span class="sc">%&gt;%</span></span>
+<span id="cb15-6"><a href="results.html#cb15-6" tabindex="-1"></a>  <span class="fu">group_by</span>(local_name, ef_length_m, ef_width_m, ef_seconds) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-7"><a href="results.html#cb15-7" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count_fish =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-8"><a href="results.html#cb15-8" tabindex="-1"></a>  <span class="fu">arrange</span>(local_name),</span>
+<span id="cb15-9"><a href="results.html#cb15-9" tabindex="-1"></a>  </span>
+<span id="cb15-10"><a href="results.html#cb15-10" tabindex="-1"></a>  hab_site <span class="sc">%&gt;%</span> </span>
+<span id="cb15-11"><a href="results.html#cb15-11" tabindex="-1"></a>    <span class="fu">select</span>(gazetted_name,</span>
+<span id="cb15-12"><a href="results.html#cb15-12" tabindex="-1"></a>         alias_local_name),</span>
+<span id="cb15-13"><a href="results.html#cb15-13" tabindex="-1"></a>  </span>
+<span id="cb15-14"><a href="results.html#cb15-14" tabindex="-1"></a>  <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&#39;local_name&#39;</span> <span class="ot">=</span> <span class="st">&#39;alias_local_name&#39;</span>)</span>
+<span id="cb15-15"><a href="results.html#cb15-15" tabindex="-1"></a>) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-16"><a href="results.html#cb15-16" tabindex="-1"></a>  <span class="fu">relocate</span>(</span>
+<span id="cb15-17"><a href="results.html#cb15-17" tabindex="-1"></a>    gazetted_name, <span class="at">.before =</span> local_name</span>
+<span id="cb15-18"><a href="results.html#cb15-18" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-19"><a href="results.html#cb15-19" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">CPUE =</span> <span class="fu">round</span>(count_fish<span class="sc">/</span>(ef_seconds <span class="sc">/</span> <span class="dv">1000</span>), <span class="dv">1</span>))</span>
+<span id="cb15-20"><a href="results.html#cb15-20" tabindex="-1"></a></span>
+<span id="cb15-21"><a href="results.html#cb15-21" tabindex="-1"></a>fish_samp_sum <span class="sc">%&gt;%</span> </span>
+<span id="cb15-22"><a href="results.html#cb15-22" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>()</span></code></pre></div>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:100%; ">
 <table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
@@ -577,9 +587,6 @@ ef_seconds
 </th>
 <th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
 count_fish
-</th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
-test
 </th>
 <th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
 CPUE
@@ -607,9 +614,6 @@ Weigert Creek
 11
 </td>
 <td style="text-align:right;">
-4.459
-</td>
-<td style="text-align:right;">
 2.5
 </td>
 </tr>
@@ -631,9 +635,6 @@ Weigert Creek
 </td>
 <td style="text-align:right;">
 7
-</td>
-<td style="text-align:right;">
-2.995
 </td>
 <td style="text-align:right;">
 2.3
@@ -661,9 +662,6 @@ Weigert Creek
 <td style="text-align:right;">
 –
 </td>
-<td style="text-align:right;">
-–
-</td>
 </tr>
 <tr>
 <td style="text-align:left;">
@@ -683,9 +681,6 @@ Weigert Creek
 </td>
 <td style="text-align:right;">
 13
-</td>
-<td style="text-align:right;">
-2.120
 </td>
 <td style="text-align:right;">
 6.1
@@ -711,9 +706,6 @@ Weigert Creek
 1
 </td>
 <td style="text-align:right;">
-1.466
-</td>
-<td style="text-align:right;">
 0.7
 </td>
 </tr>
@@ -735,9 +727,6 @@ Weigert Creek
 </td>
 <td style="text-align:right;">
 1
-</td>
-<td style="text-align:right;">
-1.495
 </td>
 <td style="text-align:right;">
 0.7
@@ -765,9 +754,6 @@ Weigert Creek
 <td style="text-align:right;">
 –
 </td>
-<td style="text-align:right;">
-–
-</td>
 </tr>
 <tr>
 <td style="text-align:left;">
@@ -787,9 +773,6 @@ Weigert Creek
 </td>
 <td style="text-align:right;">
 4
-</td>
-<td style="text-align:right;">
-1.521
 </td>
 <td style="text-align:right;">
 2.6
@@ -817,9 +800,6 @@ Brule Creek
 <td style="text-align:right;">
 –
 </td>
-<td style="text-align:right;">
-–
-</td>
 </tr>
 <tr>
 <td style="text-align:left;">
@@ -839,9 +819,6 @@ Brule Creek
 </td>
 <td style="text-align:right;">
 1
-</td>
-<td style="text-align:right;">
-1.626
 </td>
 <td style="text-align:right;">
 0.6
@@ -867,9 +844,6 @@ Bighorn Creek
 25
 </td>
 <td style="text-align:right;">
-3.846
-</td>
-<td style="text-align:right;">
 6.5
 </td>
 </tr>
@@ -891,9 +865,6 @@ Tributary to Bighorn Creek
 </td>
 <td style="text-align:right;">
 5
-</td>
-<td style="text-align:right;">
-0.293
 </td>
 <td style="text-align:right;">
 17.1
@@ -919,9 +890,6 @@ Tributary to Bighorn Creek
 1
 </td>
 <td style="text-align:right;">
-0.987
-</td>
-<td style="text-align:right;">
 1.0
 </td>
 </tr>
@@ -945,9 +913,6 @@ Tributary to Bighorn Creek
 1
 </td>
 <td style="text-align:right;">
-0.726
-</td>
-<td style="text-align:right;">
 1.4
 </td>
 </tr>
@@ -955,18 +920,18 @@ Tributary to Bighorn Creek
 </table>
 </div>
 </div>
-<div id="fish-habitat-assessment-1" class="section level2 hasAnchor" number="4.2">
-<h2><span class="header-section-number">4.2</span> Fish Habitat Assessment<a href="results.html#fish-habitat-assessment-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="fish-habitat-assessment-1" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Fish Habitat Assessment<a href="results.html#fish-habitat-assessment-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Fish habitat was assessed at four sites within three reaches of Weigert Creek.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="results.html#cb15-1" tabindex="-1"></a>fhap_site <span class="sc">%&gt;%</span> </span>
-<span id="cb15-2"><a href="results.html#cb15-2" tabindex="-1"></a>  <span class="fu">select</span>(</span>
-<span id="cb15-3"><a href="results.html#cb15-3" tabindex="-1"></a>    location_site, </span>
-<span id="cb15-4"><a href="results.html#cb15-4" tabindex="-1"></a>    location_reach_number,</span>
-<span id="cb15-5"><a href="results.html#cb15-5" tabindex="-1"></a>    location_utm_easting,</span>
-<span id="cb15-6"><a href="results.html#cb15-6" tabindex="-1"></a>    location_utm_northing,</span>
-<span id="cb15-7"><a href="results.html#cb15-7" tabindex="-1"></a>    general_comments</span>
-<span id="cb15-8"><a href="results.html#cb15-8" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb15-9"><a href="results.html#cb15-9" tabindex="-1"></a>    fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">scroll =</span> F)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="results.html#cb16-1" tabindex="-1"></a>fhap_site <span class="sc">%&gt;%</span> </span>
+<span id="cb16-2"><a href="results.html#cb16-2" tabindex="-1"></a>  <span class="fu">select</span>(</span>
+<span id="cb16-3"><a href="results.html#cb16-3" tabindex="-1"></a>    location_site, </span>
+<span id="cb16-4"><a href="results.html#cb16-4" tabindex="-1"></a>    location_reach_number,</span>
+<span id="cb16-5"><a href="results.html#cb16-5" tabindex="-1"></a>    location_utm_easting,</span>
+<span id="cb16-6"><a href="results.html#cb16-6" tabindex="-1"></a>    location_utm_northing,</span>
+<span id="cb16-7"><a href="results.html#cb16-7" tabindex="-1"></a>    general_comments</span>
+<span id="cb16-8"><a href="results.html#cb16-8" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-9"><a href="results.html#cb16-9" tabindex="-1"></a>    fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">scroll =</span> F)</span></code></pre></div>
 <table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:unnamed-chunk-5">Table 4.3: </span>
@@ -1062,8 +1027,8 @@ Start approximately Elk River
 </tbody>
 </table>
 <p><br></p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="results.html#cb16-1" tabindex="-1"></a>fhap_hu_sum <span class="sc">%&gt;%</span> </span>
-<span id="cb16-2"><a href="results.html#cb16-2" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">scroll =</span> F)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="results.html#cb17-1" tabindex="-1"></a>fhap_hu_sum <span class="sc">%&gt;%</span> </span>
+<span id="cb17-2"><a href="results.html#cb17-2" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">scroll =</span> F)</span></code></pre></div>
 <table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:unnamed-chunk-6">Table 4.4: </span>

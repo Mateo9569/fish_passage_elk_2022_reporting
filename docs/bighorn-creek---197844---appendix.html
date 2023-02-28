@@ -232,11 +232,11 @@ watershed area upstream of the crossing of approximately
 a maximum of 2585m to
 1315m at the crossing (Table
 <a href="bighorn-creek---197844---appendix.html#tab:tab-wshd-197844">5.11</a>).</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="bighorn-creek---197844---appendix.html#cb44-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_wshd_sum</span>(<span class="at">site_id =</span> my_site) <span class="sc">%&gt;%</span> </span>
-<span id="cb44-2"><a href="bighorn-creek---197844---appendix.html#cb44-2" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="st">&#39;Elev Min&#39;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb44-3"><a href="bighorn-creek---197844---appendix.html#cb44-3" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="fu">paste0</span>(<span class="st">&#39;Summary of derived upstream watershed statistics for PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>),</span>
-<span id="cb44-4"><a href="bighorn-creek---197844---appendix.html#cb44-4" tabindex="-1"></a>           <span class="at">footnote_text =</span> <span class="st">&#39;Elev P60 = Elevation at which 60% of the watershed area is above&#39;</span>,</span>
-<span id="cb44-5"><a href="bighorn-creek---197844---appendix.html#cb44-5" tabindex="-1"></a>           <span class="at">scroll =</span> F)</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="bighorn-creek---197844---appendix.html#cb45-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_wshd_sum</span>(<span class="at">site_id =</span> my_site) <span class="sc">%&gt;%</span> </span>
+<span id="cb45-2"><a href="bighorn-creek---197844---appendix.html#cb45-2" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="st">&#39;Elev Min&#39;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb45-3"><a href="bighorn-creek---197844---appendix.html#cb45-3" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="fu">paste0</span>(<span class="st">&#39;Summary of derived upstream watershed statistics for PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>),</span>
+<span id="cb45-4"><a href="bighorn-creek---197844---appendix.html#cb45-4" tabindex="-1"></a>           <span class="at">footnote_text =</span> <span class="st">&#39;Elev P60 = Elevation at which 60% of the watershed area is above&#39;</span>,</span>
+<span id="cb45-5"><a href="bighorn-creek---197844---appendix.html#cb45-5" tabindex="-1"></a>           <span class="at">scroll =</span> F)</span></code></pre></div>
 <table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;border-bottom: 0;">
 <caption style="font-size: initial !important;">
 <span id="tab:tab-wshd-197844">Table 5.11: </span>Summary of derived upstream watershed statistics for PSCIS crossing 197844.
@@ -303,7 +303,7 @@ SSW
 <p>PSCIS crossing 197844 was assessed in 2021 by <span class="citation">(Irvine 2022)</span> and ranked as a barrier for upstream fish migration. The site was noted as having a significantly sized outlet drop (1.2m) and good flow with a location very close to the mainstem of Bighorn Creek which contains confirmed spawning habitat for westslope cutthrout trout. There was 0.8km of steep but viable juvenile rearing habitat surveyed upstream of crossing 197844 in 2021. Bighorn Creek has been noted as contributing significantly to habitat suitable for bull trout spawning in the Wigwam River system with spawning been noted just upstream of the confluence with the Wigwam River. The Wigwam River has been characterized as the most important spawning system in the East Kootenay region, supporting some of the largest westslope cutthrout trout in the Kootenay Region and is located ~11.5km downstream of the subject culvert <span class="citation">(Strong and K. D. 2015; R. S. Cope and Morris 2001)</span>. A detailed write up of habitat details and stream characteristics can be found in the 2021 report memo linked <a href="https://www.newgraphenvironment.com/fish_passage_elk_2021_reporting/appendix---197844---tributary-to-bighorn-creek.html">here</a>. A summary of habitat modelling outputs is presented in Table <a href="bighorn-creek---197844---appendix.html#tab:tab-culvert-bcfp-197844">5.12</a> and a map of the watershed is
 provided in map attachment <a href="https://hillcrestgeo.ca/outgoing/fishpassage/projects/elkr/archive/2022-03-17/FishPassage_082G.108.pdf">082G.108</a>.</p>
 <p><br></p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="bighorn-creek---197844---appendix.html#cb45-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_bcfp</span>(<span class="at">scroll =</span> gitbook_on) </span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="bighorn-creek---197844---appendix.html#cb46-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_bcfp</span>(<span class="at">scroll =</span> gitbook_on) </span></code></pre></div>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:100%; ">
 <table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;border-bottom: 0;">
 <caption style="font-size: initial !important;">
@@ -511,10 +511,10 @@ WCT Slopeclass22 (km)
 <p>Electrofishing was conducted with results summarised in Tables <a href="bighorn-creek---197844---appendix.html#tab:tab-fish-site-197844">5.14</a> - <a href="bighorn-creek---197844---appendix.html#tab:tab-fish-dens-197844">5.15</a> and Figure <a href="bighorn-creek---197844---appendix.html#fig:plot-fish-box-197844">5.6</a>. Habitat details are summarised in Table <a href="bighorn-creek---197844---appendix.html#tab:tab-habitat-summary-197844">5.13</a>. Note that the first site (197844_ds_ef1) was located on the mainstem of Bighorn Creek, while all other sites were located on a tributary to Bighorn Creek.</p>
 <p><br></p>
 <p><br></p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="bighorn-creek---197844---appendix.html#cb46-1" tabindex="-1"></a>tab_hab_summary <span class="sc">%&gt;%</span> </span>
-<span id="cb46-2"><a href="bighorn-creek---197844---appendix.html#cb46-2" tabindex="-1"></a>  <span class="fu">filter</span>(Site  <span class="sc">%like%</span> my_site) <span class="sc">%&gt;%</span> </span>
-<span id="cb46-3"><a href="bighorn-creek---197844---appendix.html#cb46-3" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="fu">paste0</span>(<span class="st">&#39;Summary of habitat details for electrofishing sites upstream and downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>),</span>
-<span id="cb46-4"><a href="bighorn-creek---197844---appendix.html#cb46-4" tabindex="-1"></a>                 <span class="at">scroll =</span> F) </span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="bighorn-creek---197844---appendix.html#cb47-1" tabindex="-1"></a>tab_hab_summary <span class="sc">%&gt;%</span> </span>
+<span id="cb47-2"><a href="bighorn-creek---197844---appendix.html#cb47-2" tabindex="-1"></a>  <span class="fu">filter</span>(Site  <span class="sc">%like%</span> my_site) <span class="sc">%&gt;%</span> </span>
+<span id="cb47-3"><a href="bighorn-creek---197844---appendix.html#cb47-3" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="fu">paste0</span>(<span class="st">&#39;Summary of habitat details for electrofishing sites upstream and downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>),</span>
+<span id="cb47-4"><a href="bighorn-creek---197844---appendix.html#cb47-4" tabindex="-1"></a>                 <span class="at">scroll =</span> F) </span></code></pre></div>
 <table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:tab-habitat-summary-197844">Table 5.13: </span>Summary of habitat details for electrofishing sites upstream and downstream of PSCIS crossing 197844.
@@ -655,7 +655,7 @@ Medium
 </tbody>
 </table>
 <p><br></p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="bighorn-creek---197844---appendix.html#cb47-1" tabindex="-1"></a><span class="fu">fpr_table_fish_site</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="bighorn-creek---197844---appendix.html#cb48-1" tabindex="-1"></a><span class="fu">fpr_table_fish_site</span>()</span></code></pre></div>
 <table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:tab-fish-site-197844">Table 5.14: </span>Fish sampling site summary for 197844.
@@ -766,7 +766,7 @@ open
 </tbody>
 </table>
 <p><br></p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="bighorn-creek---197844---appendix.html#cb48-1" tabindex="-1"></a><span class="fu">fpr_table_fish_density</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="bighorn-creek---197844---appendix.html#cb49-1" tabindex="-1"></a><span class="fu">fpr_table_fish_density</span>()</span></code></pre></div>
 <table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;border-bottom: 0;">
 <caption style="font-size: initial !important;">
 <span id="tab:tab-fish-dens-197844">Table 5.15: </span>Fish sampling density results summary for 197844.
@@ -859,19 +859,19 @@ FALSE
 197844_ds_ef1
 </td>
 <td style="text-align:left;">
-NFC
+SP
 </td>
 <td style="text-align:left;">
 juvenile
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-0.0
+0.1
 </td>
 <td style="text-align:left;">
-TRUE
+FALSE
 </td>
 </tr>
 <tr>
@@ -964,9 +964,9 @@ TRUE
 </tfoot>
 </table>
 <p><br></p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="bighorn-creek---197844---appendix.html#cb49-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Densites of fish (fish/100m2) captured downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span>
-<span id="cb49-2"><a href="bighorn-creek---197844---appendix.html#cb49-2" tabindex="-1"></a></span>
-<span id="cb49-3"><a href="bighorn-creek---197844---appendix.html#cb49-3" tabindex="-1"></a><span class="fu">fpr_plot_fish_box</span>() </span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="bighorn-creek---197844---appendix.html#cb50-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Densites of fish (fish/100m2) captured downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span>
+<span id="cb50-2"><a href="bighorn-creek---197844---appendix.html#cb50-2" tabindex="-1"></a></span>
+<span id="cb50-3"><a href="bighorn-creek---197844---appendix.html#cb50-3" tabindex="-1"></a><span class="fu">fpr_plot_fish_box</span>() </span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:plot-fish-box-197844"></span>
 <img src="Elk2022_files/figure-html/plot-fish-box-197844-1.png" alt="Densites of fish (fish/100m2) captured downstream of PSCIS crossing 197844." width="100%" />
 <p class="caption">
