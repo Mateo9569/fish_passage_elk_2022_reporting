@@ -98,9 +98,9 @@ hab_fish_collect_map_prep2 <- left_join(
 
 
 ##add the species code
-hab_fish_codes <- habitat_confirmations %>%
-  purrr::pluck("species_by_common_name") %>% ##changed from specie_by_common_name because BB burbot was wrong!!
-  select(-step)
+hab_fish_codes <- fishbc::freshwaterfish %>%
+  select(species_code = Code, common_name = CommonName) %>%
+  tibble::add_row(species_code = 'NFC', common_name = 'No Fish Caught')
 
 # this is the table to burn to geojson for mapping
 # we are just going to keep 1 site for upstream and downstream because more detail won't show well on the map anyway
@@ -462,82 +462,6 @@ rm(
 #          `Model link` = model_link,
 #          Comments = my_text)
 
-hab_site_prep <-  habitat_confirmations %>%
-  purrr::pluck("step_4_stream_site_data") %>%
-  # tidyr::separate(local_name, into = c('site', 'location'), remove = F) %>%
-  mutate(average_gradient_percent = round(average_gradient_percent * 100, 1)) %>%
-  mutate_if(is.numeric, round, 1) %>%
-  select(-gazetted_names:-site_number, -feature_type:-utm_method) %>%   ##remove the feature utms so they don't conflict with the site utms
-  distinct(reference_number, .keep_all = T) ##since we have features we need to filter them out
-
-
-hab_loc <- habitat_confirmations %>%
-  purrr::pluck("step_1_ref_and_loc_info") %>%
-  dplyr::filter(!is.na(site_number))%>%
-  mutate(survey_date = janitor::excel_numeric_to_date(as.numeric(survey_date)))
-
-hab_site <- left_join(
-  hab_loc,
-  hab_site_prep,
-  by = 'reference_number'
-) %>%
-  tidyr::separate(alias_local_name, into = c('site', 'location') , remove = F) %>%
-  mutate(site = as.numeric(site))
-  #dplyr::filter(!alias_local_name %like% '_ef') ##get rid of the ef sites
-
-hab_fish_collect_prep <- habitat_confirmations %>%
-  purrr::pluck("step_2_fish_coll_data") %>%
-  dplyr::filter(!is.na(site_number)) %>%
-  tidyr::separate(local_name, into = c('site', 'location', 'ef'), remove = F) %>%
-  mutate(site_id = paste0(site, location)) %>%
-  distinct(local_name, species, .keep_all = T) %>% ##changed this to make it work as a feed for the extract-fish.R file
-  mutate(across(c(date_in,date_out), janitor::excel_numeric_to_date)) %>%
-  mutate(across(c(time_in,time_out), chron::times))
-
-
-##prep the location info so it is ready to join to the fish data
-hab_loc2 <- hab_loc %>%
-  tidyr::separate(alias_local_name, into = c('site', 'location', 'ef'), remove = F) %>%
-  mutate(site_id = paste0(site, location)) %>%
-  filter(alias_local_name %like% 'ef') ##changed this from ef1
-
-##join the tables together
-hab_fish_collect_prep2 <- left_join(
-  select(hab_loc2, reference_number, site_id, utm_zone:utm_northing),
-  select(hab_fish_collect_prep %>% distinct(site_id, species, .keep_all = T), site_id, species),
-  by = 'site_id'
-)
-
-
-##add the species code
-hab_fish_codes <- habitat_confirmations %>%
-  purrr::pluck("species_by_common_name") %>% ##changed from specie_by_common_name because BB burbot was wrong!!
-  select(-step)
-
-
-hab_fish_collect <- left_join(
-  hab_fish_collect_prep2 %>% mutate(species = as.factor(species)),  ##just needed to do this b/c there actually are no fish.
-  select(hab_fish_codes, common_name, species_code),
-  by = c('species' = 'common_name')
-)
-
-
-hab_fish_collect_prep1 <- habitat_confirmations %>%
-  purrr::pluck("step_2_fish_coll_data") %>%
-  dplyr::filter(!is.na(site_number)) %>%
-  select(-gazetted_name:-site_number)
-
-hab_features <- left_join(
-  habitat_confirmations %>%
-    purrr::pluck("step_4_stream_site_data") %>%
-    select(reference_number,local_name, feature_type:utm_northing) %>%
-    filter(!is.na(feature_type)),
-
-  fpr_xref_obstacles,
-
-  by = c('feature_type' = 'spreadsheet_feature_type')
-)
-
 ##add the priorities to the site data
 # hab_site_priorities <- left_join(
 #   select(habitat_confirmations_priorities, reference_number, alias_local_name, priority),
@@ -835,7 +759,10 @@ tab_hab_summary <- left_join(
          `Pool Depth (m)` = average_residual_pool_depth_m,
          `Gradient (%)` = average_gradient_percent,
          `Total Cover` = total_cover,
-         `Habitat Value` = hab_value)
+         `Habitat Value` = hab_value) %>%
+  # filter out non ef sites for now, can undo later if needed
+  filter(Site != "197534_us4") %>%
+  filter(Site != "197534_us5")
 
 # # -------------------------map tables
 #

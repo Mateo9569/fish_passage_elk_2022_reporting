@@ -886,17 +886,15 @@ hab_loc <- habitat_confirmations %>%
   mutate(survey_date = janitor::excel_numeric_to_date(as.numeric(survey_date)))
 
 ##add the species code
-hab_fish_codes <- habitat_confirmations %>%
-  purrr::pluck("species_by_common_name") %>% ##changed from species_by_group but BB burbot was wrong!!
-  select(-step)
+hab_fish_codes <- fishbc::freshwaterfish %>%
+  select(species_code = Code, common_name = CommonName) %>%
+  tibble::add_row(species_code = 'NFC', common_name = 'No Fish Caught')
 
 hab_fish_indiv_prep2 <- left_join(
   hab_fish_indiv_prep,
   hab_loc,
   by = 'reference_number'
-)  %>% mutate(
-  species = case_when(species == 'Fish Unidentified Species' ~ 'Unidentified Species',
-                      T ~ species))
+)
 
 
 hab_fish_indiv_prep3 <- left_join(
