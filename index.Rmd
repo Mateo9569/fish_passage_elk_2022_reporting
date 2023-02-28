@@ -8,7 +8,8 @@ author: |
  |
  |
  | Prepared by
- | Al Irvine, B.Sc., R.P.Bio.
+ | Al Irvine, B.Sc., R.P.Bio. and 
+ | Mateo Winterscheidt
  | New Graph Environment Ltd.
 
 date: |
@@ -52,6 +53,7 @@ options(knitr.kable.NAN = '--')
 ```{r load-data}
 source('scripts/packages.R')
 source('scripts/tables.R')
+source('scripts/functions.R')
 ```
 
 
@@ -84,6 +86,6 @@ Modern civilization has a long journey ahead to acknowledge and address the hist
 
 ```{js, logo-header, echo = FALSE, eval= T}
 title=document.getElementById('header');
-title.innerHTML = '<img src="fig/logo.png" alt="NewGraph">' + title.innerHTML
+title.innerHTML = '<img src="fig/nge-full_white.png" alt="NewGraph">' + title.innerHTML
 ```
 

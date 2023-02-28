@@ -5,19 +5,19 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Weigert Creek - 197534 - Appendix | Elk River Watershed Group Fish Passage Restoration Planning 2022</title>
-  <meta name="description" content="2022 Reporting for Fish Passage Restoration Planning Assessments in the Elk River watershed group." />
+  <meta name="description" content="Reporting for 2022 Fish Passage Restoration Planning Assessments in the Elk River watershed group." />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Weigert Creek - 197534 - Appendix | Elk River Watershed Group Fish Passage Restoration Planning 2022" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="2022 Reporting for Fish Passage Restoration Planning Assessments in the Elk River watershed group." />
+  <meta property="og:description" content="Reporting for 2022 Fish Passage Restoration Planning Assessments in the Elk River watershed group." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Weigert Creek - 197534 - Appendix | Elk River Watershed Group Fish Passage Restoration Planning 2022" />
   
-  <meta name="twitter:description" content="2022 Reporting for Fish Passage Restoration Planning Assessments in the Elk River watershed group." />
+  <meta name="twitter:description" content="Reporting for 2022 Fish Passage Restoration Planning Assessments in the Elk River watershed group." />
   
 
 
@@ -189,7 +189,8 @@ div.csl-indent {
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
 <li class="chapter" data-level="2" data-path="background.html"><a href="background.html"><i class="fa fa-check"></i><b>2</b> Background</a></li>
 <li class="chapter" data-level="3" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>3</b> Methods</a></li>
-<li class="chapter" data-level="4" data-path="recommendations.html"><a href="recommendations.html"><i class="fa fa-check"></i><b>4</b> Recommendations</a></li>
+<li class="chapter" data-level="4" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>4</b> Results</a></li>
+<li class="chapter" data-level="5" data-path="recommendations.html"><a href="recommendations.html"><i class="fa fa-check"></i><b>5</b> Recommendations</a></li>
 <li class="chapter" data-level="" data-path="weigert-creek---197534---appendix.html"><a href="weigert-creek---197534---appendix.html"><i class="fa fa-check"></i>Weigert Creek - 197534 - Appendix</a></li>
 <li class="chapter" data-level="" data-path="brule-creek---197559---appendix.html"><a href="brule-creek---197559---appendix.html"><i class="fa fa-check"></i>Brule Creek - 197559 - Appendix</a></li>
 <li class="chapter" data-level="" data-path="bighorn-creek---197844---appendix.html"><a href="bighorn-creek---197844---appendix.html"><i class="fa fa-check"></i>Bighorn Creek - 197844 - Appendix</a></li>
@@ -221,18 +222,28 @@ div.csl-indent {
 <h2>Site Location<a href="weigert-creek---197534---appendix.html#site-location" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>PSCIS crossing 197534 is located on
 Highway 43, approximately 23.5km north of the town of
-Sparwood. Crossing
-197534 was located approximately 1.3km
+Sparwood. The culvert is located approximately 1.3km
 upstream from the confluence with the Elk River and is the
 responsibility of the Ministry of Transportation and Infrastructure.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="weigert-creek---197534---appendix.html#cb24-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_wshd_sum</span>(<span class="at">site_id =</span> my_site) <span class="sc">%&gt;%</span> </span>
-<span id="cb24-2"><a href="weigert-creek---197534---appendix.html#cb24-2" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="st">&#39;Elev Min&#39;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb24-3"><a href="weigert-creek---197534---appendix.html#cb24-3" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="fu">paste0</span>(<span class="st">&#39;Summary of derived upstream watershed statistics for PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>),</span>
-<span id="cb24-4"><a href="weigert-creek---197534---appendix.html#cb24-4" tabindex="-1"></a>           <span class="at">footnote_text =</span> <span class="st">&#39;Elev P60 = Elevation at which 60% of the watershed area is above&#39;</span>,</span>
-<span id="cb24-5"><a href="weigert-creek---197534---appendix.html#cb24-5" tabindex="-1"></a>           <span class="at">scroll =</span> F)</span></code></pre></div>
+<p><br></p>
+</div>
+<div id="background-1" class="section level2 unnumbered hasAnchor">
+<h2>Background<a href="weigert-creek---197534---appendix.html#background-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>At crossing 197534, Weigert Creek is a
+fourth order stream with a
+watershed area upstream of the crossing of approximately
+43.3km<sup>2</sup>. The elevation of the watershed ranges from
+a maximum of 2938m to
+1253m at the crossing (Table
+<a href="weigert-creek---197534---appendix.html#tab:tab-wshd-197534">5.1</a>). Although multiple upstream survey sites are recorded within provincial databases, there have been no fish recorded upstream <span class="citation">(MoE 2020b)</span>.</p>
+<p><br></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="weigert-creek---197534---appendix.html#cb19-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_wshd_sum</span>(<span class="at">site_id =</span> my_site) <span class="sc">%&gt;%</span> </span>
+<span id="cb19-2"><a href="weigert-creek---197534---appendix.html#cb19-2" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="fu">paste0</span>(<span class="st">&#39;Summary of derived upstream watershed statistics for PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>),</span>
+<span id="cb19-3"><a href="weigert-creek---197534---appendix.html#cb19-3" tabindex="-1"></a>           <span class="at">footnote_text =</span> <span class="st">&#39;Elev P60 = Elevation at which 60% of the watershed area is above&#39;</span>,</span>
+<span id="cb19-4"><a href="weigert-creek---197534---appendix.html#cb19-4" tabindex="-1"></a>           <span class="at">scroll =</span> F)</span></code></pre></div>
 <table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;border-bottom: 0;">
 <caption style="font-size: initial !important;">
-<span id="tab:tab-wshd-197534">Table 4.1: </span>Summary of derived upstream watershed statistics for PSCIS crossing 197534.
+<span id="tab:tab-wshd-197534">Table 5.1: </span>Summary of derived upstream watershed statistics for PSCIS crossing 197534.
 </caption>
 <thead>
 <tr>
@@ -244,6 +255,9 @@ Area Km
 </th>
 <th style="text-align:right;">
 Elev Site
+</th>
+<th style="text-align:right;">
+Elev Min
 </th>
 <th style="text-align:right;">
 Elev Max
@@ -271,6 +285,9 @@ Aspect
 1253
 </td>
 <td style="text-align:right;">
+1319
+</td>
+<td style="text-align:right;">
 2938
 </td>
 <td style="text-align:right;">
@@ -293,16 +310,17 @@ SE
 </tfoot>
 </table>
 <p><br></p>
+<p>PSCIS crossing 197534 was assessed in 2020 by <span class="citation">(Irvine 2021)</span> and ranked as a barrier for upstream fish migration. The site was noted as having a significantly sized outlet drop (1.2m) and good flow with a location very close to the mainstem of Bighorn Creek which contains confirmed spawning habitat for westslope cutthrout trout. There was 0.8km of steep but viable juvenile rearing habitat surveyed upstream of crossing 197844 in 2021. Bighorn Creek has been noted as contributing significantly to habitat suitable for bull trout spawning in the Wigwam River system with spawning been noted just upstream of the confluence with the Wigwam River. The Wigwam River has been characterized as the most important spawning system in the East Kootenay region, supporting some of the largest westslope cutthrout trout in the Kootenay Region and is located ~11.5km downstream of the subject culvert <span class="citation">(Strong and K. D. 2015; R. S. Cope and Morris 2001)</span>. A detailed write up of habitat details and stream characteristics can be found in the 2021 report memo linked <a href="https://www.newgraphenvironment.com/fish_passage_elk_2021_reporting/appendix---197844---tributary-to-bighorn-creek.html">here</a>.</p>
 <p>A summary of habitat modelling outputs is presented in Table
-<a href="weigert-creek---197534---appendix.html#tab:tab-culvert-bcfp-197534">4.2</a> and a map of the watershed is
+<a href="weigert-creek---197534---appendix.html#tab:tab-culvert-bcfp-197534">5.2</a> and a map of the watershed is
 provided in map attachment
 <a href="https://hillcrestgeo.ca/outgoing/fishpassage/projects/elkr/archive/2022-03-17/FishPassage_082G.123.pdf">082G.123</a>.</p>
 <p><br></p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="weigert-creek---197534---appendix.html#cb25-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_bcfp</span>(<span class="at">scroll =</span> gitbook_on) </span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="weigert-creek---197534---appendix.html#cb20-1" tabindex="-1"></a>fpr<span class="sc">::</span><span class="fu">fpr_table_bcfp</span>(<span class="at">scroll =</span> gitbook_on) </span></code></pre></div>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:100%; ">
 <table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;border-bottom: 0;">
 <caption style="font-size: initial !important;">
-<span id="tab:tab-culvert-bcfp-197534">Table 4.2: </span>Summary of fish habitat modelling for PSCIS crossing 197534.
+<span id="tab:tab-culvert-bcfp-197534">Table 5.2: </span>Summary of fish habitat modelling for PSCIS crossing 197534.
 </caption>
 <thead>
 <tr>
@@ -501,26 +519,27 @@ WCT Slopeclass22 (km)
 </div>
 <p><br></p>
 </div>
-<div id="fish-sampling" class="section level2 unnumbered hasAnchor">
-<h2>Fish Sampling<a href="weigert-creek---197534---appendix.html#fish-sampling" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Electrofishing was conducted with results summarised in Tables <a href="weigert-creek---197534---appendix.html#tab:tab-fish-site-197534">4.4</a> - <a href="weigert-creek---197534---appendix.html#tab:tab-fish-dens-197534">4.5</a> and Figure
-<a href="weigert-creek---197534---appendix.html#fig:plot-fish-box-197534">4.1</a>. Habitat details are summarised in Table <a href="weigert-creek---197534---appendix.html#tab:tab-habitat-summary-197534">4.3</a>.</p>
+<div id="fish-sampling-2" class="section level2 unnumbered hasAnchor">
+<h2>Fish Sampling<a href="weigert-creek---197534---appendix.html#fish-sampling-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Electrofishing was conducted with results summarised in Tables <a href="weigert-creek---197534---appendix.html#tab:tab-fish-site-197534">5.4</a> - <a href="weigert-creek---197534---appendix.html#tab:tab-fish-dens-197534">5.5</a> and Figure
+<a href="weigert-creek---197534---appendix.html#fig:plot-fish-box-197534">5.1</a>. Habitat details are summarised in Table <a href="weigert-creek---197534---appendix.html#tab:tab-habitat-summary-197534">5.3</a>.</p>
 <p><br></p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="weigert-creek---197534---appendix.html#cb26-1" tabindex="-1"></a>tab_hab_summary <span class="sc">%&gt;%</span> </span>
-<span id="cb26-2"><a href="weigert-creek---197534---appendix.html#cb26-2" tabindex="-1"></a>  <span class="fu">filter</span>(Site  <span class="sc">==</span> my_site) <span class="sc">%&gt;%</span> </span>
-<span id="cb26-3"><a href="weigert-creek---197534---appendix.html#cb26-3" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="fu">paste0</span>(<span class="st">&#39;Summary of habitat details for electrofishing sites upstream and downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>),</span>
-<span id="cb26-4"><a href="weigert-creek---197534---appendix.html#cb26-4" tabindex="-1"></a>                 <span class="at">scroll =</span> F) </span></code></pre></div>
+<p><br></p>
+</div>
+<div id="results-1" class="section level2 unnumbered hasAnchor">
+<h2>Results<a href="weigert-creek---197534---appendix.html#results-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="weigert-creek---197534---appendix.html#cb21-1" tabindex="-1"></a>tab_hab_summary <span class="sc">%&gt;%</span> </span>
+<span id="cb21-2"><a href="weigert-creek---197534---appendix.html#cb21-2" tabindex="-1"></a>  <span class="fu">filter</span>(Site <span class="sc">%like%</span> my_site) <span class="sc">%&gt;%</span></span>
+<span id="cb21-3"><a href="weigert-creek---197534---appendix.html#cb21-3" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="fu">paste0</span>(<span class="st">&#39;Summary of habitat details for electrofishing sites upstream and downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>),</span>
+<span id="cb21-4"><a href="weigert-creek---197534---appendix.html#cb21-4" tabindex="-1"></a>                 <span class="at">scroll =</span> F) </span></code></pre></div>
 <table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
-<span id="tab:tab-habitat-summary-197534">Table 4.3: </span>Summary of habitat details for electrofishing sites upstream and downstream of PSCIS crossing 197534.
+<span id="tab:tab-habitat-summary-197534">Table 5.3: </span>Summary of habitat details for electrofishing sites upstream and downstream of PSCIS crossing 197534.
 </caption>
 <thead>
 <tr>
-<th style="text-align:right;">
-Site
-</th>
 <th style="text-align:left;">
-Location
+Site
 </th>
 <th style="text-align:right;">
 Length Surveyed (m)
@@ -547,11 +566,8 @@ Habitat Value
 </thead>
 <tbody>
 <tr>
-<td style="text-align:right;">
-197534
-</td>
 <td style="text-align:left;">
-ds_ef1
+197534_ds_ef1
 </td>
 <td style="text-align:right;">
 520
@@ -576,11 +592,8 @@ Medium
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-197534
-</td>
 <td style="text-align:left;">
-ds_ef2
+197534_ds_ef2
 </td>
 <td style="text-align:right;">
 1240
@@ -605,98 +618,8 @@ ds_ef2
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-197534
-</td>
 <td style="text-align:left;">
-us4
-</td>
-<td style="text-align:right;">
-440
-</td>
-<td style="text-align:right;">
-6.8
-</td>
-<td style="text-align:right;">
-5.7
-</td>
-<td style="text-align:right;">
-0.6
-</td>
-<td style="text-align:right;">
-5.5
-</td>
-<td style="text-align:left;">
-moderate
-</td>
-<td style="text-align:left;">
-Medium
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-197534
-</td>
-<td style="text-align:left;">
-us5
-</td>
-<td style="text-align:right;">
-450
-</td>
-<td style="text-align:right;">
-6.7
-</td>
-<td style="text-align:right;">
-4.8
-</td>
-<td style="text-align:right;">
-0.6
-</td>
-<td style="text-align:right;">
-3.5
-</td>
-<td style="text-align:left;">
-moderate
-</td>
-<td style="text-align:left;">
-Medium
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-197534
-</td>
-<td style="text-align:left;">
-us_ef1
-</td>
-<td style="text-align:right;">
-–
-</td>
-<td style="text-align:right;">
-6.2
-</td>
-<td style="text-align:right;">
-4.4
-</td>
-<td style="text-align:right;">
-–
-</td>
-<td style="text-align:right;">
-6.6
-</td>
-<td style="text-align:left;">
-–
-</td>
-<td style="text-align:left;">
-–
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-197534
-</td>
-<td style="text-align:left;">
-us_ef2
+197534_us_ef2
 </td>
 <td style="text-align:right;">
 300
@@ -721,11 +644,34 @@ High
 </td>
 </tr>
 <tr>
+<td style="text-align:left;">
+197534_us_ef1
+</td>
 <td style="text-align:right;">
-197534
+–
+</td>
+<td style="text-align:right;">
+6.2
+</td>
+<td style="text-align:right;">
+4.4
+</td>
+<td style="text-align:right;">
+–
+</td>
+<td style="text-align:right;">
+6.6
 </td>
 <td style="text-align:left;">
-us_ef3
+–
+</td>
+<td style="text-align:left;">
+–
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+197534_us_ef3
 </td>
 <td style="text-align:right;">
 –
@@ -750,11 +696,60 @@ High
 </td>
 </tr>
 <tr>
+<td style="text-align:left;">
+197534_us4
+</td>
 <td style="text-align:right;">
-197534
+440
+</td>
+<td style="text-align:right;">
+6.8
+</td>
+<td style="text-align:right;">
+5.7
+</td>
+<td style="text-align:right;">
+0.6
+</td>
+<td style="text-align:right;">
+5.5
 </td>
 <td style="text-align:left;">
-us_ef4
+moderate
+</td>
+<td style="text-align:left;">
+Medium
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+197534_us5
+</td>
+<td style="text-align:right;">
+450
+</td>
+<td style="text-align:right;">
+6.7
+</td>
+<td style="text-align:right;">
+4.8
+</td>
+<td style="text-align:right;">
+0.6
+</td>
+<td style="text-align:right;">
+3.5
+</td>
+<td style="text-align:left;">
+moderate
+</td>
+<td style="text-align:left;">
+Medium
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+197534_us_ef4
 </td>
 <td style="text-align:right;">
 330
@@ -779,11 +774,8 @@ Medium
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-197534
-</td>
 <td style="text-align:left;">
-us_ef5
+197534_us_ef5
 </td>
 <td style="text-align:right;">
 300
@@ -808,11 +800,8 @@ abundant
 </td>
 </tr>
 <tr>
-<td style="text-align:right;">
-197534
-</td>
 <td style="text-align:left;">
-us_ef6
+197534_us_ef6
 </td>
 <td style="text-align:right;">
 550
@@ -839,10 +828,10 @@ abundant
 </tbody>
 </table>
 <p><br></p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="weigert-creek---197534---appendix.html#cb27-1" tabindex="-1"></a><span class="fu">fpr_table_fish_site</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="weigert-creek---197534---appendix.html#cb22-1" tabindex="-1"></a><span class="fu">fpr_table_fish_site</span>()</span></code></pre></div>
 <table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
-<span id="tab:tab-fish-site-197534">Table 4.4: </span>Fish sampling site summary for 197534.
+<span id="tab:tab-fish-site-197534">Table 5.4: </span>Fish sampling site summary for 197534.
 </caption>
 <thead>
 <tr>
@@ -1030,10 +1019,10 @@ open
 </tbody>
 </table>
 <p><br></p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="weigert-creek---197534---appendix.html#cb28-1" tabindex="-1"></a><span class="fu">fpr_table_fish_density</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="weigert-creek---197534---appendix.html#cb23-1" tabindex="-1"></a><span class="fu">fpr_table_fish_density</span>()</span></code></pre></div>
 <table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;border-bottom: 0;">
 <caption style="font-size: initial !important;">
-<span id="tab:tab-fish-dens-197534">Table 4.5: </span>Fish sampling density results summary for 197534.
+<span id="tab:tab-fish-dens-197534">Table 5.5: </span>Fish sampling density results summary for 197534.
 </caption>
 <thead>
 <tr>
@@ -1388,20 +1377,20 @@ FALSE
 </tfoot>
 </table>
 <p><br></p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="weigert-creek---197534---appendix.html#cb29-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Densites of fish (fish/100m2) captured upstream and downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span>
-<span id="cb29-2"><a href="weigert-creek---197534---appendix.html#cb29-2" tabindex="-1"></a></span>
-<span id="cb29-3"><a href="weigert-creek---197534---appendix.html#cb29-3" tabindex="-1"></a><span class="fu">fpr_plot_fish_box</span>() </span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="weigert-creek---197534---appendix.html#cb24-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Densites of fish (fish/100m2) captured upstream and downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span>
+<span id="cb24-2"><a href="weigert-creek---197534---appendix.html#cb24-2" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="weigert-creek---197534---appendix.html#cb24-3" tabindex="-1"></a><span class="fu">fpr_plot_fish_box</span>() </span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:plot-fish-box-197534"></span>
 <img src="Elk2022_files/figure-html/plot-fish-box-197534-1.png" alt="Densites of fish (fish/100m2) captured upstream and downstream of PSCIS crossing 197534." width="100%" />
 <p class="caption">
-Figure 4.1: Densites of fish (fish/100m2) captured upstream and downstream of PSCIS crossing 197534.
+Figure 5.1: Densites of fish (fish/100m2) captured upstream and downstream of PSCIS crossing 197534.
 </p>
 </div>
 
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="weigert-creek---197534---appendix.html#cb30-1" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo=</span><span class="cn">FALSE</span>, <span class="at">message=</span><span class="cn">FALSE</span>, <span class="at">warning=</span><span class="cn">FALSE</span>)</span>
-<span id="cb30-2"><a href="weigert-creek---197534---appendix.html#cb30-2" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;scripts/packages.R&#39;</span>)</span>
-<span id="cb30-3"><a href="weigert-creek---197534---appendix.html#cb30-3" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;scripts/tables.R&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="weigert-creek---197534---appendix.html#cb31-1" tabindex="-1"></a>my_site <span class="ot">&lt;-</span> <span class="dv">197559</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="weigert-creek---197534---appendix.html#cb25-1" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo=</span><span class="cn">FALSE</span>, <span class="at">message=</span><span class="cn">FALSE</span>, <span class="at">warning=</span><span class="cn">FALSE</span>)</span>
+<span id="cb25-2"><a href="weigert-creek---197534---appendix.html#cb25-2" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;scripts/packages.R&#39;</span>)</span>
+<span id="cb25-3"><a href="weigert-creek---197534---appendix.html#cb25-3" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;scripts/tables.R&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="weigert-creek---197534---appendix.html#cb26-1" tabindex="-1"></a>my_site <span class="ot">&lt;-</span> <span class="dv">197559</span></span></code></pre></div>
 </div>
 </div>
             </section>
