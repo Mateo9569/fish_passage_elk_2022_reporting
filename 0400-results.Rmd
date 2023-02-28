@@ -1,5 +1,13 @@
 # Results
 
+## Project Location
+
+```{r survey-site-map, fig.cap = 'Map of Survey Sites',eval=T}
+knitr::include_graphics("fig/elk_fish_passage_2022.png")
+```
+
+<br>
+
 ## Fish Sampling
 A total of `r hab_site %>% filter(str_detect(alias_local_name, '_ef')) %>% nrow()` sites were electrofished within `r hab_site %>% filter(str_detect(alias_local_name, '_ef')) %>% distinct(gazetted_name) %>% nrow()` streams.
 
