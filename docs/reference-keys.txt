@@ -19,10 +19,8 @@ tab:tab-culvert-bcfp-197559
 tab:tab-habitat-summary-197559
 tab:tab-fish-site-197559
 tab:tab-fish-dens-197559
-fig:photo-197559-01
-fig:photo-197559-02
-fig:photo-197559-03
-fig:photo-197559-04
+fig:photo-197559-u02
+fig:photo-197559-u04
 tab:tab-wshd-197844
 tab:tab-culvert-bcfp-197844
 tab:tab-habitat-summary-197844
