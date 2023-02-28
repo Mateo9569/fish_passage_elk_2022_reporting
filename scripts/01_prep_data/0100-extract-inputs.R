@@ -887,8 +887,10 @@ hab_loc <- habitat_confirmations %>%
 
 ##add the species code
 hab_fish_codes <- habitat_confirmations %>%
-  purrr::pluck("species_by_common_name") %>% ##changed from species_by_group but BB burbot was wrong!!
-  select(-step)
+  purrr::pluck("species_by_common_name") %>%
+  select(-step) %>%
+  # Burbot species code was 'BT' which is bull trout, change it to correct one
+  mutate(species_code = case_when(common_name == 'Burbot' ~ 'BB', T ~ species_code))
 
 hab_fish_indiv_prep2 <- left_join(
   hab_fish_indiv_prep,
