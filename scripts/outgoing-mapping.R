@@ -1,7 +1,7 @@
-source('R/packages.R')
-source('R/functions.R')
-source('R/private_info.R')
-source('R/tables.R')
+source('scripts/packages.R')
+source('scripts/functions.R')
+source('scripts/private_info.R')
+source('scripts/tables.R')
 
 ##make your geopackage for mapping
 make_geopackage <- function(dat, gpkg_name = 'fishpass_mapping', utm_zone = 11){
@@ -14,7 +14,8 @@ make_geopackage <- function(dat, gpkg_name = 'fishpass_mapping', utm_zone = 11){
 
 dir.create('data/fishpass_mapping')
 
-# make_geopackage(dat = hab_fish_collect)
+make_geopackage(dat = hab_fish_collect)
+make_geopackage(dat = hab_fiss_site)
 make_geopackage(dat = hab_features)
 make_geopackage(dat = hab_site_priorities)
 make_geopackage(dat = phase1_priorities)
@@ -25,8 +26,6 @@ phase1_priorities_filtered <- phase1_priorities %>%
   filter(!pscis_crossing_id %in% (hab_site_priorities %>% pull(site)))
 
 make_geopackage(dat = phase1_priorities_filtered)
-
-
 
 ##we do this manually
 #   st_transform(crs = 3005) %>%
