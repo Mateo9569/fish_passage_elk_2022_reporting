@@ -105,7 +105,7 @@ fhap_hu <- left_join(
 )
 # map it quickly to see that it is good to go
 fhap_sf <- fhap_hu %>%
-  sf::st_as_sf(coords = c('utm_easting', 'utm_northing'), crs = 26911, remove = F)
+  sf::st_as_sf(coords = c('easting', 'northing'), crs = 26911, remove = F)
 coll <- "whse_basemapping.fwa_stream_networks_sp"
 stream <- fwapgr::fwa_query_collection(coll, filter = list(gnis_name = ("Weigert Creek")))
 ggplot2::ggplot() +
@@ -113,8 +113,8 @@ ggplot2::ggplot() +
   ggplot2::geom_sf(data = fhap_sf, lwd = 0.15, fill = "steelblue", alpha = 0.5)
 
 ### --------------- burn out to file-----
-# fhap_hu %>% readr::write_csv('data/fhap_hu_clean.csv')
-# fpr::fpr_make_geopackage(dat = fhap_hu, utm_zone = 11)
+fhap_hu %>% readr::write_csv('data/fhap_hu_clean.csv')
+fpr::fpr_make_geopackage(dat = fhap_hu, utm_zone = 11, x = 'easting', y = 'northing')
 
 # sf::st_delete(dsn = "data/fishpass_mapping/fishpass_mapping.gpkg", layer = 'fhap')
 sf::st_layers("data/fishpass_mapping/fishpass_mapping.gpkg")
@@ -158,10 +158,10 @@ fhap_site_sf <- fhap_site %>%
   sf::st_as_sf(coords = c('location_utm_easting', 'location_utm_northing'), crs = 26911, remove = F)
 
 ### --------------- burn out to file-----
-# fpr::fpr_make_geopackage(dat = fhap_site,
-#                          utm_zone = 11,
-#                          x = "location_utm_easting",
-#                          y = "location_utm_northing")
+fpr::fpr_make_geopackage(dat = fhap_site,
+                         utm_zone = 11,
+                         x = "location_utm_easting",
+                         y = "location_utm_northing")
 
 # sf::st_delete(dsn = "data/fishpass_mapping/fishpass_mapping.gpkg", layer = 'fhap')
 sf::st_layers("data/fishpass_mapping/fishpass_mapping.gpkg")
@@ -170,7 +170,8 @@ sf::st_layers("data/fishpass_mapping/fishpass_mapping.gpkg")
 # burn it all into the sqlite
 conn <- rws_connect("data/bcfishpass.sqlite")
 rws_list_tables(conn)
-rws_drop_table("fhap_site", conn = conn) ##now drop the table so you can replace it
+rws_drop_table("fhap_hu", conn = conn) ##now drop the table so you can replace it if the columns are different
+rws_drop_table("fhap_site", conn = conn) ##now drop the table so you can replace it if the columns are different
 rws_write(fhap_hu, exists = F, delete = TRUE,
           conn = conn, x_name = "fhap_hu")
 rws_write(fhap_site, exists = F, delete = TRUE,
