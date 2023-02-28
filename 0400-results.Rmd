@@ -1,0 +1,68 @@
+# Results
+
+## Fish Sampling
+A total of `r hab_site %>% filter(str_detect(alias_local_name, '_ef')) %>% nrow()` sites were electrofished within `r hab_site %>% filter(str_detect(alias_local_name, '_ef')) %>% distinct(gazetted_name) %>% nrow()` streams.
+
+```{r}
+hab_site%>% 
+  select(gazetted_name,
+         alias_local_name,
+         utm_easting,
+         utm_northing,
+         comments
+         ) %>% 
+  fpr::fpr_kable()
+```
+
+
+```{r}
+
+test <- hab_site %>% filter(str_detect(alias_local_name, '_ef')) %>% nrow()
+# sum of all the fish per site and the electrofishing seconds
+# to do - define CPUE adn put units  (fish/1000s) in footnote
+fish_samp_sum <- left_join(
+  hab_fish_indiv %>%
+  group_by(local_name, ef_length_m, ef_width_m, ef_seconds) %>% 
+  summarise(count_fish = n()) %>% 
+  arrange(local_name),
+  
+  hab_site %>% 
+    select(gazetted_name,
+         alias_local_name),
+  
+  by = c('local_name' = 'alias_local_name')
+) %>% 
+  relocate(
+    gazetted_name, .before = local_name
+  ) %>% 
+  mutate(test = ef_seconds/1000) %>% 
+  mutate(CPUE = round(count_fish/(ef_seconds / 1000), 1))
+
+fish_samp_sum %>% 
+  fpr::fpr_kable()
+```
+
+
+
+## Fish Habitat Assessment 
+Fish habitat was assessed at four sites within three reaches of Weigert Creek.
+
+```{r}
+fhap_site %>% 
+  select(
+    location_site, 
+    location_utm_easting,
+    location_utm_northing,
+    general_comments
+  ) %>% 
+    fpr::fpr_kable()
+```
+
+
+```{r}
+fhap_hu_sum %>% 
+  fpr::fpr_kable()
+```
+
+
+
