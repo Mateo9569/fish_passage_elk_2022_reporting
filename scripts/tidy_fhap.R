@@ -45,6 +45,31 @@ source('scripts/functions.R')
 #   mutate(id_join = NA_integer_,
 #          id_side = NA_integer_)
 
+# ##-----get spatial info----------------------------
+# import the gps and join to the fhap. Maybe should have left this big file out of the repo but didn't
+gps_loc <- 'data/elk_2022_field_al.GPX'
+gps <- sf::st_read(gps_loc,
+                   layer = 'waypoints',
+                   quiet = T) %>%
+  janitor::clean_names() %>%
+  # this is a work around so that we get the original name of the renamed wp if there were duplicate names in basecamp
+  # mutate(name = as.numeric(name),
+  #        name = case_when(name > 1000 ~ round(name/10, 0),
+  #                         T ~ name)) %>%
+  # dplyr::select(name_old = name, everything())  %>%
+  # mutate(source = 'AI',
+  #        name = paste0(name_old, '_', source, '_', lubridate::year(time))) %>%
+  sf::st_transform(crs = 26911) %>%
+  poisspatial::ps_sfc_to_coords(X = 'utm_easting', Y = 'utm_northing') %>%
+  select(
+    name,
+    # name_old,
+    # source,
+    # ele,
+    # time,
+    easting = utm_easting,
+    northing = utm_northing)
+
 ##---------------- Import fhap_habitat_units-----------------
 fhap_hu_raw <- readxl::read_excel(
   'data/FHAP.xlsx',
@@ -88,8 +113,8 @@ ggplot2::ggplot() +
   ggplot2::geom_sf(data = fhap_sf, lwd = 0.15, fill = "steelblue", alpha = 0.5)
 
 ### --------------- burn out to file-----
-fhap_hu %>% readr::write_csv('data/fhap_hu_clean.csv')
-fpr::fpr_make_geopackage(dat = fhap_hu, utm_zone = 11)
+# fhap_hu %>% readr::write_csv('data/fhap_hu_clean.csv')
+# fpr::fpr_make_geopackage(dat = fhap_hu, utm_zone = 11)
 
 # sf::st_delete(dsn = "data/fishpass_mapping/fishpass_mapping.gpkg", layer = 'fhap')
 sf::st_layers("data/fishpass_mapping/fishpass_mapping.gpkg")
@@ -107,30 +132,7 @@ fhap_site <- readxl::read_excel(
   mutate(location_waypoint_start = stringr::str_pad(location_waypoint_start, 3, pad = "0"),
          location_waypoint_end = stringr::str_pad(location_waypoint_end, 3, pad = "0"))
 
-# ##-----get spatial info----------------------------
-# import the gps and join to the fhap. Maybe should have left this big file out of the repo but didn't
-gps_loc <- 'data/elk_2022_field_al.GPX'
-gps <- sf::st_read(gps_loc,
-                   layer = 'waypoints',
-                   quiet = T) %>%
-  janitor::clean_names() %>%
-  # this is a work around so that we get the original name of the renamed wp if there were duplicate names in basecamp
-  # mutate(name = as.numeric(name),
-  #        name = case_when(name > 1000 ~ round(name/10, 0),
-  #                         T ~ name)) %>%
-  # dplyr::select(name_old = name, everything())  %>%
-  # mutate(source = 'AI',
-  #        name = paste0(name_old, '_', source, '_', lubridate::year(time))) %>%
-  sf::st_transform(crs = 26911) %>%
-  poisspatial::ps_sfc_to_coords(X = 'utm_easting', Y = 'utm_northing') %>%
-  select(
-    name,
-    # name_old,
-    # source,
-    # ele,
-    # time,
-    easting = utm_easting,
-    northing = utm_northing)
+
 
 # # this is how we joined to the gps data by start utm and utm
 # fhap_site_loc <- left_join(
@@ -156,10 +158,10 @@ fhap_site_sf <- fhap_site %>%
   sf::st_as_sf(coords = c('location_utm_easting', 'location_utm_northing'), crs = 26911, remove = F)
 
 ### --------------- burn out to file-----
-fpr::fpr_make_geopackage(dat = fhap_site,
-                         utm_zone = 11,
-                         x = "location_utm_easting",
-                         y = "location_utm_northing")
+# fpr::fpr_make_geopackage(dat = fhap_site,
+#                          utm_zone = 11,
+#                          x = "location_utm_easting",
+#                          y = "location_utm_northing")
 
 # sf::st_delete(dsn = "data/fishpass_mapping/fishpass_mapping.gpkg", layer = 'fhap')
 sf::st_layers("data/fishpass_mapping/fishpass_mapping.gpkg")
@@ -177,94 +179,5 @@ rws_list_tables(conn)
 rws_disconnect(conn)
 
 
-# make summary table for site area by reach, site, hu
-fhap_hu_sum_rsh <- fhap_hu %>%
-  mutate(area_hu = habitat_unit_length_m * mean_width_wetted_m) %>%
-  group_by(location_site, location_reach_number, habitat_unit_type) %>%
-  summarise(area = sum(area_hu))
 
-# make summary table for area by reach, hu
-fhap_hu_sum_rh <- fhap_hu %>%
-  mutate(area_hu = habitat_unit_length_m * mean_width_wetted_m) %>%
-  group_by(location_reach_number, habitat_unit_type) %>%
-  summarise(area = sum(area_hu))
-
-# make summary table for area by reach and site
-fhap_hu_sum_rs <- fhap_hu %>%
-  mutate(area_hu = habitat_unit_length_m * mean_width_wetted_m) %>%
-  group_by(location_site, location_reach_number) %>%
-  summarise(area_total = sum(area_hu))
-
-# make summary table for area by reach
-fhap_hu_sum_r <- fhap_hu %>%
-  mutate(area_hu = habitat_unit_length_m * mean_width_wetted_m) %>%
-  group_by(location_reach_number) %>%
-  summarise(area_total = sum(area_hu))
-
-# get percentage by site
-fhap_hu_perc_s <- left_join(
-  fhap_hu_sum_rsh,
-  fhap_hu_sum_rs,
-  by = c('location_site', 'location_reach_number')
-) %>%
-  mutate(perc = round(area/area_total * 100, 0))
-
-# get percentage by reach
-fhap_hu_perc_r <- left_join(
-  fhap_hu_sum_rh,
-  fhap_hu_sum_r,
-  by = c('location_reach_number')
-) %>%
-  mutate(perc = round(area/area_total * 100, 0))
-
-
-# get percentage by reach pivoted to show reaches side by side
-fhap_hu_perc_rp <- fhap_hu_perc_r %>%
-  select(-area, -area_total) %>%
-  pivot_wider(names_from = location_reach_number,
-              names_prefix = "Reach_",
-              values_from = perc) %>%
-  arrange(desc(Reach_1))
-
-# make a graph to show the HU results by reach
-fhap_p_hu <- fhap_hu_perc_r %>%
-  ggplot(aes(x = location_reach_number, y = perc)) +
-  geom_bar(stat = "identity")+
-  facet_wrap(~habitat_unit_type, scales = "fixed") +
-  ggdark::dark_theme_bw()
-fhap_p_hu
-
-# make a table summarizing length of size, ave channel width, total area, lwd and lwd/bankfull width
-# this needs work bc we need the number of bankful channel widths by dividing total reach lenght by the mean bankfull channel width
-fhap_hu_lwal <- fhap_hu %>%
-  rowwise() %>%
-  mutate(area_hu = location_distance_m * mean_width_wetted_m,
-         lwd_fun = sum(across(starts_with("functional")), na.rm = T),
-         ) %>%
-  filter(habitat_unit_cat == 1) %>%
-  group_by(location_site) %>%
-  reframe(
-    site_length = round(sum(habitat_unit_length_m),0),
-    avg_chan_width = round(ave(mean_width_bankfull_m),1),
-    area_total_m2 = round(sum(area_hu),0),
-    lwd_func = sum(lwd_fun),
-    chan_width_per_site = site_length/avg_chan_width,
-    lwd_func_bw = round(lwd_func/chan_width_per_site,1)
-  ) %>%
-  distinct()
-
-# need to summarize percent by site
-fhap_hu_perc_s_sum <- fhap_hu_perc_s %>%
-  ungroup() %>%
-  select(-area, -location_reach_number, -area_total) %>%
-  group_by(location_site) %>%
-  pivot_wider(names_from = habitat_unit_type,
-              values_from = perc)
-
-# overall summary table
-fhap_hu_sum <- left_join(
-  fhap_hu_lwal %>% select(-chan_width_per_site),
-  fhap_hu_perc_s_sum,
-  by = 'location_site'
-)
 
