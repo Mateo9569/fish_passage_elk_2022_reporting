@@ -65,6 +65,10 @@ hab_site <- left_join(
   mutate(site = as.numeric(site))
   #plyr::filter(!alias_local_name %like% '_ef') ##get rid of the ef sites
 
+# make object for ef sites, can use this to burn to fishpass mapping gpckg
+hab_fiss_site <- hab_site %>%
+  filter((alias_local_name %like% '_ef'))
+
 hab_fish_collect_map_prep <- habitat_confirmations %>%
   purrr::pluck("step_2_fish_coll_data") %>%
   dplyr::filter(!is.na(site_number)) %>%
