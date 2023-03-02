@@ -12,6 +12,7 @@ wshds <- readwritesqlite::rws_read_table("wshds", conn = conn)
 # # fiss_sum <- readwritesqlite::rws_read_table("fiss_sum", conn = conn)
 fhap_site <- readwritesqlite::rws_read_table("fhap_site", conn = conn)
 fhap_hu <- readwritesqlite::rws_read_table("fhap_hu", conn = conn)
+hydrometrics <- readwritesqlite::rws_read_table("hydrometrics", conn = conn)
 rws_disconnect(conn)
 #
 # ##build the dams table
@@ -64,6 +65,10 @@ hab_site <- left_join(
   tidyr::separate(alias_local_name, into = c('site', 'location'), remove = F) %>%
   mutate(site = as.numeric(site))
   #plyr::filter(!alias_local_name %like% '_ef') ##get rid of the ef sites
+
+# make object for ef sites, can use this to burn to fishpass mapping gpckg
+hab_fiss_site <- hab_site %>%
+  filter((alias_local_name %like% '_ef'))
 
 hab_fish_collect_map_prep <- habitat_confirmations %>%
   purrr::pluck("step_2_fish_coll_data") %>%
@@ -946,4 +951,13 @@ fhap_hu_sum <- left_join(
   by = 'location_site'
 )
 
+#------Hydrometrics-----
 
+# import csv
+# hydrometrics <- read_csv('data/hydrometrics.csv')
+
+# conn <- rws_connect("data/bcfishpass.sqlite")
+# rws_list_tables(conn)
+# rws_write(hydrometrics, exists = F, delete = TRUE,
+#           conn = conn, x_name = "hydrometrics")
+# rws_disconnect(conn)

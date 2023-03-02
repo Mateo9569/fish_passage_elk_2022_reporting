@@ -94,3 +94,71 @@ fpr_plot_fish_box()
 
 ```
 
+<br>
+
+```{r photo-197844-01-prep}
+
+my_photo1 = fpr::fpr_photo_pull_by_str(site = my_site, str_to_pull = '_d1_')
+
+my_caption1 = paste0('Typical habitat downstream of PSCIS crossing ', my_site, ', on mainstem of Bighorn Creek.')
+```
+
+```{r photo-197844-01, fig.cap= my_caption1, out.width = photo_width, eval=gitbook_on}
+grid::grid.raster(jpeg::readJPEG(my_photo1))
+```
+
+<br>
+
+```{r photo-197844-02-prep}
+my_photo2 = fpr::fpr_photo_pull_by_str(site = my_site, str_to_pull = '_d2_')
+
+my_caption2 = paste0('Outlet pool at PSCIS crossing ', my_site, ' , on a tributary to Bighorn Creek.')
+
+```
+
+```{r photo-197844-02, fig.cap= my_caption2, out.width = photo_width, eval=gitbook_on}
+grid::grid.raster(jpeg::readJPEG(my_photo2))
+```
+
+```{r photo-197844-u02, fig.cap = my_caption, fig.show="hold", out.width= c("49.5%","1%","49.5%"), eval=identical(gitbook_on, FALSE)}
+
+my_caption <- paste0('Left: ', my_caption1, ' Right: ', my_caption2)
+
+knitr::include_graphics(my_photo1)
+knitr::include_graphics("fig/pixel.png")
+knitr::include_graphics(my_photo2)
+```
+
+<br>
+
+```{r photo-197844-03-prep}
+my_photo1 = fpr::fpr_photo_pull_by_str(site = my_site, str_to_pull = '_u1_')
+
+my_caption1 = paste0('Typical habitat upstream of PSCIS crossing ', my_site, ' , on a tributary to Bighorn Creek.')
+```
+
+```{r photo-197844-03, fig.cap= my_caption1, out.width = photo_width, eval=gitbook_on}
+grid::grid.raster(jpeg::readJPEG(my_photo1))
+```
+
+<br>
+
+```{r photo-197844-04-prep}
+my_photo2 = fpr::fpr_photo_pull_by_str(site = my_site, str_to_pull = '_u2_')
+
+my_caption2 = paste0('Typical habitat upstream of PSCIS crossing ', my_site, ' , on a tributary to Bighorn Creek.')
+
+```
+
+```{r photo-197844-04, fig.cap= my_caption2, out.width = photo_width, eval=gitbook_on}
+grid::grid.raster(jpeg::readJPEG(my_photo2))
+```
+
+```{r photo-197844-u04, fig.cap = my_caption, fig.show="hold", out.width= c("49.5%","1%","49.5%"), eval=identical(gitbook_on, FALSE)}
+
+my_caption <- paste0('Left: ', my_caption1, ' Right: ', my_caption2)
+
+knitr::include_graphics(my_photo1)
+knitr::include_graphics("fig/pixel.png")
+knitr::include_graphics(my_photo2)
+```

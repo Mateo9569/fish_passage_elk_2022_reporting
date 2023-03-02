@@ -1,0 +1,5 @@
+﻿gazetted_name,location,hydrometric flow data (m3/S),dd/mm/yy & time,utm_zone,utm_easting,utm_northing
+Weigert Creek,upstream,0.016,18/10/2022 & 10:30,11,650707,5528331
+Weigert Creek,downstream,0.036,18/10/2022 & 11:30,11,651833,5528789
+Brule Creek,upstream,0.183,18/10/2022 & 13:35,11,649110,5531723
+Brule Creek,downstream,0.252,18/10/2022 & 14:10,11,650657,5532197

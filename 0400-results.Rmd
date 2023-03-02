@@ -12,13 +12,16 @@ knitr::include_graphics("fig/elk_fish_passage_2022.png")
 A total of `r hab_site %>% filter(str_detect(alias_local_name, '_ef')) %>% nrow()` sites were electrofished within `r hab_site %>% filter(str_detect(alias_local_name, '_ef')) %>% distinct(gazetted_name) %>% nrow()` streams.
 
 ```{r}
-hab_site%>% 
+hab_site %>% 
   select(gazetted_name,
          alias_local_name,
          utm_easting,
          utm_northing,
          comments
          ) %>% 
+  # filter out two sites that weren't electrofished
+  filter(str_detect(alias_local_name, "ef", negate = FALSE)) %>%
+  arrange(alias_local_name) %>% 
   fpr::fpr_kable()
 ```
 
@@ -37,12 +40,15 @@ fish_samp_sum <- left_join(
   
   hab_site %>% 
     select(gazetted_name,
-         alias_local_name),
+         alias_local_name, reach_number),
   
   by = c('local_name' = 'alias_local_name')
 ) %>% 
   relocate(
     gazetted_name, .before = local_name
+  ) %>%
+  relocate(
+    reach_number, .after = local_name
   ) %>% 
   mutate(CPUE = round(count_fish/(ef_seconds / 1000), 1))
 
