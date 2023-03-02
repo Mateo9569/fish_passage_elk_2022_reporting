@@ -524,7 +524,6 @@ WCT Slopeclass22 (km)
 <p>Electrofishing was conducted with results summarised in Tables <a href="weigert-creek---197534---appendix.html#tab:tab-fish-site-197534">5.4</a> - <a href="weigert-creek---197534---appendix.html#tab:tab-fish-dens-197534">5.5</a> and Figure
 <a href="weigert-creek---197534---appendix.html#fig:plot-fish-box-197534">5.1</a>. Habitat details are summarised in Table <a href="weigert-creek---197534---appendix.html#tab:tab-habitat-summary-197534">5.3</a>.</p>
 <p><br></p>
-<p><br></p>
 </div>
 <div id="results-1" class="section level2 unnumbered hasAnchor">
 <h2>Results<a href="weigert-creek---197534---appendix.html#results-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -671,7 +670,7 @@ High
 </tr>
 <tr>
 <td style="text-align:left;">
-197534_us_ef3
+197534_us_ef4
 </td>
 <td style="text-align:right;">
 –
@@ -697,7 +696,7 @@ High
 </tr>
 <tr>
 <td style="text-align:left;">
-197534_us_ef4
+197534_us_ef5
 </td>
 <td style="text-align:right;">
 330
@@ -723,7 +722,7 @@ Medium
 </tr>
 <tr>
 <td style="text-align:left;">
-197534_us_ef5
+197534_us_ef6
 </td>
 <td style="text-align:right;">
 300
@@ -749,7 +748,7 @@ abundant
 </tr>
 <tr>
 <td style="text-align:left;">
-197534_us_ef6
+197534_us_ef3
 </td>
 <td style="text-align:right;">
 550
@@ -892,6 +891,26 @@ open
 1
 </td>
 <td style="text-align:right;">
+550
+</td>
+<td style="text-align:right;">
+4.900
+</td>
+<td style="text-align:right;">
+2695.0
+</td>
+<td style="text-align:left;">
+open
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+197534_us_ef4
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
 –
 </td>
 <td style="text-align:right;">
@@ -906,7 +925,7 @@ open
 </tr>
 <tr>
 <td style="text-align:left;">
-197534_us_ef4
+197534_us_ef5
 </td>
 <td style="text-align:right;">
 1
@@ -926,7 +945,7 @@ open
 </tr>
 <tr>
 <td style="text-align:left;">
-197534_us_ef5
+197534_us_ef6
 </td>
 <td style="text-align:right;">
 1
@@ -939,26 +958,6 @@ open
 </td>
 <td style="text-align:right;">
 457.5
-</td>
-<td style="text-align:left;">
-open
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-197534_us_ef6
-</td>
-<td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-550
-</td>
-<td style="text-align:right;">
-4.900
-</td>
-<td style="text-align:right;">
-2695.0
 </td>
 <td style="text-align:left;">
 open
@@ -1220,19 +1219,39 @@ FALSE
 197534_us_ef3
 </td>
 <td style="text-align:left;">
-NFC
+WCT
 </td>
 <td style="text-align:left;">
-–
+juvenile
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 <td style="text-align:right;">
-–
+0.0
 </td>
 <td style="text-align:left;">
-TRUE
+FALSE
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+197534_us_ef3
+</td>
+<td style="text-align:left;">
+WCT
+</td>
+<td style="text-align:left;">
+adult
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+<td style="text-align:left;">
+FALSE
 </td>
 </tr>
 <tr>
@@ -1249,7 +1268,7 @@ NFC
 0
 </td>
 <td style="text-align:right;">
-0.0
+–
 </td>
 <td style="text-align:left;">
 TRUE
@@ -1280,39 +1299,19 @@ TRUE
 197534_us_ef6
 </td>
 <td style="text-align:left;">
-WCT
+NFC
 </td>
 <td style="text-align:left;">
-juvenile
+–
 </td>
 <td style="text-align:right;">
-1
-</td>
-<td style="text-align:right;">
-0.0
-</td>
-<td style="text-align:left;">
-FALSE
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-197534_us_ef6
-</td>
-<td style="text-align:left;">
-WCT
-</td>
-<td style="text-align:left;">
-adult
-</td>
-<td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 0.0
 </td>
 <td style="text-align:left;">
-FALSE
+TRUE
 </td>
 </tr>
 </tbody>
@@ -1334,11 +1333,76 @@ FALSE
 Figure 5.1: Densites of fish (fish/100m2) captured upstream and downstream of PSCIS crossing 197534.
 </p>
 </div>
+<p><br></p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="weigert-creek---197534---appendix.html#cb26-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">site =</span> my_site, <span class="at">str_to_pull =</span> <span class="st">&#39;_d1_&#39;</span>)</span>
+<span id="cb26-2"><a href="weigert-creek---197534---appendix.html#cb26-2" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="weigert-creek---197534---appendix.html#cb26-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;, in reach 1.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="weigert-creek---197534---appendix.html#cb27-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:photo-197534-01"></span>
+<img src="Elk2022_files/figure-html/photo-197534-01-1.png" alt="Typical habitat downstream of PSCIS crossing 197534, in reach 1." width="100%" />
+<p class="caption">
+Figure 5.2: Typical habitat downstream of PSCIS crossing 197534, in reach 1.
+</p>
+</div>
+<p><br></p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="weigert-creek---197534---appendix.html#cb28-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">site =</span> my_site, <span class="at">str_to_pull =</span> <span class="st">&#39;_u2_&#39;</span>)</span>
+<span id="cb28-2"><a href="weigert-creek---197534---appendix.html#cb28-2" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="weigert-creek---197534---appendix.html#cb28-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39; , in reach 2.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="weigert-creek---197534---appendix.html#cb29-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:photo-197534-02"></span>
+<img src="Elk2022_files/figure-html/photo-197534-02-1.png" alt="Typical habitat upstream of PSCIS crossing 197534 , in reach 2." width="100%" />
+<p class="caption">
+Figure 5.3: Typical habitat upstream of PSCIS crossing 197534 , in reach 2.
+</p>
+</div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="weigert-creek---197534---appendix.html#cb30-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
+<span id="cb30-2"><a href="weigert-creek---197534---appendix.html#cb30-2" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="weigert-creek---197534---appendix.html#cb30-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
+<span id="cb30-4"><a href="weigert-creek---197534---appendix.html#cb30-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
+<span id="cb30-5"><a href="weigert-creek---197534---appendix.html#cb30-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
+<p><br></p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="weigert-creek---197534---appendix.html#cb31-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">site =</span> my_site, <span class="at">str_to_pull =</span> <span class="st">&#39;_u3_&#39;</span>)</span>
+<span id="cb31-2"><a href="weigert-creek---197534---appendix.html#cb31-2" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="weigert-creek---197534---appendix.html#cb31-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39; , in reach 3.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="weigert-creek---197534---appendix.html#cb32-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:photo-197534-03"></span>
+<img src="Elk2022_files/figure-html/photo-197534-03-1.png" alt="Typical habitat upstream of PSCIS crossing 197534 , in reach 3." width="100%" />
+<p class="caption">
+Figure 5.4: Typical habitat upstream of PSCIS crossing 197534 , in reach 3.
+</p>
+</div>
+<p><br></p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="weigert-creek---197534---appendix.html#cb33-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">site =</span> my_site, <span class="at">str_to_pull =</span> <span class="st">&#39;_u4_&#39;</span>)</span>
+<span id="cb33-2"><a href="weigert-creek---197534---appendix.html#cb33-2" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="weigert-creek---197534---appendix.html#cb33-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39; , in reach 4.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="weigert-creek---197534---appendix.html#cb34-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:photo-197534-04"></span>
+<img src="Elk2022_files/figure-html/photo-197534-04-1.png" alt="Typical habitat upstream of PSCIS crossing 197534 , in reach 4." width="100%" />
+<p class="caption">
+Figure 5.5: Typical habitat upstream of PSCIS crossing 197534 , in reach 4.
+</p>
+</div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="weigert-creek---197534---appendix.html#cb35-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
+<span id="cb35-2"><a href="weigert-creek---197534---appendix.html#cb35-2" tabindex="-1"></a></span>
+<span id="cb35-3"><a href="weigert-creek---197534---appendix.html#cb35-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
+<span id="cb35-4"><a href="weigert-creek---197534---appendix.html#cb35-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
+<span id="cb35-5"><a href="weigert-creek---197534---appendix.html#cb35-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
+<p><br></p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="weigert-creek---197534---appendix.html#cb36-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">site =</span> my_site, <span class="at">str_to_pull =</span> <span class="st">&#39;_u5_&#39;</span>)</span>
+<span id="cb36-2"><a href="weigert-creek---197534---appendix.html#cb36-2" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="weigert-creek---197534---appendix.html#cb36-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39; , in reach 5.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="weigert-creek---197534---appendix.html#cb37-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:photo-197534-05"></span>
+<img src="Elk2022_files/figure-html/photo-197534-05-1.png" alt="Typical habitat upstream of PSCIS crossing 197534 , in reach 5." width="100%" />
+<p class="caption">
+Figure 5.6: Typical habitat upstream of PSCIS crossing 197534 , in reach 5.
+</p>
+</div>
 
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="weigert-creek---197534---appendix.html#cb26-1" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo=</span><span class="cn">FALSE</span>, <span class="at">message=</span><span class="cn">FALSE</span>, <span class="at">warning=</span><span class="cn">FALSE</span>)</span>
-<span id="cb26-2"><a href="weigert-creek---197534---appendix.html#cb26-2" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;scripts/packages.R&#39;</span>)</span>
-<span id="cb26-3"><a href="weigert-creek---197534---appendix.html#cb26-3" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;scripts/tables.R&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="weigert-creek---197534---appendix.html#cb27-1" tabindex="-1"></a>my_site <span class="ot">&lt;-</span> <span class="dv">197559</span></span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="weigert-creek---197534---appendix.html#cb38-1" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo=</span><span class="cn">FALSE</span>, <span class="at">message=</span><span class="cn">FALSE</span>, <span class="at">warning=</span><span class="cn">FALSE</span>)</span>
+<span id="cb38-2"><a href="weigert-creek---197534---appendix.html#cb38-2" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;scripts/packages.R&#39;</span>)</span>
+<span id="cb38-3"><a href="weigert-creek---197534---appendix.html#cb38-3" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;scripts/tables.R&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="weigert-creek---197534---appendix.html#cb39-1" tabindex="-1"></a>my_site <span class="ot">&lt;-</span> <span class="dv">197559</span></span></code></pre></div>
 </div>
 </div>
             </section>

@@ -232,14 +232,17 @@ Figure 4.1: Map of Survey Sites
 <div id="fish-sampling-1" class="section level2 hasAnchor" number="4.2">
 <h2><span class="header-section-number">4.2</span> Fish Sampling<a href="results.html#fish-sampling-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A total of 14 sites were electrofished within 4 streams.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="results.html#cb14-1" tabindex="-1"></a>hab_site<span class="sc">%&gt;%</span> </span>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="results.html#cb14-1" tabindex="-1"></a>hab_site <span class="sc">%&gt;%</span> </span>
 <span id="cb14-2"><a href="results.html#cb14-2" tabindex="-1"></a>  <span class="fu">select</span>(gazetted_name,</span>
 <span id="cb14-3"><a href="results.html#cb14-3" tabindex="-1"></a>         alias_local_name,</span>
 <span id="cb14-4"><a href="results.html#cb14-4" tabindex="-1"></a>         utm_easting,</span>
 <span id="cb14-5"><a href="results.html#cb14-5" tabindex="-1"></a>         utm_northing,</span>
 <span id="cb14-6"><a href="results.html#cb14-6" tabindex="-1"></a>         comments</span>
 <span id="cb14-7"><a href="results.html#cb14-7" tabindex="-1"></a>         ) <span class="sc">%&gt;%</span> </span>
-<span id="cb14-8"><a href="results.html#cb14-8" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>()</span></code></pre></div>
+<span id="cb14-8"><a href="results.html#cb14-8" tabindex="-1"></a>  <span class="co"># filter out two sites that weren&#39;t electrofished</span></span>
+<span id="cb14-9"><a href="results.html#cb14-9" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(alias_local_name, <span class="st">&quot;ef&quot;</span>, <span class="at">negate =</span> <span class="cn">FALSE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb14-10"><a href="results.html#cb14-10" tabindex="-1"></a>  <span class="fu">arrange</span>(alias_local_name) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-11"><a href="results.html#cb14-11" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>()</span></code></pre></div>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:100%; ">
 <table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
@@ -279,7 +282,7 @@ Weigert Creek
 5532330
 </td>
 <td style="text-align:left;">
-Started electrofishing at el where Weigert redirects to the south. Very fast flowing in parts. Wide channel but not too much cover. Some LWD providing functionality and some cover. 12:50
+Started electrofishing at confluence to Elk River where Weigert redirects to the south. Very fast flowing in parts. Wide channel but not too much cover. Some LWD providing functionality and some cover. 12:50
 </td>
 </tr>
 <tr>
@@ -304,23 +307,6 @@ Weigert Creek
 Weigert Creek
 </td>
 <td style="text-align:left;">
-197534_us_ef2
-</td>
-<td style="text-align:right;">
-649387
-</td>
-<td style="text-align:right;">
-5531718
-</td>
-<td style="text-align:left;">
-High value habitat. Wide channel with fast flowing water. Many larger fish were caught (&gt;200mm). Some deep pools spotted that could be suitable for overwintering. Cobbles and boulders in stream ptoviding cover . 12:26:06
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Weigert Creek
-</td>
-<td style="text-align:left;">
 197534_us_ef1
 </td>
 <td style="text-align:right;">
@@ -335,19 +321,19 @@ Weigert Creek
 </tr>
 <tr>
 <td style="text-align:left;">
-Bighorn Creek
+Weigert Creek
 </td>
 <td style="text-align:left;">
-197844_ds_ef1
+197534_us_ef2
 </td>
 <td style="text-align:right;">
-657699
+649387
 </td>
 <td style="text-align:right;">
-5452910
+5531718
 </td>
 <td style="text-align:left;">
-Mainstem of Bighorn Creek. Very wide channel but not a lot of cover from overhanging veg or crown closure. Mostly cobbles and boulders in stream. Some deep pools with fish found. All bull trout except one which was WCT. Only trace amounts of woody debris. good flow with abundant boulder cover throughout. Rare pockets of gravels at pool outlets only. High value habitat. 12:12:56
+High value habitat. Wide channel with fast flowing water. Many larger fish were caught (&gt;200mm). Some deep pools spotted that could be suitable for overwintering. Cobbles and boulders in stream providing cover . 12:26:06
 </td>
 </tr>
 <tr>
@@ -356,6 +342,23 @@ Weigert Creek
 </td>
 <td style="text-align:left;">
 197534_us_ef3
+</td>
+<td style="text-align:right;">
+649050
+</td>
+<td style="text-align:right;">
+5531760
+</td>
+<td style="text-align:left;">
+Electrofishing site was the first 400 to 450 m and then approximately 100 m further was assessed to gather more habitat characteristics. Most fish captured were observed by the crew before they were captured and all were adults. 12:20:59
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Weigert Creek
+</td>
+<td style="text-align:left;">
+197534_us_ef4
 </td>
 <td style="text-align:right;">
 648699
@@ -372,16 +375,16 @@ High value habitat. Good flow with lots of boulder cover and LWD. Some deep pool
 Weigert Creek
 </td>
 <td style="text-align:left;">
-197534_us4
+197534_us_ef5
 </td>
 <td style="text-align:right;">
-648701
+646408
 </td>
 <td style="text-align:right;">
-5532025
+5535604
 </td>
 <td style="text-align:left;">
-Medium value habitat. Frequent large Woody debris jams between 40 and 70 cm in height. Frequent small cascade sections of to 10% and up to 3 to 5 m long. Numerous sections with Apple quantity of travels suitable for resident and fluvial WCT. Surveyed in a downstream direction with the bottom end of the site at the first ford. 14:32:07
+Moderate value habitat. Steep stream at some parts but wide channel, good flow. Many deep pools suitable for rearing. Some gravels suitable for spawning. A couple of high cascades and LWD jams that could be barrier to smaller fish. Good riparian veg but not a lot of overhanging cover. 13:17
 </td>
 </tr>
 <tr>
@@ -389,16 +392,67 @@ Medium value habitat. Frequent large Woody debris jams between 40 and 70 cm in h
 Weigert Creek
 </td>
 <td style="text-align:left;">
-197534_us5
+197534_us_ef6
 </td>
 <td style="text-align:right;">
-648699
+644350
 </td>
 <td style="text-align:right;">
-5532036
+5535665
 </td>
 <td style="text-align:left;">
-Medium habitat quality. Fast flowing water with rapids and a few cascades that are about 0.6-0.7m in height. Could block passage of smaller fish. Lots of large woody debris changing the stream course and leading to small cascades. Wide channel with cover from boulders and cobbles. Deep pools in outlet to cascades. Some areas with gravels suitable for spawning. Good amount of cover from overhanging veg. 14:06:36
+Stream was dry throughout reach five so surveyors worked their way back to where the water began and surveyed 300m upstream. 13:48:40
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Brule Creek
+</td>
+<td style="text-align:left;">
+197559_us_ef1
+</td>
+<td style="text-align:right;">
+650662
+</td>
+<td style="text-align:right;">
+5528524
+</td>
+<td style="text-align:left;">
+0.56438657407407411
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Brule Creek
+</td>
+<td style="text-align:left;">
+197559_us_ef2
+</td>
+<td style="text-align:right;">
+648968
+</td>
+<td style="text-align:right;">
+5527392
+</td>
+<td style="text-align:left;">
+High value habitat. Abundant gravels suitable for residential and fluvial WCT and BT. Few pools suitable for overwintering. Top of site is 7m high cascade waterfall and is definitely not passable in an upstream direction. 12:12:58
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bighorn Creek
+</td>
+<td style="text-align:left;">
+197844_ds_ef1
+</td>
+<td style="text-align:right;">
+657699
+</td>
+<td style="text-align:right;">
+5452910
+</td>
+<td style="text-align:left;">
+Mainstem of Bighorn Creek. Very wide channel but not a lot of cover from overhanging veg or crown closure. Mostly cobbles and boulders in stream. Some deep pools with fish found. All bull trout except one which was WCT. Only trace amounts of woody debris. Good flow with abundant boulder cover throughout. Rare pockets of gravels at pool outlets only. High value habitat. 12:12:56
 </td>
 </tr>
 <tr>
@@ -432,7 +486,7 @@ Tributary to Bighorn Creek
 5452805
 </td>
 <td style="text-align:left;">
-Medium habitat value. Steep gradient with some cascades less than a meter in height. A few deep pools that could be ideal for resident fish. No fish caught in site. Boulders and cobbles the dominant substrate. Some pockets of gravels present. Confined stream with covet from vegetation. 11:26:43
+Medium habitat value. Steep gradient with some cascades less than a meter in height. A few deep pools that could be ideal for resident fish. No fish caught in site. Boulders and cobbles the dominant substrate. Some pockets of gravels present. Confined stream with cover from vegetation. 11:26:43
 </td>
 </tr>
 <tr>
@@ -449,92 +503,7 @@ Tributary to Bighorn Creek
 5453038
 </td>
 <td style="text-align:left;">
-Medium habitat value. Electrofished but no fish caught. Multiple LWD jam steps between 0.3-0.6m but no permanent barriers to upstream migration. Pockets of gravels present for resident and fluvial WCT and BT. Deep pools present suitable for overwintering. Steep gradient with some cascades less than a meter in height. Boulders and cobbles the dominant substrate. Confined stream with cover from vegetation. 12:42:00
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Weigert Creek
-</td>
-<td style="text-align:left;">
-197534_us_ef4
-</td>
-<td style="text-align:right;">
-646408
-</td>
-<td style="text-align:right;">
-5535604
-</td>
-<td style="text-align:left;">
-Moderate value habitat. Steep stream at some parts but wide channel, good flow. Many deep pools suitable for rearing. Some gravels suitable for spawning. A couple high cascades and LWD jams that could be barrier to smaller fish. Good riparian veg but not a lot of overhangin cover. 13:17
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Weigert Creek
-</td>
-<td style="text-align:left;">
-197534_us_ef5
-</td>
-<td style="text-align:right;">
-644350
-</td>
-<td style="text-align:right;">
-5535665
-</td>
-<td style="text-align:left;">
-Stream was dry throughout reach five so surveyors worked their way back to where the water began and worked 300m upstream. Nupqu 1 GPS waypoint Reach5 weigert wetted. Took 3 channel width measurements within that 300m filled out stream card info. 13:48:40
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Brule Creek
-</td>
-<td style="text-align:left;">
-197559_us_ef2
-</td>
-<td style="text-align:right;">
-650662
-</td>
-<td style="text-align:right;">
-5528524
-</td>
-<td style="text-align:left;">
-High value habitat. Abundant gravels suitable for residential and fluvial WCT and BT. Few pools suitable for overwintering. Top of site is 7m high cascade waterfall definitely not passable in an upstream direction. 12:12:58
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Brule Creek
-</td>
-<td style="text-align:left;">
-197559_us_ef1
-</td>
-<td style="text-align:right;">
-650662
-</td>
-<td style="text-align:right;">
-5528524
-</td>
-<td style="text-align:left;">
-0.56438657407407411
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Weigert Creek
-</td>
-<td style="text-align:left;">
-197534_us_ef6
-</td>
-<td style="text-align:right;">
-649050
-</td>
-<td style="text-align:right;">
-5531760
-</td>
-<td style="text-align:left;">
-Electrofishing site was the first 400 to 450 m and then approximately 100 m further was assessed to gather more habitat characteristics. Most fish captured were observed by the crew before they were captured and all were adults. 12:20:59
+Medium habitat value. Electrofished but no fish caught. Multiple LWD jam steps between 0.3-0.6m but no permanent barriers to upstream migration. Pockets of gravels present for resident and fluvial WCT and BT. Deep pools present suitable for overwintering. Steep gradient with some cascades less than a meter in height. Boulders and cobbles are the dominant substrate. Confined stream with cover from vegetation. 12:42:00
 </td>
 </tr>
 </tbody>
@@ -552,17 +521,20 @@ Electrofishing site was the first 400 to 450 m and then approximately 100 m furt
 <span id="cb15-9"><a href="results.html#cb15-9" tabindex="-1"></a>  </span>
 <span id="cb15-10"><a href="results.html#cb15-10" tabindex="-1"></a>  hab_site <span class="sc">%&gt;%</span> </span>
 <span id="cb15-11"><a href="results.html#cb15-11" tabindex="-1"></a>    <span class="fu">select</span>(gazetted_name,</span>
-<span id="cb15-12"><a href="results.html#cb15-12" tabindex="-1"></a>         alias_local_name),</span>
+<span id="cb15-12"><a href="results.html#cb15-12" tabindex="-1"></a>         alias_local_name, reach_number),</span>
 <span id="cb15-13"><a href="results.html#cb15-13" tabindex="-1"></a>  </span>
 <span id="cb15-14"><a href="results.html#cb15-14" tabindex="-1"></a>  <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&#39;local_name&#39;</span> <span class="ot">=</span> <span class="st">&#39;alias_local_name&#39;</span>)</span>
 <span id="cb15-15"><a href="results.html#cb15-15" tabindex="-1"></a>) <span class="sc">%&gt;%</span> </span>
 <span id="cb15-16"><a href="results.html#cb15-16" tabindex="-1"></a>  <span class="fu">relocate</span>(</span>
 <span id="cb15-17"><a href="results.html#cb15-17" tabindex="-1"></a>    gazetted_name, <span class="at">.before =</span> local_name</span>
-<span id="cb15-18"><a href="results.html#cb15-18" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb15-19"><a href="results.html#cb15-19" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">CPUE =</span> <span class="fu">round</span>(count_fish<span class="sc">/</span>(ef_seconds <span class="sc">/</span> <span class="dv">1000</span>), <span class="dv">1</span>))</span>
-<span id="cb15-20"><a href="results.html#cb15-20" tabindex="-1"></a></span>
-<span id="cb15-21"><a href="results.html#cb15-21" tabindex="-1"></a>fish_samp_sum <span class="sc">%&gt;%</span> </span>
-<span id="cb15-22"><a href="results.html#cb15-22" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>()</span></code></pre></div>
+<span id="cb15-18"><a href="results.html#cb15-18" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb15-19"><a href="results.html#cb15-19" tabindex="-1"></a>  <span class="fu">relocate</span>(</span>
+<span id="cb15-20"><a href="results.html#cb15-20" tabindex="-1"></a>    reach_number, <span class="at">.after =</span> local_name</span>
+<span id="cb15-21"><a href="results.html#cb15-21" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-22"><a href="results.html#cb15-22" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">CPUE =</span> <span class="fu">round</span>(count_fish<span class="sc">/</span>(ef_seconds <span class="sc">/</span> <span class="dv">1000</span>), <span class="dv">1</span>))</span>
+<span id="cb15-23"><a href="results.html#cb15-23" tabindex="-1"></a></span>
+<span id="cb15-24"><a href="results.html#cb15-24" tabindex="-1"></a>fish_samp_sum <span class="sc">%&gt;%</span> </span>
+<span id="cb15-25"><a href="results.html#cb15-25" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>()</span></code></pre></div>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:100%; ">
 <table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
@@ -575,6 +547,9 @@ gazetted_name
 </th>
 <th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 local_name
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+reach_number
 </th>
 <th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
 ef_length_m
@@ -602,6 +577,9 @@ Weigert Creek
 197534_ds_ef1
 </td>
 <td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
 520
 </td>
 <td style="text-align:right;">
@@ -623,6 +601,9 @@ Weigert Creek
 </td>
 <td style="text-align:left;">
 197534_ds_ef2
+</td>
+<td style="text-align:right;">
+1
 </td>
 <td style="text-align:right;">
 –
@@ -648,6 +629,9 @@ Weigert Creek
 197534_us_ef1
 </td>
 <td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
 –
 </td>
 <td style="text-align:right;">
@@ -669,6 +653,9 @@ Weigert Creek
 </td>
 <td style="text-align:left;">
 197534_us_ef2
+</td>
+<td style="text-align:right;">
+2
 </td>
 <td style="text-align:right;">
 300
@@ -694,6 +681,35 @@ Weigert Creek
 197534_us_ef3
 </td>
 <td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+550
+</td>
+<td style="text-align:right;">
+4.900000
+</td>
+<td style="text-align:right;">
+1521
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+2.6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Weigert Creek
+</td>
+<td style="text-align:left;">
+197534_us_ef4
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
 –
 </td>
 <td style="text-align:right;">
@@ -714,7 +730,10 @@ Weigert Creek
 Weigert Creek
 </td>
 <td style="text-align:left;">
-197534_us_ef4
+197534_us_ef5
+</td>
+<td style="text-align:right;">
+4
 </td>
 <td style="text-align:right;">
 330
@@ -737,7 +756,10 @@ Weigert Creek
 Weigert Creek
 </td>
 <td style="text-align:left;">
-197534_us_ef5
+197534_us_ef6
+</td>
+<td style="text-align:right;">
+5
 </td>
 <td style="text-align:right;">
 300
@@ -757,33 +779,13 @@ Weigert Creek
 </tr>
 <tr>
 <td style="text-align:left;">
-Weigert Creek
-</td>
-<td style="text-align:left;">
-197534_us_ef6
-</td>
-<td style="text-align:right;">
-550
-</td>
-<td style="text-align:right;">
-4.900000
-</td>
-<td style="text-align:right;">
-1521
-</td>
-<td style="text-align:right;">
-4
-</td>
-<td style="text-align:right;">
-2.6
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
 Brule Creek
 </td>
 <td style="text-align:left;">
 197559_us_ef1
+</td>
+<td style="text-align:right;">
+–
 </td>
 <td style="text-align:right;">
 600
@@ -809,6 +811,9 @@ Brule Creek
 197559_us_ef2
 </td>
 <td style="text-align:right;">
+–
+</td>
+<td style="text-align:right;">
 310
 </td>
 <td style="text-align:right;">
@@ -830,6 +835,9 @@ Bighorn Creek
 </td>
 <td style="text-align:left;">
 197844_ds_ef1
+</td>
+<td style="text-align:right;">
+–
 </td>
 <td style="text-align:right;">
 265
@@ -855,6 +863,9 @@ Tributary to Bighorn Creek
 197844_ds_ef2
 </td>
 <td style="text-align:right;">
+–
+</td>
+<td style="text-align:right;">
 95
 </td>
 <td style="text-align:right;">
@@ -878,6 +889,9 @@ Tributary to Bighorn Creek
 197844_us_ef1
 </td>
 <td style="text-align:right;">
+–
+</td>
+<td style="text-align:right;">
 300
 </td>
 <td style="text-align:right;">
@@ -899,6 +913,9 @@ Tributary to Bighorn Creek
 </td>
 <td style="text-align:left;">
 197844_us_ef2
+</td>
+<td style="text-align:right;">
+–
 </td>
 <td style="text-align:right;">
 225
