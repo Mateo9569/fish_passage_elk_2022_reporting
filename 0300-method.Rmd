@@ -25,7 +25,7 @@ Sites were surveyed using a hip chain to track distance with the following attri
 
 <br>
 
-A clinometer was used to estimate gradient, channel measurements were taken using a tape measure and water depths measured using a measuring stick.  Photographs were taken of representative habitats throughout the surveyed reaches.  All field measurements were recorded on Level 1 Habitat Survey Data Form templates (@slaney_etal1997Fishhabitat). GPS waypoints were collected at the beginning and end of all Primary habitat units to allow georeferenceing of field data.
+A clinometer was used to estimate gradient, channel measurements were taken using a tape measure and water depths measured using a measuring stick.  Photographs were taken of representative habitats throughout the surveyed reaches.  All field measurements were recorded on Level 1 Habitat Survey Data Form templates (@johnston_slaney1996FishHabitat). GPS waypoints were collected at the beginning and end of all Primary habitat units to allow georeferenceing of field data.
 
  
 
