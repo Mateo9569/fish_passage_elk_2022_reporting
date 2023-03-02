@@ -12,6 +12,7 @@ wshds <- readwritesqlite::rws_read_table("wshds", conn = conn)
 # # fiss_sum <- readwritesqlite::rws_read_table("fiss_sum", conn = conn)
 fhap_site <- readwritesqlite::rws_read_table("fhap_site", conn = conn)
 fhap_hu <- readwritesqlite::rws_read_table("fhap_hu", conn = conn)
+hydrometrics <- readwritesqlite::rws_read_table("hydrometrics", conn = conn)
 rws_disconnect(conn)
 #
 # ##build the dams table
@@ -950,4 +951,13 @@ fhap_hu_sum <- left_join(
   by = 'location_site'
 )
 
+#------Hydrometrics-----
 
+# import csv
+# hydrometrics <- read_csv('data/hydrometrics.csv')
+
+# conn <- rws_connect("data/bcfishpass.sqlite")
+# rws_list_tables(conn)
+# rws_write(hydrometrics, exists = F, delete = TRUE,
+#           conn = conn, x_name = "hydrometrics")
+# rws_disconnect(conn)
