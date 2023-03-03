@@ -69,6 +69,18 @@ fpr::fpr_table_bcfp(scroll = gitbook_on)
 
 <br>
 
+## Stream Characteristics Upstream {.unnumbered}
+
+The stream was surveyed at six different sites upstream of crossing `r as.character(my_site)` (sites shown in Figure \@ref(fig:survey-site-map)). Hydrometric flow data was taken at the ford (PSCIS crossing 197727). Total measured flow was 0.016m^3^/s. The bottom of the first site was located immediately upstream of crossing `r as.character(my_site)` and was surveyed for 350m. The second site was in reach two and was surveyed for 300m to the ford (PSCIS crossing 197727). High value habitat. Wide channel with fast flowing water. Many larger fish were caught (>200mm). Some deep pools were spotted that could be suitable for overwintering. Cobbles and boulders in stream were the dominant substrate providing cover. The third site was located upstream of the ford and was surveyed for 550m. Most fish captured were observed by the crew before they were captured and they were all adults. Site four was also in reach two and was surveyed for 350m. High value habitat. Good flow with lots of boulder cover and LWD. Some deep pools with abundant gravels suitable for spawning. Good habitat but no fish were caught. Moderate value habitat. Steep stream at some parts but wide channel, good flow. Many deep pools suitable for rearing. Some gravels suitable for spawning. A couple of high cascades and LWD jams that could be barrier to smaller fish. Good riparian veg but not a lot of overhanging cover. At site six, the stream was dry throughout reach five so surveyors worked their way back to where the water began and surveyed 300m upstream.      
+
+<br>
+
+## Stream Characteristics Downstream {.unnumbered}
+
+The stream was surveyed at two different sites downstream of crossing `r as.character(my_site)` (sites shown in Figure \@ref(fig:survey-site-map)). The first site was located at the confluence to the Elk River where Weigert Creek redirects to the south. This section was surveyed for 520m. The stream was very fast flowing in sections. The average channel width was 4.38m, the average wetted width was 3.48m, and the average gradient was 3.1%. There were clumps of large woody debris that added complexity to stream habitat. Total cover was rated as moderate with cobbles dominating the in stream substrate. There were some sections that contained gravels suitable for westslope cutthroat and bull trout spawning. Habitat quality was rated as medium. The second site was located at the top of the first site, and was surveyed for 450m. Total cover was rated as moderate. The dominant substrate was cobbles with gravels sub dominant. Hydrometric flow data was taken at the bottom of this site, approximately 550m downstream of crossing `r as.character(my_site)`. Total measured flow was 0.036m^3^/s.    
+
+<br>
+
 ## Fish Sampling {.unnumbered}
 
 Electrofishing was conducted with results summarised in Tables \@ref(tab:tab-fish-site-197534) - \@ref(tab:tab-fish-dens-197534) and Figure
@@ -192,4 +204,62 @@ my_caption1 = paste0('Typical habitat upstream of PSCIS crossing ', my_site, ' ,
 
 ```{r photo-197534-05, fig.cap= my_caption1, out.width = photo_width, eval=gitbook_on}
 grid::grid.raster(jpeg::readJPEG(my_photo1))
+```
+
+<br>
+
+```{r photo-197534-06-prep}
+my_photo2 = fpr::fpr_photo_pull_by_str(site = my_site, str_to_pull = '_ef1_')
+
+my_caption2 = paste0('Brook Trout captured downstream of PSCIS crossing ', my_site, ' , in reach 1.')
+
+```
+
+```{r photo-197534-06, fig.cap= my_caption2, out.width = photo_width, eval=gitbook_on}
+grid::grid.raster(jpeg::readJPEG(my_photo2))
+```
+
+```{r photo-197534-u05, fig.cap = my_caption, fig.show="hold", out.width= c("49.5%","1%","49.5%"), eval=identical(gitbook_on, FALSE)}
+
+my_caption <- paste0('Left: ', my_caption1, ' Right: ', my_caption2)
+
+knitr::include_graphics(my_photo1)
+knitr::include_graphics("fig/pixel.png")
+knitr::include_graphics(my_photo2)
+```
+
+<br>
+
+```{r photo-197534-07-prep, eval=T}
+my_photo1 = fpr::fpr_photo_pull_by_str(site = my_site, str_to_pull = '_ef2_')
+
+my_caption1 = paste0('Mountain Whitefish captured downstream of PSCIS crossing ', my_site, ' , in reach 1.')
+
+
+```
+
+```{r photo-197534-07, fig.cap= my_caption1, out.width = photo_width, eval=gitbook_on}
+grid::grid.raster(jpeg::readJPEG(my_photo1))
+```
+
+<br>
+
+```{r photo-197534-08-prep}
+my_photo2 = fpr::fpr_photo_pull_by_str(site = my_site, str_to_pull = '_ef3_')
+
+my_caption2 = paste0('Westslope Cutthroat Trout captured upstream of PSCIS crossing ', my_site, ' , in reach 2.')
+
+```
+
+```{r photo-197534-08, fig.cap= my_caption2, out.width = photo_width, eval=gitbook_on}
+grid::grid.raster(jpeg::readJPEG(my_photo2))
+```
+
+```{r photo-197534-u06, fig.cap = my_caption, fig.show="hold", out.width= c("49.5%","1%","49.5%"), eval=identical(gitbook_on, FALSE)}
+
+my_caption <- paste0('Left: ', my_caption1, ' Right: ', my_caption2)
+
+knitr::include_graphics(my_photo1)
+knitr::include_graphics("fig/pixel.png")
+knitr::include_graphics(my_photo2)
 ```
