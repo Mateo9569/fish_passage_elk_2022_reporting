@@ -62,13 +62,13 @@ fish_samp_sum %>%
 Fish habitat was assessed at four sites within three reaches of Weigert Creek.
 
 ```{r}
-fhap_site %>% 
+tab_fhap_site %>% 
   select(
-    location_site, 
-    location_reach_number,
-    location_utm_easting,
-    location_utm_northing,
-    general_comments
+    Site, 
+    Reach,
+    Easting,
+    Northing,
+    Comments
   ) %>% 
     fpr::fpr_kable(scroll = F)
 ```
@@ -76,7 +76,7 @@ fhap_site %>%
 <br>
 
 ```{r}
-fhap_hu_sum %>% 
+tab_fhap_hu_sum %>% 
   fpr::fpr_kable(scroll = F)
 ```
 
