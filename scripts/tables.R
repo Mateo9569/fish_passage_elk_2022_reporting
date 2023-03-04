@@ -760,6 +760,7 @@ tab_hab_summary <- left_join(
 
   by = c('alias_local_name' = 'local_name')
 ) %>%
+  arrange(alias_local_name) %>%
   select(Site = alias_local_name,
          `Length Surveyed (m)` = length_surveyed,
          `Channel Width (m)` = avg_channel_width_m,
