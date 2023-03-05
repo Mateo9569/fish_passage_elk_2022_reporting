@@ -123,6 +123,19 @@ xref_fhap_site <- tibble::tribble(
      "subsampling_fractions_other",    "Subsampling Fractions Other",    "numeric",       NA,       NA
   )
 
+xref_fhap_hu_sum <- tibble::tribble(
+                             ~spdsht,                      ~report,
+                     "location_site",                       "Site",
+                       "site_length",        "Length Surveyed (m)",
+                    "avg_chan_width",  "Average Channel Width (m)",
+                     "area_total_m2",            "Total Area (m2)",
+                          "lwd_func",       "Total Functional LWD",
+                       "lwd_func_bw",     "LWD per Bankfull Width",
+                                 "C",                    "Cascade",
+                                 "G",                      "Glide",
+                                 "P",                       "Pool",
+                                 "R",                     "Riffle"
+)
 
 
 

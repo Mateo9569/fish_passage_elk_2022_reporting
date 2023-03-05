@@ -21,3 +21,4 @@ R/private_info.R
 !docs/ELK2022_files/**
 !fig/**
 !docs/fig/**
+!*_ef*

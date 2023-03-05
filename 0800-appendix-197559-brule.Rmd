@@ -53,12 +53,15 @@ fpr::fpr_table_bcfp(scroll = gitbook_on)
 
 <br>
 
-## Stream Characteristics Upstream {.unnumbered}
+## Stream Characteristics {.unnumbered}
 
-The stream was surveyed at two different sites upstream of crossing `r as.character(my_site)`. The first site was located approximately 1km from the culvert. This section was surveyed for `r fpr::fpr_my_priority_info(loc = 'us_ef1', col_pull = 'length_surveyed')`m (Figure \@ref(fig:photo-197559-01)). The second site was located approximately 1km upstream of modelled crossing 197536. This section was surveyed for `r fpr::fpr_my_priority_info(loc = 'us_ef2', col_pull = 'length_surveyed')`m to the location of a waterfall (Figure \@ref(fig:photo-197559-04)). This waterfall was approximately 5m in height, and blocks the upstream migration of all fish. This obstacle is listed in the Canadian Aquatic Barrier Database and the BC Provincial Obstacles to Fish Passage catalogue.  [@canadianwildlifefederation2023CanadianAquatic; @bcgovernment2023ProvincialObstacles]. Stream habitat quality is shown in Figures \@ref(fig:photo-197559-02) - \@ref(fig:photo-197559-03).  
+The stream was surveyed at two different sites upstream of crossing `r as.character(my_site)` (sites shown in Figure \@ref(fig:survey-site-map)). The first site was located approximately 1km from the culvert. This section was surveyed for `r fpr::fpr_my_priority_info(loc = 'us_ef1', col_pull = 'length_surveyed')`m. The average channel width was 6.01m, the average wetted width was 3.47m, and the average gradient was 2.8%. The dominant in stream substrate was cobbles, followed by gravels. Total cover from overhanging vegetation and large woody debris was abundant. The habitat quality was rated as medium due to the abundance of spawning gravels suitable for resident salmonids. Hydrometric flow data was taken at the bottom of this site. Total measured flow was 0.183m^3^/s. 
 
 <br>
 
+The second site was located approximately 1km upstream of PSCIS crossing 197536. This section was surveyed for `r fpr::fpr_my_priority_info(loc = 'us_ef2', col_pull = 'length_surveyed')`m to the location of a waterfall shown in `r if(gitbook_on){knitr::asis_output("Figure \\@ref(fig:photo-197559-04).")}else(knitr::asis_output("Figure \\@ref(fig:photo-197559-u04)."))` This waterfall was approximately 7m in height, and blocks the upstream migration of all fish. This obstacle is listed in the BC Provincial Obstacles to Fish Passage catalogue [@ministryofwaterlandandresourcestewardship2023ProvincialObstacles]. At the time of survey, the average channel width was 7.47m, the average wetted width was 4.90m, and the average gradient was 2.1%. The dominant substrate was cobbles with boulders sub dominant. The habitat quality was considered high. There were abundant gravels suitable for resident and fluvial westslope cutthroat and bull trout spawning. Few pools were present that would be suitable for overwintering. Hydrometric flow data was also taken downstream of crossing `r as.character(my_site)`. Total measured flow was 0.252m^3^/s.    
+
+<br>
 
 ## Fish Sampling {.unnumbered}
 

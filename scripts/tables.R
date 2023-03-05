@@ -1,6 +1,7 @@
 # this file imports our data and builds the tables we need for our reporting
 
 source('scripts/packages.R')
+source('scripts/functions.R')
 conn <- rws_connect("data/bcfishpass.sqlite")
 rws_list_tables(conn)
 
@@ -68,7 +69,9 @@ hab_site <- left_join(
 
 # make object for ef sites, can use this to burn to fishpass mapping gpckg
 hab_fiss_site <- hab_site %>%
-  filter((alias_local_name %like% '_ef'))
+  filter((alias_local_name %like% '_ef')) %>%
+  mutate(ef = str_extract(alias_local_name, 'ef.')) %>%
+  relocate(ef, .after = location)
 
 hab_fish_collect_map_prep <- habitat_confirmations %>%
   purrr::pluck("step_2_fish_coll_data") %>%
@@ -757,6 +760,7 @@ tab_hab_summary <- left_join(
 
   by = c('alias_local_name' = 'local_name')
 ) %>%
+  arrange(alias_local_name) %>%
   select(Site = alias_local_name,
          `Length Surveyed (m)` = length_surveyed,
          `Channel Width (m)` = avg_channel_width_m,
@@ -950,6 +954,15 @@ fhap_hu_sum <- left_join(
   fhap_hu_perc_s_sum,
   by = 'location_site'
 )
+
+# rename column names of fhap_site object for report table
+tab_fhap_site <- fhap_site %>%
+  purrr::set_names(nm = xref_fhap_site %>% pull(report))
+
+# rename column names of fhap_hu_sum
+tab_fhap_hu_sum <- fhap_hu_sum %>%
+  purrr::set_names(nm = xref_fhap_hu_sum %>% pull(report))
+
 
 #------Hydrometrics-----
 

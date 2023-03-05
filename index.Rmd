@@ -9,7 +9,7 @@ author: |
  |
  | Prepared by
  | Al Irvine, B.Sc., R.P.Bio. and 
- | Mateo Winterscheidt
+ | Mateo Winterscheidt, B.Sc.
  | New Graph Environment Ltd.
 
 date: |

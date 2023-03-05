@@ -54,9 +54,21 @@ fpr::fpr_table_bcfp(scroll = gitbook_on)
 
 <br>
 
+## Stream Characteristics Downstream {.unnumbered}
+
+The stream was surveyed at two different sites downstream of crossing `r as.character(my_site)`. The first site was located on the mainstem of Bighorn Creek and was surveyed for 265m. The average channel width was 11m, the average wetted width was 6.53m, and the average gradient was 2.6%. The channel was very wide with good flow but did not have a lot of cover from riparian vegetation. Total cover amount was rated as moderate with boulders dominant. Some deep pools were found near clumps of functional woody debris. Rare pockets of gravels were found at deep pool outlets suitable for resident salmonid spawning. The habitat was rates as high value as an important migration corridor containing habitat suitable for salmonid spawning and rearing. The second site was located on a tributary to the mainstem, immediately downstream of crossing `r as.character(my_site)`. the stream was surveyed for 100m from the confluence to the culvert. The bottom 50m of the site also functions as a side channel of the Bighorn Creek main stem. Some of the flows in the low section may have been influenced by ground water from the main stem. The tributary dewaters until just below culvert in outlet pool. All fish were caught in pool. The average channel width was 5.05m, the average wetted width was 2.03m, and the average gradient was 3.3%. Total cover amount was rated as moderate with boulders dominant. Gravels were present in the lowest section of the tributary where it overlaps with the side channel.   
+
+<br>
+
+## Stream Characteristics Upstream {.unnumbered}
+
+The stream was surveyed at two different sites upstream of crossing `r as.character(my_site)`. The first site was surveyed upstream of the crossing for 300m. This section was steep with an average measured gradient of 9.3%. The average channel width was 2.26m and the average wetted width was 2.04m. There were some cascades less than a meter in height that could block the upstream migration of juvenile salmonids. A few deep pools and small pockets of gravels were present. No fish were caught in the site. Boulders were the dominant in stream substrate, with cobbles being sub dominant. The stream was confined with cover from overhanging vegetation. The habitat value was rated as medium. The second site was located upstream of a ford crossing (PSCIS ID 197801), and was surveyed for 225m. This section had an average measured gradient of 8.7%. The average channel width was 2.08m and the average wetted width was 1.53m. Multiple debris jam created steps between 0.3-0.6m high but were not permanent barriers to upstream migration. Pockets of gravels were present for resident and fluvial westslope cutthroat and bull trout. Deep pools were present suitable for overwintering. Boulders and cobbles were the dominant in stream substrate. The stream was confined with abundant cover provided from riparian vegetation.    
+
+<br>
+
 ## Fish Sampling {.unnumbered}
 
-Electrofishing was conducted with results summarised in Tables \@ref(tab:tab-fish-site-197844) - \@ref(tab:tab-fish-dens-197844) and Figure \@ref(fig:plot-fish-box-197844). Habitat details are summarised in Table \@ref(tab:tab-habitat-summary-197844).  Note that the first site (197844_ds_ef1) was located on the mainstem of Bighorn Creek, while all other sites were located on a tributary to Bighorn Creek.
+Electrofishing was conducted with results summarised in Tables \@ref(tab:tab-fish-site-197844) - \@ref(tab:tab-fish-dens-197844) and Figure \@ref(fig:plot-fish-box-197844). Habitat details are summarised in Table \@ref(tab:tab-habitat-summary-197844). Note that the first site (197844_ds_ef1) was located on the mainstem of Bighorn Creek, while all other sites were located on a tributary to Bighorn Creek.
 
 <br>
 
@@ -155,6 +167,42 @@ grid::grid.raster(jpeg::readJPEG(my_photo2))
 ```
 
 ```{r photo-197844-u04, fig.cap = my_caption, fig.show="hold", out.width= c("49.5%","1%","49.5%"), eval=identical(gitbook_on, FALSE)}
+
+my_caption <- paste0('Left: ', my_caption1, ' Right: ', my_caption2)
+
+knitr::include_graphics(my_photo1)
+knitr::include_graphics("fig/pixel.png")
+knitr::include_graphics(my_photo2)
+```
+
+<br>
+
+```{r photo-197844-05-prep, eval=T}
+my_photo1 = fpr::fpr_photo_pull_by_str(site = my_site, str_to_pull = '_ef1_')
+
+my_caption1 = paste0('Bull Trout captured downstream of PSCIS crossing ', my_site, ' , on mainstem of Bighorn Creek.')
+
+
+```
+
+```{r photo-197844-05, fig.cap= my_caption1, out.width = photo_width, eval=gitbook_on}
+grid::grid.raster(jpeg::readJPEG(my_photo1))
+```
+
+<br>
+
+```{r photo-197844-06-prep}
+my_photo2 = fpr::fpr_photo_pull_by_str(site = my_site, str_to_pull = '_ef2_')
+
+my_caption2 = paste0('Bull Trout captured downstream of PSCIS crossing ', my_site, ' , on mainstem of Bighorn Creek.')
+
+```
+
+```{r photo-197844-06, fig.cap= my_caption2, out.width = photo_width, eval=gitbook_on}
+grid::grid.raster(jpeg::readJPEG(my_photo2))
+```
+
+```{r photo-197844-u05, fig.cap = my_caption, fig.show="hold", out.width= c("49.5%","1%","49.5%"), eval=identical(gitbook_on, FALSE)}
 
 my_caption <- paste0('Left: ', my_caption1, ' Right: ', my_caption2)
 
