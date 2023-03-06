@@ -9,6 +9,7 @@ tab:unnamed-chunk-3
 tab:tab-wshd-197534
 tab:tab-culvert-bcfp-197534
 fig:fig-temp-weigert
+tab:tab-weigert-discharge
 tab:tab-habitat-summary-197534
 tab:tab-fish-site-197534
 tab:tab-fish-dens-197534
@@ -23,6 +24,7 @@ fig:photo-197534-07
 fig:photo-197534-08
 tab:tab-wshd-197559
 tab:tab-culvert-bcfp-197559
+tab:tab-brule-discharge
 tab:tab-habitat-summary-197559
 tab:tab-fish-site-197559
 tab:tab-fish-dens-197559
@@ -57,3 +59,5 @@ fish-sampling-1
 fish-habitat-assessment-1
 recommendations
 temperature
+discharge
+discharge-1

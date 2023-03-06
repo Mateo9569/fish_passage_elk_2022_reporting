@@ -521,7 +521,7 @@ WCT Slopeclass22 (km)
 </div>
 <div id="temperature" class="section level2 hasAnchor" number="5.1">
 <h2><span class="header-section-number">5.1</span> Temperature<a href="weigert-creek---197534---appendix.html#temperature" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Temperature data was collected at a station located approximately 50m upstream of Highway 43 between June 24, 2023 and November 2, 2023. Results are summarized in Figure <a href="weigert-creek---197534---appendix.html#fig:fig-temp-weigert">5.1</a> and raw data is available <a href="https://github.com/NewGraphEnvironment/fish_passage_elk_2022_reporting/tree/main/data">here</a>.</p>
+<p>Temperature data was collected at 30 minute intervals between June 24, 2023 and November 2, 2023 from a station located approximately 20m upstream of Highway 43. Results are summarized in Figure <a href="weigert-creek---197534---appendix.html#fig:fig-temp-weigert">5.1</a> and raw data is available <a href="https://github.com/NewGraphEnvironment/fish_passage_elk_2022_reporting/tree/main/data">here</a>.</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="weigert-creek---197534---appendix.html#cb22-1" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/weigert_temp.png&quot;</span>)</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:fig-temp-weigert"></span>
 <img src="fig/weigert_temp.png" alt="Temperature profile for Weigert Creek taken at station located approximately 50m upstream of Highway 43" width="100%" />
@@ -530,9 +530,83 @@ Figure 5.1: Temperature profile for Weigert Creek taken at station located appro
 </p>
 </div>
 </div>
+<div id="discharge" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Discharge<a href="weigert-creek---197534---appendix.html#discharge" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Discharge was measured upstream and downstream of the crossing on October 18, 2023. Stations locations and discharge recorded are presented in Table <a href="weigert-creek---197534---appendix.html#tab:tab-weigert-discharge">5.3</a>.</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="weigert-creek---197534---appendix.html#cb23-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="st">&#39;Discharge recorded at Weigert Creek upstream and downstream of Highway 43.&#39;</span></span>
+<span id="cb23-2"><a href="weigert-creek---197534---appendix.html#cb23-2" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="weigert-creek---197534---appendix.html#cb23-3" tabindex="-1"></a>hydrometrics <span class="sc">%&gt;%</span> </span>
+<span id="cb23-4"><a href="weigert-creek---197534---appendix.html#cb23-4" tabindex="-1"></a>  <span class="fu">filter</span>(stringr<span class="sc">::</span><span class="fu">str_detect</span>(gazetted_name, <span class="st">&#39;Weigert&#39;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb23-5"><a href="weigert-creek---197534---appendix.html#cb23-5" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>gazetted_name, <span class="sc">-</span><span class="st">`</span><span class="at">dd/mm/yy &amp; time</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb23-6"><a href="weigert-creek---197534---appendix.html#cb23-6" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">location =</span> <span class="fu">str_to_title</span>(location)) <span class="sc">%&gt;%</span> </span>
+<span id="cb23-7"><a href="weigert-creek---197534---appendix.html#cb23-7" tabindex="-1"></a>  purrr<span class="sc">::</span><span class="fu">set_names</span>(<span class="fu">c</span>(<span class="st">&#39;Location&#39;</span>, <span class="st">&#39;Discharge (m3/s)&#39;</span>, <span class="st">&#39;Zone&#39;</span>, <span class="st">&#39;Easting&#39;</span>, <span class="st">&#39;Northing&#39;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb23-8"><a href="weigert-creek---197534---appendix.html#cb23-8" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>()</span></code></pre></div>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:100%; ">
+<table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:tab-weigert-discharge">Table 5.3: </span>
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+Location
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+Discharge (m3/s)
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+Zone
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+Easting
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+Northing
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Upstream
+</td>
+<td style="text-align:right;">
+0.016
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+650707
+</td>
+<td style="text-align:right;">
+5528331
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Downstream
+</td>
+<td style="text-align:right;">
+0.036
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+651833
+</td>
+<td style="text-align:right;">
+5528789
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <div id="stream-characteristics-downstream" class="section level2 unnumbered hasAnchor">
 <h2>Stream Characteristics Downstream<a href="weigert-creek---197534---appendix.html#stream-characteristics-downstream" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The stream was surveyed at two different sites downstream of crossing 197534 (sites shown in Figure <a href="results.html#fig:survey-site-map">4.1</a>). The first site was located at the confluence to the Elk River where Weigert Creek redirects to the south. This section was surveyed for 520m. The stream was very fast flowing in sections. The average channel width was 4.38m, the average wetted width was 3.48m, and the average gradient was 3.1%. There were clumps of large woody debris that added complexity to stream habitat. Total cover was rated as moderate with cobbles dominating the in stream substrate. There were some sections that contained gravels suitable for westslope cutthroat and bull trout spawning. Habitat quality was rated as medium. The second site was located at the top of the first site, and was surveyed for 450m. Total cover was rated as moderate. The dominant substrate was cobbles with gravels sub dominant. Hydrometric flow data was taken at the bottom of this site, approximately 550m downstream of crossing 197534. Total measured flow was 0.036m<sup>3</sup>/s.</p>
+<p>The stream was surveyed at two different sites downstream of crossing 197534 (sites shown in Figure <a href="results.html#fig:survey-site-map">4.1</a>). The first site was located at the confluence to the Elk River where Weigert Creek redirects to the south. This section was surveyed for 520m. The stream was very fast flowing in sections. The average channel width was 4.38m, the average wetted width was 3.48m, and the average gradient was 3.1%. There were clumps of large woody debris that added complexity to stream habitat. Total cover was rated as moderate with cobbles dominating the in stream substrate. There were some sections that contained gravels suitable for westslope cutthroat and bull trout spawning. Habitat quality was rated as medium. The second site was located at the top of the first site, and was surveyed for 450m. Total cover was rated as moderate. The dominant substrate was cobbles with gravels sub dominant. Hydrometric flow data was taken at the bottom of this site, approximately 550m downstream of crossing 197534.</p>
 <p><br></p>
 </div>
 <div id="stream-characteristics-upstream" class="section level2 unnumbered hasAnchor">
@@ -542,16 +616,16 @@ Figure 5.1: Temperature profile for Weigert Creek taken at station located appro
 </div>
 <div id="fish-sampling-2" class="section level2 unnumbered hasAnchor">
 <h2>Fish Sampling<a href="weigert-creek---197534---appendix.html#fish-sampling-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Electrofishing was conducted with results summarised in Tables <a href="weigert-creek---197534---appendix.html#tab:tab-fish-site-197534">5.4</a> - <a href="weigert-creek---197534---appendix.html#tab:tab-fish-dens-197534">5.5</a> and Figure
-<a href="weigert-creek---197534---appendix.html#fig:plot-fish-box-197534">5.2</a>. Habitat details are summarised in Table <a href="weigert-creek---197534---appendix.html#tab:tab-habitat-summary-197534">5.3</a>.</p>
+<p>Electrofishing was conducted with results summarised in Tables <a href="weigert-creek---197534---appendix.html#tab:tab-fish-site-197534">5.5</a> - <a href="weigert-creek---197534---appendix.html#tab:tab-fish-dens-197534">5.6</a> and Figure
+<a href="weigert-creek---197534---appendix.html#fig:plot-fish-box-197534">5.2</a>. Habitat details are summarised in Table <a href="weigert-creek---197534---appendix.html#tab:tab-habitat-summary-197534">5.4</a>.</p>
 <p><br></p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="weigert-creek---197534---appendix.html#cb23-1" tabindex="-1"></a>tab_hab_summary <span class="sc">%&gt;%</span> </span>
-<span id="cb23-2"><a href="weigert-creek---197534---appendix.html#cb23-2" tabindex="-1"></a>  <span class="fu">filter</span>(Site <span class="sc">%like%</span> my_site) <span class="sc">%&gt;%</span></span>
-<span id="cb23-3"><a href="weigert-creek---197534---appendix.html#cb23-3" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="fu">paste0</span>(<span class="st">&#39;Summary of habitat details for electrofishing sites upstream and downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>),</span>
-<span id="cb23-4"><a href="weigert-creek---197534---appendix.html#cb23-4" tabindex="-1"></a>                 <span class="at">scroll =</span> F) </span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="weigert-creek---197534---appendix.html#cb24-1" tabindex="-1"></a>tab_hab_summary <span class="sc">%&gt;%</span> </span>
+<span id="cb24-2"><a href="weigert-creek---197534---appendix.html#cb24-2" tabindex="-1"></a>  <span class="fu">filter</span>(Site <span class="sc">%like%</span> my_site) <span class="sc">%&gt;%</span></span>
+<span id="cb24-3"><a href="weigert-creek---197534---appendix.html#cb24-3" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="fu">paste0</span>(<span class="st">&#39;Summary of habitat details for electrofishing sites upstream and downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>),</span>
+<span id="cb24-4"><a href="weigert-creek---197534---appendix.html#cb24-4" tabindex="-1"></a>                 <span class="at">scroll =</span> F) </span></code></pre></div>
 <table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
-<span id="tab:tab-habitat-summary-197534">Table 5.3: </span>Summary of habitat details for electrofishing sites upstream and downstream of PSCIS crossing 197534.
+<span id="tab:tab-habitat-summary-197534">Table 5.4: </span>Summary of habitat details for electrofishing sites upstream and downstream of PSCIS crossing 197534.
 </caption>
 <thead>
 <tr>
@@ -793,10 +867,10 @@ abundant
 </tbody>
 </table>
 <p><br></p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="weigert-creek---197534---appendix.html#cb24-1" tabindex="-1"></a><span class="fu">fpr_table_fish_site</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="weigert-creek---197534---appendix.html#cb25-1" tabindex="-1"></a><span class="fu">fpr_table_fish_site</span>()</span></code></pre></div>
 <table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
-<span id="tab:tab-fish-site-197534">Table 5.4: </span>Fish sampling site summary for 197534.
+<span id="tab:tab-fish-site-197534">Table 5.5: </span>Fish sampling site summary for 197534.
 </caption>
 <thead>
 <tr>
@@ -984,10 +1058,10 @@ open
 </tbody>
 </table>
 <p><br></p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="weigert-creek---197534---appendix.html#cb25-1" tabindex="-1"></a><span class="fu">fpr_table_fish_density</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="weigert-creek---197534---appendix.html#cb26-1" tabindex="-1"></a><span class="fu">fpr_table_fish_density</span>()</span></code></pre></div>
 <table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;border-bottom: 0;">
 <caption style="font-size: initial !important;">
-<span id="tab:tab-fish-dens-197534">Table 5.5: </span>Fish sampling density results summary for 197534.
+<span id="tab:tab-fish-dens-197534">Table 5.6: </span>Fish sampling density results summary for 197534.
 </caption>
 <thead>
 <tr>
@@ -1342,9 +1416,9 @@ TRUE
 </tfoot>
 </table>
 <p><br></p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="weigert-creek---197534---appendix.html#cb26-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Densites of fish (fish/100m2) captured upstream and downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span>
-<span id="cb26-2"><a href="weigert-creek---197534---appendix.html#cb26-2" tabindex="-1"></a></span>
-<span id="cb26-3"><a href="weigert-creek---197534---appendix.html#cb26-3" tabindex="-1"></a><span class="fu">fpr_plot_fish_box</span>() </span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="weigert-creek---197534---appendix.html#cb27-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Densites of fish (fish/100m2) captured upstream and downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span>
+<span id="cb27-2"><a href="weigert-creek---197534---appendix.html#cb27-2" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="weigert-creek---197534---appendix.html#cb27-3" tabindex="-1"></a><span class="fu">fpr_plot_fish_box</span>() </span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:plot-fish-box-197534"></span>
 <img src="Elk2022_files/figure-html/plot-fish-box-197534-1.png" alt="Densites of fish (fish/100m2) captured upstream and downstream of PSCIS crossing 197534." width="100%" />
 <p class="caption">
@@ -1352,10 +1426,10 @@ Figure 5.2: Densites of fish (fish/100m2) captured upstream and downstream of PS
 </p>
 </div>
 <p><br></p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="weigert-creek---197534---appendix.html#cb27-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">site =</span> my_site, <span class="at">str_to_pull =</span> <span class="st">&#39;_d1_&#39;</span>)</span>
-<span id="cb27-2"><a href="weigert-creek---197534---appendix.html#cb27-2" tabindex="-1"></a></span>
-<span id="cb27-3"><a href="weigert-creek---197534---appendix.html#cb27-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;, in reach 1.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="weigert-creek---197534---appendix.html#cb28-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="weigert-creek---197534---appendix.html#cb28-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">site =</span> my_site, <span class="at">str_to_pull =</span> <span class="st">&#39;_d1_&#39;</span>)</span>
+<span id="cb28-2"><a href="weigert-creek---197534---appendix.html#cb28-2" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="weigert-creek---197534---appendix.html#cb28-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;, in reach 1.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="weigert-creek---197534---appendix.html#cb29-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-197534-01"></span>
 <img src="Elk2022_files/figure-html/photo-197534-01-1.png" alt="Typical habitat downstream of PSCIS crossing 197534, in reach 1." width="100%" />
 <p class="caption">
@@ -1363,26 +1437,26 @@ Figure 5.3: Typical habitat downstream of PSCIS crossing 197534, in reach 1.
 </p>
 </div>
 <p><br></p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="weigert-creek---197534---appendix.html#cb29-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">site =</span> my_site, <span class="at">str_to_pull =</span> <span class="st">&#39;_u2_&#39;</span>)</span>
-<span id="cb29-2"><a href="weigert-creek---197534---appendix.html#cb29-2" tabindex="-1"></a></span>
-<span id="cb29-3"><a href="weigert-creek---197534---appendix.html#cb29-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39; , in reach 2.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="weigert-creek---197534---appendix.html#cb30-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="weigert-creek---197534---appendix.html#cb30-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">site =</span> my_site, <span class="at">str_to_pull =</span> <span class="st">&#39;_u2_&#39;</span>)</span>
+<span id="cb30-2"><a href="weigert-creek---197534---appendix.html#cb30-2" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="weigert-creek---197534---appendix.html#cb30-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39; , in reach 2.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="weigert-creek---197534---appendix.html#cb31-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-197534-02"></span>
 <img src="Elk2022_files/figure-html/photo-197534-02-1.png" alt="Typical habitat upstream of PSCIS crossing 197534 , in reach 2." width="100%" />
 <p class="caption">
 Figure 5.4: Typical habitat upstream of PSCIS crossing 197534 , in reach 2.
 </p>
 </div>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="weigert-creek---197534---appendix.html#cb31-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
-<span id="cb31-2"><a href="weigert-creek---197534---appendix.html#cb31-2" tabindex="-1"></a></span>
-<span id="cb31-3"><a href="weigert-creek---197534---appendix.html#cb31-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
-<span id="cb31-4"><a href="weigert-creek---197534---appendix.html#cb31-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
-<span id="cb31-5"><a href="weigert-creek---197534---appendix.html#cb31-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
-<p><br></p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="weigert-creek---197534---appendix.html#cb32-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">site =</span> my_site, <span class="at">str_to_pull =</span> <span class="st">&#39;_u3_&#39;</span>)</span>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="weigert-creek---197534---appendix.html#cb32-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
 <span id="cb32-2"><a href="weigert-creek---197534---appendix.html#cb32-2" tabindex="-1"></a></span>
-<span id="cb32-3"><a href="weigert-creek---197534---appendix.html#cb32-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39; , in reach 3.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="weigert-creek---197534---appendix.html#cb33-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
+<span id="cb32-3"><a href="weigert-creek---197534---appendix.html#cb32-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
+<span id="cb32-4"><a href="weigert-creek---197534---appendix.html#cb32-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
+<span id="cb32-5"><a href="weigert-creek---197534---appendix.html#cb32-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
+<p><br></p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="weigert-creek---197534---appendix.html#cb33-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">site =</span> my_site, <span class="at">str_to_pull =</span> <span class="st">&#39;_u3_&#39;</span>)</span>
+<span id="cb33-2"><a href="weigert-creek---197534---appendix.html#cb33-2" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="weigert-creek---197534---appendix.html#cb33-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39; , in reach 3.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="weigert-creek---197534---appendix.html#cb34-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-197534-03"></span>
 <img src="Elk2022_files/figure-html/photo-197534-03-1.png" alt="Typical habitat upstream of PSCIS crossing 197534 , in reach 3." width="100%" />
 <p class="caption">
@@ -1390,26 +1464,26 @@ Figure 5.5: Typical habitat upstream of PSCIS crossing 197534 , in reach 3.
 </p>
 </div>
 <p><br></p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="weigert-creek---197534---appendix.html#cb34-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">site =</span> my_site, <span class="at">str_to_pull =</span> <span class="st">&#39;_u4_&#39;</span>)</span>
-<span id="cb34-2"><a href="weigert-creek---197534---appendix.html#cb34-2" tabindex="-1"></a></span>
-<span id="cb34-3"><a href="weigert-creek---197534---appendix.html#cb34-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39; , in reach 4.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="weigert-creek---197534---appendix.html#cb35-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="weigert-creek---197534---appendix.html#cb35-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">site =</span> my_site, <span class="at">str_to_pull =</span> <span class="st">&#39;_u4_&#39;</span>)</span>
+<span id="cb35-2"><a href="weigert-creek---197534---appendix.html#cb35-2" tabindex="-1"></a></span>
+<span id="cb35-3"><a href="weigert-creek---197534---appendix.html#cb35-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39; , in reach 4.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="weigert-creek---197534---appendix.html#cb36-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-197534-04"></span>
 <img src="Elk2022_files/figure-html/photo-197534-04-1.png" alt="Typical habitat upstream of PSCIS crossing 197534 , in reach 4." width="100%" />
 <p class="caption">
 Figure 5.6: Typical habitat upstream of PSCIS crossing 197534 , in reach 4.
 </p>
 </div>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="weigert-creek---197534---appendix.html#cb36-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
-<span id="cb36-2"><a href="weigert-creek---197534---appendix.html#cb36-2" tabindex="-1"></a></span>
-<span id="cb36-3"><a href="weigert-creek---197534---appendix.html#cb36-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
-<span id="cb36-4"><a href="weigert-creek---197534---appendix.html#cb36-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
-<span id="cb36-5"><a href="weigert-creek---197534---appendix.html#cb36-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
-<p><br></p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="weigert-creek---197534---appendix.html#cb37-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">site =</span> my_site, <span class="at">str_to_pull =</span> <span class="st">&#39;_u5_&#39;</span>)</span>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="weigert-creek---197534---appendix.html#cb37-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
 <span id="cb37-2"><a href="weigert-creek---197534---appendix.html#cb37-2" tabindex="-1"></a></span>
-<span id="cb37-3"><a href="weigert-creek---197534---appendix.html#cb37-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39; , in reach 5.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="weigert-creek---197534---appendix.html#cb38-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
+<span id="cb37-3"><a href="weigert-creek---197534---appendix.html#cb37-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
+<span id="cb37-4"><a href="weigert-creek---197534---appendix.html#cb37-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
+<span id="cb37-5"><a href="weigert-creek---197534---appendix.html#cb37-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
+<p><br></p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="weigert-creek---197534---appendix.html#cb38-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">site =</span> my_site, <span class="at">str_to_pull =</span> <span class="st">&#39;_u5_&#39;</span>)</span>
+<span id="cb38-2"><a href="weigert-creek---197534---appendix.html#cb38-2" tabindex="-1"></a></span>
+<span id="cb38-3"><a href="weigert-creek---197534---appendix.html#cb38-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39; , in reach 5.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="weigert-creek---197534---appendix.html#cb39-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-197534-05"></span>
 <img src="Elk2022_files/figure-html/photo-197534-05-1.png" alt="Typical habitat upstream of PSCIS crossing 197534 , in reach 5." width="100%" />
 <p class="caption">
@@ -1417,26 +1491,26 @@ Figure 5.7: Typical habitat upstream of PSCIS crossing 197534 , in reach 5.
 </p>
 </div>
 <p><br></p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="weigert-creek---197534---appendix.html#cb39-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">site =</span> my_site, <span class="at">str_to_pull =</span> <span class="st">&#39;_ef1_&#39;</span>)</span>
-<span id="cb39-2"><a href="weigert-creek---197534---appendix.html#cb39-2" tabindex="-1"></a></span>
-<span id="cb39-3"><a href="weigert-creek---197534---appendix.html#cb39-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Brook Trout captured downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39; , in reach 1.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="weigert-creek---197534---appendix.html#cb40-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="weigert-creek---197534---appendix.html#cb40-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">site =</span> my_site, <span class="at">str_to_pull =</span> <span class="st">&#39;_ef1_&#39;</span>)</span>
+<span id="cb40-2"><a href="weigert-creek---197534---appendix.html#cb40-2" tabindex="-1"></a></span>
+<span id="cb40-3"><a href="weigert-creek---197534---appendix.html#cb40-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Brook Trout captured downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39; , in reach 1.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="weigert-creek---197534---appendix.html#cb41-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-197534-06"></span>
 <img src="Elk2022_files/figure-html/photo-197534-06-1.png" alt="Brook Trout captured downstream of PSCIS crossing 197534 , in reach 1." width="100%" />
 <p class="caption">
 Figure 5.8: Brook Trout captured downstream of PSCIS crossing 197534 , in reach 1.
 </p>
 </div>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="weigert-creek---197534---appendix.html#cb41-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
-<span id="cb41-2"><a href="weigert-creek---197534---appendix.html#cb41-2" tabindex="-1"></a></span>
-<span id="cb41-3"><a href="weigert-creek---197534---appendix.html#cb41-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
-<span id="cb41-4"><a href="weigert-creek---197534---appendix.html#cb41-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
-<span id="cb41-5"><a href="weigert-creek---197534---appendix.html#cb41-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
-<p><br></p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="weigert-creek---197534---appendix.html#cb42-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">site =</span> my_site, <span class="at">str_to_pull =</span> <span class="st">&#39;_ef2_&#39;</span>)</span>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="weigert-creek---197534---appendix.html#cb42-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
 <span id="cb42-2"><a href="weigert-creek---197534---appendix.html#cb42-2" tabindex="-1"></a></span>
-<span id="cb42-3"><a href="weigert-creek---197534---appendix.html#cb42-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Mountain Whitefish captured downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39; , in reach 1.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="weigert-creek---197534---appendix.html#cb43-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
+<span id="cb42-3"><a href="weigert-creek---197534---appendix.html#cb42-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
+<span id="cb42-4"><a href="weigert-creek---197534---appendix.html#cb42-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
+<span id="cb42-5"><a href="weigert-creek---197534---appendix.html#cb42-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
+<p><br></p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="weigert-creek---197534---appendix.html#cb43-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">site =</span> my_site, <span class="at">str_to_pull =</span> <span class="st">&#39;_ef2_&#39;</span>)</span>
+<span id="cb43-2"><a href="weigert-creek---197534---appendix.html#cb43-2" tabindex="-1"></a></span>
+<span id="cb43-3"><a href="weigert-creek---197534---appendix.html#cb43-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Mountain Whitefish captured downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39; , in reach 1.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="weigert-creek---197534---appendix.html#cb44-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-197534-07"></span>
 <img src="Elk2022_files/figure-html/photo-197534-07-1.png" alt="Mountain Whitefish captured downstream of PSCIS crossing 197534 , in reach 1." width="100%" />
 <p class="caption">
@@ -1444,26 +1518,26 @@ Figure 5.9: Mountain Whitefish captured downstream of PSCIS crossing 197534 , in
 </p>
 </div>
 <p><br></p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="weigert-creek---197534---appendix.html#cb44-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">site =</span> my_site, <span class="at">str_to_pull =</span> <span class="st">&#39;_ef3_&#39;</span>)</span>
-<span id="cb44-2"><a href="weigert-creek---197534---appendix.html#cb44-2" tabindex="-1"></a></span>
-<span id="cb44-3"><a href="weigert-creek---197534---appendix.html#cb44-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Westslope Cutthroat Trout captured upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39; , in reach 2.&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="weigert-creek---197534---appendix.html#cb45-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="weigert-creek---197534---appendix.html#cb45-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">site =</span> my_site, <span class="at">str_to_pull =</span> <span class="st">&#39;_ef3_&#39;</span>)</span>
+<span id="cb45-2"><a href="weigert-creek---197534---appendix.html#cb45-2" tabindex="-1"></a></span>
+<span id="cb45-3"><a href="weigert-creek---197534---appendix.html#cb45-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Westslope Cutthroat Trout captured upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39; , in reach 2.&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="weigert-creek---197534---appendix.html#cb46-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-197534-08"></span>
 <img src="Elk2022_files/figure-html/photo-197534-08-1.png" alt="Westslope Cutthroat Trout captured upstream of PSCIS crossing 197534 , in reach 2." width="100%" />
 <p class="caption">
 Figure 5.10: Westslope Cutthroat Trout captured upstream of PSCIS crossing 197534 , in reach 2.
 </p>
 </div>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="weigert-creek---197534---appendix.html#cb46-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
-<span id="cb46-2"><a href="weigert-creek---197534---appendix.html#cb46-2" tabindex="-1"></a></span>
-<span id="cb46-3"><a href="weigert-creek---197534---appendix.html#cb46-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
-<span id="cb46-4"><a href="weigert-creek---197534---appendix.html#cb46-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
-<span id="cb46-5"><a href="weigert-creek---197534---appendix.html#cb46-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="weigert-creek---197534---appendix.html#cb47-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
+<span id="cb47-2"><a href="weigert-creek---197534---appendix.html#cb47-2" tabindex="-1"></a></span>
+<span id="cb47-3"><a href="weigert-creek---197534---appendix.html#cb47-3" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo1)</span>
+<span id="cb47-4"><a href="weigert-creek---197534---appendix.html#cb47-4" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;fig/pixel.png&quot;</span>)</span>
+<span id="cb47-5"><a href="weigert-creek---197534---appendix.html#cb47-5" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(my_photo2)</span></code></pre></div>
 
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="weigert-creek---197534---appendix.html#cb47-1" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo=</span><span class="cn">FALSE</span>, <span class="at">message=</span><span class="cn">FALSE</span>, <span class="at">warning=</span><span class="cn">FALSE</span>)</span>
-<span id="cb47-2"><a href="weigert-creek---197534---appendix.html#cb47-2" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;scripts/packages.R&#39;</span>)</span>
-<span id="cb47-3"><a href="weigert-creek---197534---appendix.html#cb47-3" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;scripts/tables.R&#39;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="weigert-creek---197534---appendix.html#cb48-1" tabindex="-1"></a>my_site <span class="ot">&lt;-</span> <span class="dv">197559</span></span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="weigert-creek---197534---appendix.html#cb48-1" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo=</span><span class="cn">FALSE</span>, <span class="at">message=</span><span class="cn">FALSE</span>, <span class="at">warning=</span><span class="cn">FALSE</span>)</span>
+<span id="cb48-2"><a href="weigert-creek---197534---appendix.html#cb48-2" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;scripts/packages.R&#39;</span>)</span>
+<span id="cb48-3"><a href="weigert-creek---197534---appendix.html#cb48-3" tabindex="-1"></a><span class="fu">source</span>(<span class="st">&#39;scripts/tables.R&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="weigert-creek---197534---appendix.html#cb49-1" tabindex="-1"></a>my_site <span class="ot">&lt;-</span> <span class="dv">197559</span></span></code></pre></div>
 </div>
 </div>
             </section>
