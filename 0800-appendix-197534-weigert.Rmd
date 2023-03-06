@@ -70,7 +70,7 @@ fpr::fpr_table_bcfp(scroll = gitbook_on)
 <br>
 
 ## Temperature
-Temperature data was collected at a station located approximately 50m upstream of Highway 43 between June 24, 2023 and November 2, 2023.  Results are summarized in Figure \@ref(fig:fig-temp-weigert) and raw data is available [here](https://github.com/NewGraphEnvironment/fish_passage_elk_2022_reporting/tree/main/data).
+Temperature data was collected at 30 minute intervals between June 24, 2023 and November 2, 2023 from a station located approximately 20m upstream of Highway 43.  Results are summarized in Figure \@ref(fig:fig-temp-weigert) and raw data is available [here](https://github.com/NewGraphEnvironment/fish_passage_elk_2022_reporting/tree/main/data).
 
 ```{r fig-temp-weigert, fig.cap='Temperature profile for Weigert Creek taken at station located approximately 50m upstream of Highway 43'}
 knitr::include_graphics("fig/weigert_temp.png")
