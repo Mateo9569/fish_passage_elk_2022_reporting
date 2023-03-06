@@ -76,10 +76,26 @@ Temperature data was collected at 30 minute intervals between June 24, 2023 and 
 knitr::include_graphics("fig/weigert_temp.png")
 ```
 
+## Discharge
+Discharge was measured upstream and downstream of the crossing on October 18, 2023.  Stations locations and discharge recorded are presented in Table \@ref(tab:tab-weigert-discharge). 
+
+```{r tab-weigert-discharge}
+my_caption <- 'Discharge recorded at Weigert Creek upstream and downstream of Highway 43.'
+
+hydrometrics %>% 
+  filter(stringr::str_detect(gazetted_name, 'Weigert')) %>% 
+  select(-gazetted_name, -`dd/mm/yy & time`) %>% 
+  mutate(location = str_to_title(location)) %>% 
+  purrr::set_names(c('Location', 'Discharge (m3/s)', 'Zone', 'Easting', 'Northing')) %>% 
+  fpr::fpr_kable()
+
+```
+
+
 
 ## Stream Characteristics Downstream {.unnumbered}
 
-The stream was surveyed at two different sites downstream of crossing `r as.character(my_site)` (sites shown in Figure \@ref(fig:survey-site-map)). The first site was located at the confluence to the Elk River where Weigert Creek redirects to the south. This section was surveyed for 520m. The stream was very fast flowing in sections. The average channel width was 4.38m, the average wetted width was 3.48m, and the average gradient was 3.1%. There were clumps of large woody debris that added complexity to stream habitat. Total cover was rated as moderate with cobbles dominating the in stream substrate. There were some sections that contained gravels suitable for westslope cutthroat and bull trout spawning. Habitat quality was rated as medium. The second site was located at the top of the first site, and was surveyed for 450m. Total cover was rated as moderate. The dominant substrate was cobbles with gravels sub dominant. Hydrometric flow data was taken at the bottom of this site, approximately 550m downstream of crossing `r as.character(my_site)`. Total measured flow was 0.036m^3^/s.    
+The stream was surveyed at two different sites downstream of crossing `r as.character(my_site)` (sites shown in Figure \@ref(fig:survey-site-map)). The first site was located at the confluence to the Elk River where Weigert Creek redirects to the south. This section was surveyed for 520m. The stream was very fast flowing in sections. The average channel width was 4.38m, the average wetted width was 3.48m, and the average gradient was 3.1%. There were clumps of large woody debris that added complexity to stream habitat. Total cover was rated as moderate with cobbles dominating the in stream substrate. There were some sections that contained gravels suitable for westslope cutthroat and bull trout spawning. Habitat quality was rated as medium. The second site was located at the top of the first site, and was surveyed for 450m. Total cover was rated as moderate. The dominant substrate was cobbles with gravels sub dominant. Hydrometric flow data was taken at the bottom of this site, approximately 550m downstream of crossing `r as.character(my_site)`.     
 
 <br>
 
