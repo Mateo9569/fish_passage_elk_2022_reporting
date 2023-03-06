@@ -6,6 +6,20 @@ A map showing sample sites for fish sampling, fish habitat assessments and disch
 knitr::include_graphics("fig/elk_fish_passage_2022.png")
 ```
 
+**Habitat Model Parameters** 
+
+* Spawning max gradient: 5.0%
+
+* Spawning discharge min (mean annual, m^3^/s): 0.05
+
+* Spawning discharge max (mean annual, m^3^/s): 76.00
+
+* Rearing max gradient:                         7.0%
+
+* Rearing discharge min  (mean annual, m^3^/s): 0.02
+
+* Rearing discharge max  (mean annual, m^3^/s): 30.00
+
 <br>
 
 ## Weigert Creek - PSCIS crossing 197534
@@ -104,7 +118,7 @@ hab_site %>%
          ) %>% 
   # filter out two sites that weren't electrofished
   filter(str_detect(alias_local_name, "ef", negate = FALSE)) %>%
-  filter(str_detect(alias_local_name, "Weigert")) %>%
+  filter(str_detect(gazetted_name, "Weigert")) %>%
   arrange(alias_local_name) %>% 
   fpr::fpr_kable()
 ```
@@ -446,7 +460,7 @@ hab_site %>%
          ) %>% 
   # filter out two sites that weren't electrofished
   filter(str_detect(alias_local_name, "ef", negate = FALSE)) %>%
-  filter(str_detect(alias_local_name, "Brule")) %>%
+  filter(str_detect(gazetted_name, "Brule")) %>%
   arrange(alias_local_name) %>% 
   fpr::fpr_kable()
 ```
