@@ -1,4 +1,4 @@
-source('R/packages.R')
+source('scripts/packages.R')
 
 ##08NK002 is elk river at Fernie  - 08NK016 is near sparwood
 ##08NK016
@@ -36,10 +36,13 @@ hydrograph1_stats_caption <- caption_info$title_stats
 
 
 ##fasstr::plot_data_screening2 is a custom version of plot_data_screening
-hydrograph_stats_print <- fasstr::plot_data_screening(station_number = station, start_year = start_year)[["Data_Screening"]] + ggdark::dark_theme_bw() ##first version is not dark
+hydrograph_stats_print <- fasstr::plot_data_screening(station_number = station,
+                                                      start_year = start_year,
+                                                      plot_availability = F,
+                                                      include_stats = c("Mean", "Median", "Minimum", "Maximum"))[["Data_Screening"]] + ggdark::dark_theme_bw() ##first version is not dark
 hydrograph_stats_print
 
-ggsave(plot = hydrograph_stats_print, file=paste0("fig/hydrology_stats_", station, ".png"),
+ggsave(plot = hydrograph_stats_print, file=paste0("fig/hydrology_stats_", station, "2.png"),
        h=3.4, w=5.11, units="in", dpi=300)
 
 ##another way to make the graph
@@ -105,10 +108,12 @@ hydrograph2_stats_caption <- caption_info$title_stats
 #Bulkley River Near Houston (Station #08EE003 - Lat 54.40 Lon -126.72). Available daily discharge data from 1980 to 2018.
 
 
-hydrograph_stats_print <- fasstr::plot_data_screening(station_number = station)[["Data_Screening"]] + ggdark::dark_theme_bw()
+hydrograph_stats_print <- fasstr::plot_data_screening(station_number = station,
+                                                      plot_availability = F,
+                                                      include_stats = c("Mean", "Median", "Minimum", "Maximum"))[["Data_Screening"]] + ggdark::dark_theme_bw()
 hydrograph_stats_print
 
-ggsave(plot = hydrograph_stats_print, file=paste0("./fig/hydrology_stats_", station, ".png"),
+ggsave(plot = hydrograph_stats_print, file=paste0("./fig/hydrology_stats_", station, "b.png"),
        h=3.4, w=5.11, units="in", dpi=300)
 
 # flow_raw <- tidyhydat::hy_daily_flows(station, start_date = '1980-01-01')
