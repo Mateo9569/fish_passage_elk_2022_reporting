@@ -4,21 +4,17 @@ A map showing sample sites for fish sampling, fish habitat assessments and disch
 
 ```{r survey-site-map, fig.cap = 'Map of Survey Sites',eval=T}
 knitr::include_graphics("fig/elk_fish_passage_2022.png")
+
+# **Habitat Model Parameters** 
+# * Spawning max gradient: 5.0%# 
+# * Spawning discharge min (mean annual, m^3^/s): 0.05# 
+# * Spawning discharge max (mean annual, m^3^/s): 76.00# 
+# * Rearing max gradient:                         7.0%# 
+# * Rearing discharge min  (mean annual, m^3^/s): 0.02# 
+# * Rearing discharge max  (mean annual, m^3^/s): 30.00
 ```
 
-**Habitat Model Parameters** 
 
-* Spawning max gradient: 5.0%
-
-* Spawning discharge min (mean annual, m^3^/s): 0.05
-
-* Spawning discharge max (mean annual, m^3^/s): 76.00
-
-* Rearing max gradient:                         7.0%
-
-* Rearing discharge min  (mean annual, m^3^/s): 0.02
-
-* Rearing discharge max  (mean annual, m^3^/s): 30.00
 
 <br>
 
@@ -101,7 +97,7 @@ The stream was surveyed at six different sites upstream of crossing `r as.charac
 
 ### Fish Sampling 
 
-Electrofishing was conducted at eight sites with results summarised in Tables \@ref(tab:tab-ef-site-weigert) - \@ref(tab:tab-fish-dens-197534) and Figure \@ref(fig:plot-fish-box-197534). Habitat details are summarised in Table \@ref(tab:tab-habitat-summary-197534). 
+Electrofishing was conducted at eight sites with results summarised in Tables \@ref(tab:tab-ef-site-weigert) - \@ref(tab:tab-fish-dens-197534) and Figure \@ref(fig:plot-fish-box-197534). Habitat details are summarized in Table \@ref(tab:tab-habitat-summary-197534). 
 
 
 
@@ -365,8 +361,6 @@ knitr::include_graphics("fig/pixel.png")
 knitr::include_graphics(my_photo2)
 ```
 
-### Discussion
-
 
 ## Brule Creek - PSCIS crossings 197533 and 197559
 
@@ -402,7 +396,7 @@ provided in map attachment [`r fpr::fpr_my_bcfishpass(col_pull = dbm_mof_50k_gri
 fpr::fpr_table_bcfp(scroll = gitbook_on) 
 ```
 
-## Discharge
+### Discharge
 Discharge was measured upstream and downstream of Highway 43 on October 18, 2023.  Stations locations and discharge recorded are presented in Table \@ref(tab:tab-brule-discharge). 
 
 ```{r tab-brule-discharge}
@@ -419,7 +413,7 @@ hydrometrics %>%
 
 <br>
 
-## Stream Characteristics Upstream
+### Stream Characteristics Upstream
 
 Habitat characteristics were gathered at two sites where electrofishing was conducted in 2022 (Figure \@ref(fig:survey-site-map)). Habitat details are summarised in Table \@ref(tab:tab-habitat-summary-197559).
 
@@ -442,7 +436,7 @@ tab_hab_summary %>%
 ```
 
 
-## Fish Sampling 
+### Fish Sampling 
 
 The stream was electrofished at two sites upstream of crossing `r as.character(my_site)` in 2022 with no fish captured at either site (Tables \@ref(tab:ef-site-brule) - \@ref(tab:tab-fish-dens-197559)).
 
@@ -584,6 +578,7 @@ knitr::include_graphics(my_photo1)
 knitr::include_graphics("fig/pixel.png")
 knitr::include_graphics(my_photo2)
 ```
+
 
 
 

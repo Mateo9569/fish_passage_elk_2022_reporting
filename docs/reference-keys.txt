@@ -52,9 +52,10 @@ stream-characteristics-downstream
 stream-characteristics-upstream
 fish-sampling-1
 fish-habitat-assessment-1
-discussion
 brule-creek---pscis-crossings-197533-and-197559
 discharge-1
 stream-characteristics-upstream-1
 fish-sampling-2
-recommendations
+discussion
+weigert-creek---pscis-crossing-197534-1
+brule-creek---pscis-crossings-197533-and-197559-1
