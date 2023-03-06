@@ -52,7 +52,7 @@ fpr::fpr_table_wshd_sum(site_id = my_site) %>%
 
 <br>
 
-PSCIS crossing `r as.character(my_site)` was assessed in 2020 by [@irvine2021UpperElk] and ranked as a barrier for upstream fish migration. The site was noted as having a significantly sized outlet drop (1.2m) and good flow with a location very close to the mainstem of Bighorn Creek which contains confirmed spawning habitat for westslope cutthrout trout. There was 0.8km of steep but viable juvenile rearing habitat surveyed upstream of crossing 197844 in 2021. Bighorn Creek has been noted as contributing significantly to habitat suitable for bull trout spawning in the Wigwam River system with spawning been noted just upstream of the confluence with the Wigwam River. The Wigwam River has been characterized as the most important spawning system in the East Kootenay region, supporting some of the largest westslope cutthrout trout in the Kootenay Region and is located ~11.5km downstream of the subject culvert [@strong_k_d_2015McNeilSubstrate; @cope_morris2001WigwamRiver].  A detailed write up of habitat details and stream characteristics can be found in the 2021 report memo linked [here](https://www.newgraphenvironment.com/fish_passage_elk_2021_reporting/appendix---197844---tributary-to-bighorn-creek.html).
+PSCIS crossing `r as.character(my_site)` was assessed in 2020 by [@irvine2021UpperElk] and ranked as a barrier for upstream fish migration. The site was noted as having a significantly sized outlet drop (1.2m) and good flow with a location very close to the mainstem of Bighorn Creek which contains confirmed spawning habitat for westslope cutthrout trout. There was 0.8km of steep but viable juvenile rearing habitat surveyed upstream of crossing 197844 in 2021. Bighorn Creek has been noted as contributing significantly to habitat suitable for bull trout spawning in the Wigwam River system with spawning been noted just upstream of the confluence with the Wigwam River. The Wigwam River has been characterized as the most important spawning system in the East Kootenay region, supporting some of the largest westslope cutthrout trout in the Kootenay Region and is located ~11.5km downstream of the subject culvert [@strong_k_d_2015McNeilSubstrate; @cope_morris2001WigwamRiver].  A detailed write up of habitat details and stream characteristics can be found in the 2021 report memo linked [here](https://www.newgraphenvironment.com/fish_passage_elk_2020_reporting_cwf/fish_passage_elk_2020_reporting_cwf/appendix---197534---weigert-creek.html).
 
 A summary of habitat modelling outputs is presented in Table
 \@ref(tab:tab-culvert-bcfp-197534) and a map of the watershed is
@@ -68,6 +68,14 @@ fpr::fpr_table_bcfp(scroll = gitbook_on)
 ```
 
 <br>
+
+## Temperature
+Temperature data was collected at a station located approximately 50m upstream of Highway 43 between June 24, 2023 and November 2, 2023.  Results are summarized in Figure \@ref(fig:fig-temp-weigert) and raw data is available [here](https://github.com/NewGraphEnvironment/fish_passage_elk_2022_reporting/tree/main/data).
+
+```{r fig-temp-weigert, fig.cap='Temperature profile for Weigert Creek taken at station located approximately 50m upstream of Highway 43'}
+knitr::include_graphics("fig/weigert_temp.png")
+```
+
 
 ## Stream Characteristics Downstream {.unnumbered}
 
@@ -87,9 +95,6 @@ Electrofishing was conducted with results summarised in Tables \@ref(tab:tab-fis
 \@ref(fig:plot-fish-box-197534). Habitat details are summarised in Table \@ref(tab:tab-habitat-summary-197534). 
 
 `r if(gitbook_on){knitr::asis_output("<br>")} else knitr::asis_output("\\pagebreak")`
-
-## Results {.unnumbered}
-
 
 
 ```{r tab-habitat-summary-197534, eval=T}
