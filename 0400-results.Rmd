@@ -27,20 +27,21 @@ hab_site %>%
 
 <br>
 
-```{r}
+```{r fish_samp_sum}
 
-test <- hab_site %>% filter(str_detect(alias_local_name, '_ef')) %>% nrow()
-# sum of all the fish per site and the electrofishing seconds
-# to do - define CPUE adn put units  (fish/1000s) in footnote
+my_caption = 'Summary of results of electrofishing.'
+
+ # sum of all the fish per site and the electrofishing seconds
 fish_samp_sum <- left_join(
   hab_fish_indiv %>%
-  group_by(local_name, ef_length_m, ef_width_m, ef_seconds) %>% 
-  summarise(count_fish = n()) %>% 
-  arrange(local_name),
+    mutate(ef_width_m = round(ef_width_m, 1)) %>% 
+    group_by(local_name, ef_length_m, ef_width_m, ef_seconds) %>% 
+    summarise(count_fish = n()) %>% 
+    arrange(local_name),
   
   hab_site %>% 
     select(gazetted_name,
-         alias_local_name, reach_number),
+           alias_local_name, reach_number),
   
   by = c('local_name' = 'alias_local_name')
 ) %>% 
@@ -53,7 +54,8 @@ fish_samp_sum <- left_join(
   mutate(CPUE = round(count_fish/(ef_seconds / 1000), 1))
 
 fish_samp_sum %>% 
-  fpr::fpr_kable()
+  fpr::fpr_kable(caption_text = my_caption,
+                 footnote_text = 'CPUE = Catch per unit effort (fish captured/1000s of electrofishing).')
 ```
 
 
@@ -61,7 +63,11 @@ fish_samp_sum %>%
 ## Fish Habitat Assessment 
 Fish habitat was assessed at four sites within three reaches of Weigert Creek.
 
-```{r}
+```{r tab_fhap_site}
+
+my_caption = 'Site locations for fish habitat assessment within Weigert Creek.'
+
+
 tab_fhap_site %>% 
   select(
     Site, 
@@ -70,14 +76,21 @@ tab_fhap_site %>%
     Northing,
     Comments
   ) %>% 
-    fpr::fpr_kable(scroll = F)
+  arrange('Site') %>% 
+    fpr::fpr_kable(caption_text = my_caption,
+                   scroll = F)
 ```
 
 <br>
 
-```{r}
+```{r tab_fhap_hu_sum}
+my_caption = 'Summary of results from fish habitat assessment within Weigert Creek.'
+
+
 tab_fhap_hu_sum %>% 
-  fpr::fpr_kable(scroll = F)
+  fpr::fpr_kable(caption_text = my_caption,
+                 footnote_text = 'Results for habitat units presented as percent of total area. LWD = large woody debris.',
+                 scroll = F)
 ```
 
 
