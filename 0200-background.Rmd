@@ -20,14 +20,14 @@ knitr::include_graphics("fig/hydrograph_08NK002.png")
 <br>
 
 ```{r hydrology-stats1, fig.cap = 'Elk River Near Sparwood (Station #08NK016 - Lat 49.86562 Lon -114.86868). Available daily discharge data from 1950 to 2020.', eval=T}
-knitr::include_graphics("fig/hydrology_stats_08NK016.png")
+knitr::include_graphics("fig/hydrology_stats_08NK016b.png")
 ```
 
 <br>
 
 ```{r hydrology-stats2, fig.cap = 'Elk River At Fernie (Station #08NK002 - Lat 49.50347 Lon -115.07013). Available daily discharge data from 1970 to 2020.', eval=T}
 
-knitr::include_graphics("fig/hydrology_stats_08NK002.png")
+knitr::include_graphics("fig/hydrology_stats_08NK0022.png")
 
 ```
 
