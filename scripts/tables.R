@@ -968,9 +968,10 @@ tab_fhap_hu_sum <- fhap_hu_sum %>%
 
 # import csv
 # hydrometrics <- read_csv('data/hydrometrics.csv')
-
+#
 # conn <- rws_connect("data/bcfishpass.sqlite")
 # rws_list_tables(conn)
+# rws_drop_table("hydrometrics", conn = conn)
 # rws_write(hydrometrics, exists = F, delete = TRUE,
-#           conn = conn, x_name = "hydrometrics")
+#            conn = conn, x_name = "hydrometrics")
 # rws_disconnect(conn)
