@@ -97,11 +97,11 @@ test <- hab_fish_collect_map_prep %>%
 
 
 ##join the tables together
-hab_fish_collect_map_prep2 <- left_join(
+hab_fish_collect_map_prep2 <- right_join(
   # distinct to get rid of lots of sites
-  select(hab_loc2, reference_number, site_id, utm_zone:utm_northing) %>% distinct(site_id, .keep_all = T),
-  select(hab_fish_collect_map_prep %>% distinct(site_id, species, .keep_all = T), site_id, species),
-  by = 'site_id'
+  select(hab_loc2, reference_number, alias_local_name, utm_zone:utm_northing) %>% distinct(alias_local_name, .keep_all = T),
+  select(hab_fish_collect_map_prep %>% distinct(local_name, species, .keep_all = T), local_name, species),
+  by = c('alias_local_name' = 'local_name')
 )
 
 
@@ -120,26 +120,26 @@ hab_fish_collect_map_prep3 <- left_join(
 
   select(hab_fish_codes, common_name, species_code),
   by = c('species' = 'common_name')
-) %>%
+)
   # this time we ditch the nfc because we don't want it to look like sites are non-fish bearing.  Its a multipass thing
   # WATCH THIS IN THE FUTURE
-  filter(species_code != 'NFC')
+  # filter(species_code != 'NFC')
 
 # need to make an array for mapping the hab_fish_collect files
 # this gives a list column vs an array.  prob easier to use postgres and postgis to make the array
 hab_fish_collect <- left_join(
   hab_fish_collect_map_prep3 %>%
-    select(site_id:utm_northing) %>%
+    select(alias_local_name:utm_northing) %>%
     distinct(),
 
   hab_fish_collect_map_prep3 %>%
     select(-species, -reference_number, -utm_zone:-utm_northing) %>%
-    pivot_wider(names_from = 'site_id', values_from = "species_code") %>%
-    pivot_longer(cols = `197534ds`:`197844ds`) %>%
-    rename(site_id = name,
+    pivot_wider(names_from = 'alias_local_name', values_from = "species_code") %>%
+    pivot_longer(cols = contains('_ef')) %>%
+    rename(alias_local_name = name,
            species_code = value),
 
-  by = 'site_id'
+  by = 'alias_local_name'
 ) %>%
   rowwise() %>%
   mutate(species_code = toString(species_code),
