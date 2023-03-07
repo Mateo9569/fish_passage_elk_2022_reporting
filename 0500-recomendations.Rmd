@@ -1,7 +1,15 @@
 # Discussion 
 
 ## Weigert Creek - PSCIS crossing 197534
-Numerous westslope cuthrout trout were captured downstream and upstream of the crossing with a notable increase in the density of adult fish upstream of the crossing.  Although habitat was suitable above Reach 2 and in fact had more complexity due to large woody debris abundance and percent composition of pools there were no fish captured in the areas samppled. this was a surprising result as the entire section of stream between where was sampled in Reach 3 and where fish were captured in Reach 2 was surveyed and although some drops were present no permanent barriers were present.
+Numerous westslope cuthrout trout were captured downstream and upstream of the crossing with a notable increase in the density of adult fish upstream of the crossing. Although difficult to determine cause, this could be related to swim speed and the ability to migrate upstream of the culvert. The fact that fish of the size captured (up to over 30cm long) were within this system so late in the year indicates that they were resident and not merely in the system to spawn however we would not have expected fish of this size to be resident within a system of smaller size when compared to the Elk River mainstem or larger order tributaries in the area (ex. Fording River or Line Creek). Fish were captured upstream of the highway to the location of the first ford on the Weigert Creek FSR that is located at an elevation of 1320m approximately 450m above Highway 43.  Above this location, although significant electrofishing effort was conducted no fish were captur
+
+<br>
+
+Although habitat was suitable above Reach 2 and in fact had more complexity due to large woody debris abundance and percent composition of pools there were no fish captured in the areas sampled. This was not expected as the entire section of stream between where was sampled in Reach 3 and where fish were captured in Reach 2 was surveyed and although some smaller large woody debris jams to 60cm were observed no permanent barriers were present that we would expect to block upstream migration of adult westslopes.  
+
+<br>
+
+Cold water temperatures have been demonstrated to provide recruitment bottlenecks in early life stages of westslope cutthrout trout with days during the growing season above an average of 5$^\circ$C a key determinant in growth and subsequent fry survival during overwintering [@coleman_fausch2007ColdSummera; @coleman_fausch2007ColdSummer].  Temperature information taken within Reach 1 at approximately 20m upstream of Highway 43 at an elevation of 1260m demonstrates cool temperatures prevail at this elevation so temperatures much higher in the watershed (ie. Reach 3 begins at 1460m) may preclude fish use of these areas. F 
 
 
 ## Brule Creek - PSCIS crossings 197533 and 197559
