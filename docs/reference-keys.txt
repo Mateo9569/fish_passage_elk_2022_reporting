@@ -8,7 +8,7 @@ fig:survey-site-map
 tab:tab-wshd-197534
 fig:photo-weigert-cv
 fig:fig-temp-weigert
-tab:unnamed-chunk-3
+tab:temp-weekly
 tab:tab-weigert-discharge
 tab:tab-ef-site-weigert
 tab:fish-samp-sum-weigert

@@ -14,7 +14,7 @@ author: |
 
 date: |
  |
- | Version 0.0.1
+ | Version 0.0.1 DRAFT
  | `r format(Sys.Date(), "%Y-%m-%d")`
 toc-title: Table of Contents
 site: bookdown::bookdown_site
@@ -52,8 +52,9 @@ options(knitr.kable.NAN = '--')
 
 ```{r load-data}
 source('scripts/packages.R')
-source('scripts/tables.R')
 source('scripts/functions.R')
+source('scripts/tables.R')
+
 ```
 
 
