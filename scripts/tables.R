@@ -1,7 +1,5 @@
 # this file imports our data and builds the tables we need for our reporting
 
-source('scripts/packages.R')
-source('scripts/functions.R')
 conn <- rws_connect("data/bcfishpass.sqlite")
 rws_list_tables(conn)
 

@@ -1,5 +1,5 @@
 reference_number,gazetted_name,alias_local_name,waterbody_type,waterbody_id_identifier,watershed_code_45_digit,twc_number,reach_number,site_number,survey_date,utm_method,utm_zone,utm_easting,utm_northing,no_visible_channel,dewatered_dry_int_channel
-1,Weigert Creek,197534_ds_ef1,stream,00000ELKR,,,1,1,44830,geographic information system (GIS),11,651130,5532330,visible channel,
+1,Weigert Creek,197534_ds_ef1,stream,00000ELKR,,,1,1,44830,geographic information system (GIS),11,650985,5532436,visible channel,
 2,Weigert Creek,197534_ds_ef2,stream,00000ELKR,,,1,2,44830,geographic information system (GIS),11,650627,5532190,visible channel,
 3,Weigert Creek,197534_us_ef2,stream,00000ELKR,,,2,3,44831,geographic information system (GIS),11,649387,5531718,visible channel,
 4,Weigert Creek,197534_us_ef1,stream,00000ELKR,,,1,4,44831,geographic information system (GIS),11,650134,5532055,visible channel,
