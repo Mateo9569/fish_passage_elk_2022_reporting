@@ -1,7 +1,7 @@
 
 
 # Introduction {#intro}
-Since 2020, the Canadian Wildlife Federation (CWF) has been working on a watershed connectivity remediation plan for the Elk River watershed that incorporates the provincial Strategic Approach protocol (Fish Passage Assessment, Habitat Confirmation, Design and Remediation), evolution of the `bcfishpass` analysis tools [@norris2023smnorrisbcfishpass] and local knowledge of the watershed to prioritize barriers and restore connectivity for westslope cutthroat trout and other species in a strategic manner. Nupqu Resource Limited Partnership (Nupqu) was retained by the CWF in the summer of 2022 to conduct fish habitat and fish sampling assessments at sites related to road-stream crossings within the Elk River watershed group as part of this connectivity restoration planning. Subject streams included Brule Creek, Weigert Creek and an unnamed tributary to Bighorn Creek. New Graph Environment Ltd. was sub-contracted by Nupqu to assist with project delivery. 
+Since 2020, the Canadian Wildlife Federation (CWF) has been working on a watershed connectivity remediation plan for the Elk River watershed that incorporates the provincial Strategic Approach protocol (Fish Passage Assessment, Habitat Confirmation, Design and Remediation), evolution of the `bcfishpass` analysis tools [@norris2023smnorrisbcfishpass] and local knowledge of the watershed to prioritize barriers and restore connectivity for westslope cutthroat trout and other species in a strategic manner. Nupqu Resource Limited Partnership (Nupqu) was retained by the CWF in the summer of 2022 to conduct fish habitat, fish sampling assessments, temperature monitoring and discharge monitoring at sites related to road-stream crossings within the Elk River watershed group as part of this connectivity restoration planning. Subject streams included Brule Creek and Weigert Creek. New Graph Environment Ltd. was sub-contracted by Nupqu to assist with project delivery. 
 
 <br>
 
@@ -16,7 +16,7 @@ The health and viability of freshwater fish populations can depend on access to 
 
 <br>
 
-As the costs of works for remediation of fish passage issues through the replacement of road/stream crossings can be significant, acquisition of detailed habitat and fish sampling data can be helpful for understanding the value of associated habitats to target fish species, attempting to understand the extent of the issues potentially created by subject culverts as well as providing baseline data for assessing the benefits of remedial work post-fish passage remediation.
+As the costs and effort required for works to remediate  fish passage issues through the replacement of road/stream crossings can be significant, acquisition of detailed habitat, fish sampling, water temperature and discharge data is a prudent measure to help ensure there is a reasonable understanding of current conditions, including species composition/density upstream and downstream of the crossings as well as the value and suitability of associated habitats for target fish species (westslope cutthrout trout) before investments in infrastructure to improve connectivity are made.  This work helps build our understanding of the extent of the issues present that may be a result of subject culverts as well as providing baseline data for assessing the benefits of remedial work post-fish passage remediation.
 
 
 
