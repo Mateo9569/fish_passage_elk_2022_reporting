@@ -160,9 +160,12 @@ my_caption = 'Summary of results of electrofishing in Weigert Creek.'
  # sum of all the fish per site and the electrofishing seconds
 fish_samp_sum <- left_join(
   hab_fish_indiv %>%
+    mutate(nfc = case_when(species_code == 'NFC' ~ 'true', T ~ NA_character_)) %>% 
     mutate(ef_width_m = round(ef_width_m, 1)) %>% 
-    group_by(local_name, ef_length_m, ef_width_m, ef_seconds) %>% 
-    summarise(count_fish = n()) %>% 
+    group_by(local_name, ef_length_m, ef_width_m, ef_seconds, nfc)  %>% 
+    summarise(count_fish = n())  %>% 
+    mutate(count_fish = case_when(nfc == 'true' ~ 0, T ~ count_fish)) %>%
+    select(-nfc) %>% 
     arrange(local_name),
   
   hab_site %>% 
