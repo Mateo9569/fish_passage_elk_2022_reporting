@@ -1,7 +1,7 @@
 
 
 # Background
-Study areas for 2022 field work included Brule Creek, Weigert Creek and an unnamed tributary to Bighorn Creek.  Although portions of the Elk River watershed group flow into the Flathead River all streams included in 2022 fieldwork were within the portion of the Elk River watershed group that flows into the Elk River (Figure \@ref(fig:overview-map)).  The Elk River has a mean annual discharge of `r round(fasstr::calc_longterm_mean(station_number = "08NK016")$LTMAD,1)` m^3^/s at station 08NK016 near Sparwood and `r round(fasstr::calc_longterm_mean(station_number = "08NK002")$LTMAD,1)` m^3^/s at station 08NK016 near Fernie with flow patterns typical of high elevation watersheds on the west side of the Rocky Mountains which receive large amounts of precipitation as snow leading to peak levels of discharge during snowmelt, typically from May to July (Figures \@ref(fig:hydrology-plot) - \@ref(fig:hydrology-stats2)) [@canada2020NationalWater]. 
+Study areas for 2022 field work included Brule Creek and Weigert Creek.  Although portions of the Elk River watershed group flow into the Flathead River,  streams included in 2022 fieldwork were within the portion of the Elk River watershed group that flows into the Elk River (Figure \@ref(fig:overview-map)).  The Elk River has a mean annual discharge of `r round(fasstr::calc_longterm_mean(station_number = "08NK016")$LTMAD,1)` m^3^/s at station 08NK016 near Sparwood and `r round(fasstr::calc_longterm_mean(station_number = "08NK002")$LTMAD,1)` m^3^/s at station 08NK016 near Fernie with flow patterns typical of high elevation watersheds on the west side of the Rocky Mountains which receive large amounts of precipitation as snow leading to peak levels of discharge during snowmelt, typically from May to July (Figures \@ref(fig:hydrology-plot) - \@ref(fig:hydrology-stats2)) [@canada2020NationalWater]. 
 
 <br>
 
@@ -104,11 +104,24 @@ There are multiple life history strategies for westslope cutthrout trout includi
 
 <br>
 
-Spawning habitat for resident and fluvial subpopulations are documented as within the tailouts of deep pools at moderate to high-flow events within small, low-gradient streams with cold well-oxygenated water and clean unsilted gravels [@schmetterling2001SeasonalMovements]. Proximity to large woody debris, boulder or bedrock cover is important for spawning fish while residing in spawning tributaries as high mortality may result when suitable cover is lacking.  The dominant substrate used for spawning is gravel (1.8 - 3.3cm diameter) with spawning occurring in late May and June towards the end of the spring freshet with rising water temperatures between 7-11$^\circ$C.  Nine of 11 westslope cutthrout trout radio-tagged in the Blackfoot River drainage, Montana by @schmetterling2001SeasonalMovements made movements to tributaries presumable for spawning. While in tributaries, fish movements to spawning sites averaged 12.5km where they stayed within an approximately 100m reach during the spawning period for between 15 and 63 days.
+Spawning habitat for resident and fluvial subpopulations are documented as within the tailouts of deep pools at moderate to high-flow events within small, low-gradient streams with cold well-oxygenated water and clean unsilted gravels [@schmetterling2001SeasonalMovements]. Proximity to large woody debris, boulder or bedrock cover is important for spawning fish while residing in spawning tributaries as high mortality may result when suitable cover is lacking.  The dominant substrate used for spawning is gravel (1.8 - 3.3cm diameter) with spawning occurring in late May and June towards the end of the spring freshet with rising water temperatures between 7-11$^\circ$C.  
+
+<br>
+
+References within @thorley_etal2022UpperFording indicate that emergence of hatchery reared westslope cutthrout trout occurs after the eggs have accumulated 570 to 600 thermal units (Celsius degree days) which is consistent with estimates by @coleman_fausch2007ColdSummer of 570 to 600 Celsius degree days for Colorado Cutthroat Trout. 
+
+<br>
+
+Nine of 11 westslope cutthrout trout radio-tagged in the Blackfoot River drainage, Montana by @schmetterling2001SeasonalMovements made movements to tributaries presumable for spawning. While in tributaries, fish movements to spawning sites averaged 12.5km where they stayed within an approximately 100m reach during the spawning period for between 15 and 63 days.
 
 <br>
 
 Small perennial streams with a diversity of cover are important for juvenile rearing with young-of-year fish inhabiting low energy lateral habitats (i.e. shallow riffle or backwatered areas) with cover available.  Larger juveniles move into pools with social dominance behaviors prevalent and based on fish size.  Availability of pool habitat is important and limiting for parr which have large territories [@schweigert_etal2017COSEWICassessment; @schmetterling2001SeasonalMovements].  The suitability of overwintering habitat is determined by groundwater influx and the absence of anchor ice with fluvial adults congregating in slow deep pools in the winter.  Boulders and other large in-stream structures or off-channel habitat (beaver bonds and sloughs) provide cover for juveniles with adfluvial fish overwintering in lakes [@schweigert_etal2017COSEWICassessment; @brown_mackay1995Spawningecology; @cope_etal2017UpperFording]. 
+
+<br>
+
+Cold water temperatures have been demonstrated to provide recruitment bottlenecks in early life stages of westslope cutthrout trout with temperature days during the growing season above an average of 5$^\circ$C a key determinant in growth and subsequent fry survival during overwintering [@coleman_fausch2007ColdSummera; @coleman_fausch2007ColdSummer]. Ranges of Celsius degree-days during the growing season have been correlated to translocation success governed by recruitment and related to growth and subsequent overwintering survival for greenback cutthroat trout (_Oncorhynchus__clarkii__stomias) and Colorado River cutthroat trout (_O.__c.__pleuriticus_) in north-central Colorado headwater streams. Research detailed in @coleman_fausch2007ColdSummer  indicates that for translocations of greenback cutthroat trout and Colorado River cutthroat trout in north-central Colorado headwater streams - streams that provide 800–900 degree-days _probably_ sustain recruitment in some years, and report that streams with less than 800 degree-days are generally unsuitable for translocations because of the smaller sizes attained by fry before the onset of winter and the associated greater risk of recruitment failure.
+
 
 <br>
 
@@ -117,7 +130,7 @@ In a swimming performance study conducted in an open-channel flume @blank_etal20
 
 <br>
 
-The greatest threats to westslope cutthrout trout are hybridization with non-native rainbow trout and degradation of the environment due to forestry, hydroelectric development, mining, urbanization and agriculture [@schweigert_etal2017COSEWICassessment]. @lamson2020EvaluationCurrent sampled over 2000 trout in the Upper Kootenay watershed from 2014 to 2019 with results of genotyping indicating consistently high levels of westslope cutthrout trout allele purity (i.e. very low levels of rainbow trout, yellowstone cutthrout trout or coastal cutthrout trout genetic introgression) throughout the Elk River watershed areas upstream of the Elko Dam. @boyer_etal2008Rainbowtrout sampled 31 sites in the upper Flathead River system within the United States (27 sites) and Canada (4 sites).  Genetic introgression declined with latitude with no evidence of rainbow trout allelles within any westslope cutthrout trout sampled within the Canadian portion of the upper Flathead River.  
+The greatest threats to westslope cutthrout trout have been identified as hybridization with non-native rainbow trout and degradation of the environment due to forestry, hydroelectric development, mining, urbanization and agriculture [@schweigert_etal2017COSEWICassessment]. @lamson2020EvaluationCurrent sampled over 2000 trout in the Upper Kootenay watershed from 2014 to 2019 with results of genotyping indicating consistently high levels of westslope cutthrout trout allele purity (i.e. very low levels of rainbow trout, yellowstone cutthrout trout or coastal cutthrout trout genetic introgression) throughout the Elk River watershed areas upstream of the Elko Dam. @boyer_etal2008Rainbowtrout sampled 31 sites in the upper Flathead River system within the United States (27 sites) and Canada (4 sites).  Genetic introgression declined with latitude with no evidence of rainbow trout allelles within any westslope cutthrout trout sampled within the Canadian portion of the upper Flathead River.  
 
 <br>
 
