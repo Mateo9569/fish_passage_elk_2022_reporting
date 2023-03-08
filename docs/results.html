@@ -1224,7 +1224,7 @@ Weigert Creek
 197534_us_ef4
 </td>
 <td style="text-align:right;">
-2
+3
 </td>
 <td style="text-align:right;">
 648699
@@ -1285,30 +1285,33 @@ Stream was dry throughout reach five so surveyors worked their way back to where
 <span id="cb23-3"><a href="results.html#cb23-3" tabindex="-1"></a> <span class="co"># sum of all the fish per site and the electrofishing seconds</span></span>
 <span id="cb23-4"><a href="results.html#cb23-4" tabindex="-1"></a>fish_samp_sum <span class="ot">&lt;-</span> <span class="fu">left_join</span>(</span>
 <span id="cb23-5"><a href="results.html#cb23-5" tabindex="-1"></a>  hab_fish_indiv <span class="sc">%&gt;%</span></span>
-<span id="cb23-6"><a href="results.html#cb23-6" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">ef_width_m =</span> <span class="fu">round</span>(ef_width_m, <span class="dv">1</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb23-7"><a href="results.html#cb23-7" tabindex="-1"></a>    <span class="fu">group_by</span>(local_name, ef_length_m, ef_width_m, ef_seconds) <span class="sc">%&gt;%</span> </span>
-<span id="cb23-8"><a href="results.html#cb23-8" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">count_fish =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
-<span id="cb23-9"><a href="results.html#cb23-9" tabindex="-1"></a>    <span class="fu">arrange</span>(local_name),</span>
-<span id="cb23-10"><a href="results.html#cb23-10" tabindex="-1"></a>  </span>
-<span id="cb23-11"><a href="results.html#cb23-11" tabindex="-1"></a>  hab_site <span class="sc">%&gt;%</span> </span>
-<span id="cb23-12"><a href="results.html#cb23-12" tabindex="-1"></a>    <span class="fu">select</span>(gazetted_name,</span>
-<span id="cb23-13"><a href="results.html#cb23-13" tabindex="-1"></a>           alias_local_name, reach_number),</span>
-<span id="cb23-14"><a href="results.html#cb23-14" tabindex="-1"></a>  </span>
-<span id="cb23-15"><a href="results.html#cb23-15" tabindex="-1"></a>  <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&#39;local_name&#39;</span> <span class="ot">=</span> <span class="st">&#39;alias_local_name&#39;</span>)</span>
-<span id="cb23-16"><a href="results.html#cb23-16" tabindex="-1"></a>) <span class="sc">%&gt;%</span> </span>
-<span id="cb23-17"><a href="results.html#cb23-17" tabindex="-1"></a>  <span class="fu">relocate</span>(</span>
-<span id="cb23-18"><a href="results.html#cb23-18" tabindex="-1"></a>    gazetted_name, <span class="at">.before =</span> local_name</span>
-<span id="cb23-19"><a href="results.html#cb23-19" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb23-6"><a href="results.html#cb23-6" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">nfc =</span> <span class="fu">case_when</span>(species_code <span class="sc">==</span> <span class="st">&#39;NFC&#39;</span> <span class="sc">~</span> <span class="st">&#39;true&#39;</span>, T <span class="sc">~</span> <span class="cn">NA_character_</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb23-7"><a href="results.html#cb23-7" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">ef_width_m =</span> <span class="fu">round</span>(ef_width_m, <span class="dv">1</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb23-8"><a href="results.html#cb23-8" tabindex="-1"></a>    <span class="fu">group_by</span>(local_name, ef_length_m, ef_width_m, ef_seconds, nfc)  <span class="sc">%&gt;%</span> </span>
+<span id="cb23-9"><a href="results.html#cb23-9" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">count_fish =</span> <span class="fu">n</span>())  <span class="sc">%&gt;%</span> </span>
+<span id="cb23-10"><a href="results.html#cb23-10" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">count_fish =</span> <span class="fu">case_when</span>(nfc <span class="sc">==</span> <span class="st">&#39;true&#39;</span> <span class="sc">~</span> <span class="dv">0</span>, T <span class="sc">~</span> count_fish)) <span class="sc">%&gt;%</span></span>
+<span id="cb23-11"><a href="results.html#cb23-11" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span>nfc) <span class="sc">%&gt;%</span> </span>
+<span id="cb23-12"><a href="results.html#cb23-12" tabindex="-1"></a>    <span class="fu">arrange</span>(local_name),</span>
+<span id="cb23-13"><a href="results.html#cb23-13" tabindex="-1"></a>  </span>
+<span id="cb23-14"><a href="results.html#cb23-14" tabindex="-1"></a>  hab_site <span class="sc">%&gt;%</span> </span>
+<span id="cb23-15"><a href="results.html#cb23-15" tabindex="-1"></a>    <span class="fu">select</span>(gazetted_name,</span>
+<span id="cb23-16"><a href="results.html#cb23-16" tabindex="-1"></a>           alias_local_name, reach_number),</span>
+<span id="cb23-17"><a href="results.html#cb23-17" tabindex="-1"></a>  </span>
+<span id="cb23-18"><a href="results.html#cb23-18" tabindex="-1"></a>  <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&#39;local_name&#39;</span> <span class="ot">=</span> <span class="st">&#39;alias_local_name&#39;</span>)</span>
+<span id="cb23-19"><a href="results.html#cb23-19" tabindex="-1"></a>) <span class="sc">%&gt;%</span> </span>
 <span id="cb23-20"><a href="results.html#cb23-20" tabindex="-1"></a>  <span class="fu">relocate</span>(</span>
-<span id="cb23-21"><a href="results.html#cb23-21" tabindex="-1"></a>    reach_number, <span class="at">.after =</span> local_name</span>
-<span id="cb23-22"><a href="results.html#cb23-22" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb23-23"><a href="results.html#cb23-23" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">CPUE =</span> <span class="fu">round</span>(count_fish<span class="sc">/</span>(ef_seconds <span class="sc">/</span> <span class="dv">1000</span>), <span class="dv">1</span>))</span>
-<span id="cb23-24"><a href="results.html#cb23-24" tabindex="-1"></a></span>
-<span id="cb23-25"><a href="results.html#cb23-25" tabindex="-1"></a>fish_samp_sum <span class="sc">%&gt;%</span> </span>
-<span id="cb23-26"><a href="results.html#cb23-26" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(gazetted_name, <span class="st">&#39;Weigert&#39;</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb23-27"><a href="results.html#cb23-27" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> my_caption,</span>
-<span id="cb23-28"><a href="results.html#cb23-28" tabindex="-1"></a>                 <span class="at">footnote_text =</span> <span class="st">&#39;CPUE = Catch per unit effort (fish captured/1000s of electrofishing).&#39;</span>,</span>
-<span id="cb23-29"><a href="results.html#cb23-29" tabindex="-1"></a>                 <span class="at">scroll =</span> F)</span></code></pre></div>
+<span id="cb23-21"><a href="results.html#cb23-21" tabindex="-1"></a>    gazetted_name, <span class="at">.before =</span> local_name</span>
+<span id="cb23-22"><a href="results.html#cb23-22" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb23-23"><a href="results.html#cb23-23" tabindex="-1"></a>  <span class="fu">relocate</span>(</span>
+<span id="cb23-24"><a href="results.html#cb23-24" tabindex="-1"></a>    reach_number, <span class="at">.after =</span> local_name</span>
+<span id="cb23-25"><a href="results.html#cb23-25" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb23-26"><a href="results.html#cb23-26" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">CPUE =</span> <span class="fu">round</span>(count_fish<span class="sc">/</span>(ef_seconds <span class="sc">/</span> <span class="dv">1000</span>), <span class="dv">1</span>))</span>
+<span id="cb23-27"><a href="results.html#cb23-27" tabindex="-1"></a></span>
+<span id="cb23-28"><a href="results.html#cb23-28" tabindex="-1"></a>fish_samp_sum <span class="sc">%&gt;%</span> </span>
+<span id="cb23-29"><a href="results.html#cb23-29" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(gazetted_name, <span class="st">&#39;Weigert&#39;</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb23-30"><a href="results.html#cb23-30" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> my_caption,</span>
+<span id="cb23-31"><a href="results.html#cb23-31" tabindex="-1"></a>                 <span class="at">footnote_text =</span> <span class="st">&#39;CPUE = Catch per unit effort (fish captured/1000s of electrofishing).&#39;</span>,</span>
+<span id="cb23-32"><a href="results.html#cb23-32" tabindex="-1"></a>                 <span class="at">scroll =</span> F)</span></code></pre></div>
 <table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;border-bottom: 0;">
 <caption style="font-size: initial !important;">
 <span id="tab:fish-samp-sum-weigert">Table 4.5: </span>Summary of results of electrofishing in Weigert Creek.
@@ -1414,7 +1417,7 @@ Weigert Creek
 –
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 –
@@ -1480,7 +1483,7 @@ Weigert Creek
 197534_us_ef4
 </td>
 <td style="text-align:right;">
-2
+3
 </td>
 <td style="text-align:right;">
 –
@@ -1492,10 +1495,10 @@ Weigert Creek
 1466
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
-0.7
+0.0
 </td>
 </tr>
 <tr>
@@ -1518,10 +1521,10 @@ Weigert Creek
 1495
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
-0.7
+0.0
 </td>
 </tr>
 <tr>
@@ -1544,7 +1547,7 @@ Weigert Creek
 –
 </td>
 <td style="text-align:right;">
-1
+0
 </td>
 <td style="text-align:right;">
 –
