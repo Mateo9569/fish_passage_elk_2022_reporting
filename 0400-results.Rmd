@@ -69,20 +69,27 @@ fpr::fpr_table_bcfp(scroll = gitbook_on)
 <br>
 
 ### Temperature
-Temperature data was collected at 30 minute intervals between June 24, 2023 and November 2, 2023 from a station located approximately 20m upstream of Highway 43 with results are summarized in Figure \@ref(fig:fig-temp-weigert), Table and raw data available [here](https://github.com/NewGraphEnvironment/fish_passage_elk_2022_reporting/tree/main/data).
+Temperature data was collected at 30 minute intervals between June 24, 2023 and November 2, 2023 from a station located approximately 20m upstream of Highway 43 with results are summarized in Figure \@ref(fig:fig-temp-weigert), Table and raw data available [here](https://github.com/NewGraphEnvironment/fish_passage_elk_2022_reporting/tree/main/data). The growing season at the location of the logger in 2023 was determined to be from June 7 to October 16.  A summary of weekly water temperatures in Weigert Creek along with average air temperatures (averaged from hourly values) at Sparwood climate station ID 1157632 are presented in Figure \@ref(tab:temp-weekly).  Average weekly water temperatures were at or above 7$^\circ$C for only four of the 16 week growing season with a total of 693.5 Celsius degree-days calculated from the data for this period.  Some caution should be applied to the interpretation of this data as the first week of water temperature data collected only consisted of three days worth of data (June 24 - June 26) so there is some potential that temperatures in the days and weeks before were high enough that the growing season could be considered longer. 
 
 ```{r fig-temp-weigert, fig.cap='Temperature profile for Weigert Creek taken at station located approximately 50m upstream of Highway 43'}
 knitr::include_graphics("fig/weigert_temp.png")
 ```
 
-```{r}
+```{r temp-weekly}
 source('scripts/tidy_temp.R')
 
-my_caption = 'Summary of average water temperature by week for Weigert Creek'
+my_caption = 'Summary of average water temperature by week for Weigert Creek and average air temperature for Sparwood at climate station ID 1157632.'
 
-sum_temp_week %>% 
+left_join(
+  w_week,
+  temp_week %>% 
+    select(week, ave_temp_h20)
+) %>% 
+  mutate(week = as.character(week),
+         week = case_when(week == 25 ~ '*25', T ~ week)) %>% 
   fpr::fpr_kable(scroll = gitbook_on,
-                 caption = my_caption)
+                 caption = my_caption,
+                 footnote_text = '* the first week of water temperature data collected only consisted of three days worth of data (June 24 - June 26)')
 
 ```
 
@@ -400,7 +407,7 @@ my_site2 <- 197533
 PSCIS crossings `r as.character(my_site2)` and `r as.character(my_site)` are located on Brule Creek approximately 20km north of the town of Sparwood.  Crossing `r as.character(my_site2)` is located on Busato Road 600m upstream from the confluece with the Elk River and crossing `r as.character(my_site)` is located approximately 725m upstream from the confluence with the Elk River.  Both crossings are the responsibility of the Ministry of Transportation and Infrastructure. Both crossings on Brule Creek as well as habiatt upstream and downstream was assessed in 2020 by [@irvine2021UpperElk]. Two fords (PSCIS 197535 and 197536) were documented 700m and 2km upstream of crossing 197559 respectively. 
 
 
-At the highway, Brule Creek is a 5th order stream with watershed characteristics detailed in Table \@ref(tab:tab-wshd-197559). Brule Creek is known to contain westslope cutthrout trout, rainbow trout and bull trout downstream of the subject culverts and westslope cutthrout trout and rainbow trout above (MoE 2020b). On the south side of the upper watershed, at an elevation of 2000m, is the 5ha Josephine Lake (also known as Big Lake). The lake was stocked with westslope cutthrout trout from 1983 - 2000 (MoE 2020b; “Fish Inventories Data Queries” 2020).  PSCIS stream crossings 197533 and 197559 were ranked as high priorities for follow up with new structures designs following habitat confirmations by @irvine2021UpperElk due to the large size of the stream network upstream of the highway. Detailed reporting can be found [here](https://newgraphenvironment.github.io/fish_passage_elk_2020_reporting_cwf/appendix---197533-197559---brule-creek.html).  In 2020, the channel was noted as dewatered immediately upstream of Highway 43 with intermittent pools only to a distance approximately 670 m upstream. 
+At the highway, Brule Creek is a 5th order stream with watershed characteristics detailed in Table \@ref(tab:tab-wshd-197559). Brule Creek is known to contain westslope cutthrout trout, rainbow trout and bull trout downstream of the subject culverts and westslope cutthrout trout and rainbow trout above (MoE 2020b). On the south side of the upper watershed, at an elevation of 2000m, is the 5ha Josephine Lake (also known as Big Lake). The lake was stocked with westslope cutthrout trout from 1983 - 2000 (MoE 2020b; “Fish Inventories Data Queries” 2020).  PSCIS stream crossings 197533 and 197559 were ranked as high priorities for follow up with new structures designs following habitat confirmations by @irvine2021UpperElk due to the large size of the stream network upstream of the highway. Detailed reporting can be found [here](https://newgraphenvironment.github.io/fish_passage_elk_2020_reporting_cwf/appendix---197533-197559---brule-creek.html).  In 2020, the channel was noted as dewatered immediately upstream of Highway 43 with intermittent pools only to a distance approximately 670 m upstream. Assessments in 2022 demonstrated that the culvert on Busato Road was in extremely poor condition with deformations of the inlet and extensive corrosion. Both the Busato Road and Highway 43 culverts are extremely undersized which is evidenced by the severe down cutting below their outlets, the large outlet drops (>1m) and the deep and wide outlet pools.
 
 <br>
 
@@ -467,7 +474,7 @@ tab_hab_summary %>%
 
 ### Fish Sampling 
 
-The stream was electrofished at two sites upstream of crossing `r as.character(my_site)` in 2022 with no fish captured at either site (Tables \@ref(tab:ef-site-brule) - \@ref(tab:tab-fish-dens-197559)). However, an adult fish (approximately 30m long) was observed in an isolated pool on August 4, 2022 approximately 350m upstream of the Highway 43 culverts within an area that was primarily dewatered area.
+The stream was electrofished at two sites upstream of crossing `r as.character(my_site)` in 2022 with no fish captured at either site (Tables \@ref(tab:ef-site-brule) - \@ref(tab:tab-fish-dens-197559)). However, an adult fish (approximately 30cm long) was observed in an isolated pool on August 4, 2022 approximately 350m upstream of the Highway 43 culverts within a pool within and area that was primarily dewatered.
 
 
 ```{r ef-site-brule}
