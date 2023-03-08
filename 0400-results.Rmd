@@ -99,7 +99,9 @@ hydrometrics %>%
   mutate(location = str_to_title(location)) %>% 
   purrr::set_names(c('Location', 'Discharge (m3/s)', 'Zone', 'Easting', 'Northing')) %>% 
   relocate(`Discharge (m3/s)`, .after = last_col()) %>% 
-  fpr::fpr_kable(scroll = F)
+  fpr::fpr_kable(scroll = F,
+                 caption_text = my_caption,
+                 )
 
 ```
 
