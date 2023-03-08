@@ -28,9 +28,18 @@ Sites were surveyed using a hip chain to track distance with the following attri
 A clinometer was used to estimate gradient, channel measurements were taken using a tape measure and water depths measured using a measuring stick.  Photographs were taken of representative habitats throughout the surveyed reaches.  All field measurements were recorded on Level 1 Habitat Survey Data Form templates (@johnston_slaney1996FishHabitat). GPS waypoints were collected at the beginning and end of all Primary habitat units to allow georeferenceing of field data.
 
 ## Stream Discharge
+Hydrometric transects were conducted in November of 2023 on days coinciding with fish habiatat assessments in Weigert Creek.  Measurements were taken at points upstream and dowstream of Highway 43 at both Weigert Creek and Brule Creek.  
+
+<br>
+
 
 ## Water Temperature
+HOBO tidbit temperature logger were installed at locations approximatley 20m upstream of Highway 43 on Weigert Creek and immediately below the falls at approximatley 3.6km upstream of the Highway 43 culverts.  Loggers on Weigert Creek were installed at 60% of the water depth on June 24, 2023 and pulled on November 17, 2023.  Temperature ws taken at 30 minute intervals for the entire length of time installed. Unfortunately high flows with Brule Creek resulted in the dislodging of the logger installed under the falls and the subsequent loss of the logger and all associated data.
 
+<br>
+
+
+We defined the start of the growing season as per @coleman_fausch2007ColdSummer which delineate it as the beginning of the first week that average stream temperatures exceed and remain above 5$^\circ$C in the spring and the end of the growing season as the last day of the first week that average stream temperature drops below 4$^\circ$C. We specified Monday as the first day of the week and identified the week of the year based on the number of 7 day periods from January 1 plus 1.  Celsius degree-days were calculated as the mean daily temperature (ex. 2 days with average temperatures of 7$^\circ$C with sum to 14 Celsius degree-days).
 
 
 
