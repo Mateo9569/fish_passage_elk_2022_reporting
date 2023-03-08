@@ -12,6 +12,7 @@ wshds <- readwritesqlite::rws_read_table("wshds", conn = conn)
 fhap_site <- readwritesqlite::rws_read_table("fhap_site", conn = conn)
 fhap_hu <- readwritesqlite::rws_read_table("fhap_hu", conn = conn)
 hydrometrics <- readwritesqlite::rws_read_table("hydrometrics", conn = conn)
+w_week <- readwritesqlite::rws_read_table("w_week", conn = conn)
 rws_disconnect(conn)
 #
 # ##build the dams table
