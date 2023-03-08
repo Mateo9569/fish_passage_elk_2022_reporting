@@ -39,32 +39,53 @@ fpr::fpr_table_wshd_sum(site_id = my_site) %>%
   fpr::fpr_kable(caption_text = paste0('Summary of derived upstream watershed statistics for PSCIS crossing ', my_site, '.'),
            footnote_text = 'Elev P60 = Elevation at which 60% of the watershed area is above',
            scroll = F)
-
 ```
 
 <br>
 
-PSCIS crossing `r as.character(my_site)` was assessed in 2020 by [@irvine2021UpperElk] and ranked as a barrier for upstream fish migration.  A detailed write up of habitat details and stream characteristics can be found in the 2021 report memo linked [here](https://www.newgraphenvironment.com/fish_passage_elk_2020_reporting_cwf/fish_passage_elk_2020_reporting_cwf/appendix---197534---weigert-creek.html).
-
-A summary of habitat modelling outputs is presented in Table \@ref(tab:tab-culvert-bcfp-197534) and a map of the watershed is
-provided in map attachment [`r fpr::fpr_my_bcfishpass(col_pull = dbm_mof_50k_grid)`](`r fpr::fpr_my_mapsheet(wshd = "elkr", archive_date = "2022-03-17")`).
+PSCIS crossing `r as.character(my_site)` was assessed in 2020 by [@irvine2021UpperElk] and ranked as a barrier for upstream fish migration.  A detailed write up of habitat details and stream characteristics can be found in the 2021 report memo linked [here](https://www.newgraphenvironment.com/fish_passage_elk_2020_reporting_cwf/fish_passage_elk_2020_reporting_cwf/appendix---197534---weigert-creek.html). Updated photos of the crossing are provided in Figure \@ref(fig:photo-weigert-cv) and a map of the watershed is provided in map attachment [`r fpr::fpr_my_bcfishpass(col_pull = dbm_mof_50k_grid)`](`r fpr::fpr_my_mapsheet(wshd = "elkr", archive_date = "2022-03-17")`).
 
 `r if(identical(gitbook_on, FALSE)){knitr::asis_output("\\pagebreak")}`
 
 <br>
 
-```{r tab-culvert-bcfp-197534, eval = T}
+```{r photo-weigert-cv, fig.cap=my_caption1}
+my_photo1 = fpr::fpr_photo_pull_by_str(str_to_pull = 'crossing')
+
+my_caption1 = paste0('Photos of Highway 43 crossing on Weigert Creek in October 2022.')
+
+grid::grid.raster(jpeg::readJPEG(my_photo1))
+```
+
+
+<br>
+
+
+```{r tab-culvert-bcfp-197534, eval = F}
+# A summary of habitat modelling outputs is presented in Table \@ref(tab:tab-culvert-bcfp-197534) and a
 fpr::fpr_table_bcfp(scroll = gitbook_on) 
 ```
 
 <br>
 
 ### Temperature
-Temperature data was collected at 30 minute intervals between June 24, 2023 and November 2, 2023 from a station located approximately 20m upstream of Highway 43.  Results are summarized in Figure \@ref(fig:fig-temp-weigert) and raw data is available [here](https://github.com/NewGraphEnvironment/fish_passage_elk_2022_reporting/tree/main/data).
+Temperature data was collected at 30 minute intervals between June 24, 2023 and November 2, 2023 from a station located approximately 20m upstream of Highway 43 with results are summarized in Figure \@ref(fig:fig-temp-weigert), Table and raw data available [here](https://github.com/NewGraphEnvironment/fish_passage_elk_2022_reporting/tree/main/data).
 
 ```{r fig-temp-weigert, fig.cap='Temperature profile for Weigert Creek taken at station located approximately 50m upstream of Highway 43'}
 knitr::include_graphics("fig/weigert_temp.png")
 ```
+
+```{r}
+source('scripts/tidy_temp.R')
+
+my_caption = 'Summary of average water temperature by week for Weigert Creek'
+
+sum_temp_week %>% 
+  fpr::fpr_kable(scroll = gitbook_on,
+                 caption = my_caption)
+
+```
+
 
 ### Discharge
 Discharge was measured upstream and downstream of the crossing on October 18, 2023.  Stations locations and discharge recorded are presented in Table \@ref(tab:tab-weigert-discharge). 
@@ -77,7 +98,8 @@ hydrometrics %>%
   select(-gazetted_name, -`dd/mm/yy & time`) %>% 
   mutate(location = str_to_title(location)) %>% 
   purrr::set_names(c('Location', 'Discharge (m3/s)', 'Zone', 'Easting', 'Northing')) %>% 
-  fpr::fpr_kable()
+  relocate(`Discharge (m3/s)`, .after = last_col()) %>% 
+  fpr::fpr_kable(scroll = F)
 
 ```
 
@@ -97,7 +119,7 @@ The stream was surveyed at six different sites upstream of crossing `r as.charac
 
 ### Fish Sampling 
 
-Electrofishing was conducted at eight sites with results summarised in Tables \@ref(tab:tab-ef-site-weigert) - \@ref(tab:tab-fish-dens-197534) and Figure \@ref(fig:plot-fish-box-197534). Habitat details are summarized in Table \@ref(tab:tab-habitat-summary-197534). 
+Electrofishing was conducted at eight sites with results summarised in Tables \@ref(tab:tab-ef-site-weigert) - \@ref(tab:tab-fish-dens-197534) and Figure \@ref(fig:plot-fish-box-197534). Habitat details are summarized in Table \@ref(tab:tab-habitat-summary-197534). Although westslope cutthrout trout, mountain whitefish, bull trout and brook trout were captured downstream of the Highway, only westslope cutthrout were captured above. Also of note, numerous westslope cuthrout trout were captured downstream and upstream of the crossing with a notable presence of only adult fish upstream of the crossing and also a significant increase in the density of adult fish upstream of the crossing.
 
 
 
@@ -108,6 +130,7 @@ Electrofishing was conducted at eight sites with results summarised in Tables \@
 hab_site %>% 
   select(gazetted_name,
          alias_local_name,
+         reach_number,
          utm_easting,
          utm_northing,
          comments
@@ -121,7 +144,7 @@ hab_site %>%
 
 <br>
 
-```{r fish_samp_sum-weigert}
+```{r fish-samp-sum-weigert}
 
 my_caption = 'Summary of results of electrofishing in Weigert Creek.'
 
@@ -150,7 +173,8 @@ fish_samp_sum <- left_join(
 fish_samp_sum %>% 
   filter(str_detect(gazetted_name, 'Weigert')) %>% 
   fpr::fpr_kable(caption_text = my_caption,
-                 footnote_text = 'CPUE = Catch per unit effort (fish captured/1000s of electrofishing).')
+                 footnote_text = 'CPUE = Catch per unit effort (fish captured/1000s of electrofishing).',
+                 scroll = F)
 ```
 
 
@@ -188,9 +212,9 @@ fpr_plot_fish_box()
 
 
 ### Fish Habitat Assessment 
-Fish habitat was assessed at four sites within three reaches of Weigert Creek (Tables \@ref(tab:tab_fhap_site) - \@ref(tab:tab_fhap_hu_sum)).
+Fish habitat was assessed at four sites within three reaches of Weigert Creek (Tables \@ref(tab:tab-fhap-site) - \@ref(tab:tab-fhap-hu-sum)).
 
-```{r tab_fhap_site}
+```{r tab-fhap-site}
 
 my_caption = 'Site locations for fish habitat assessment within Weigert Creek.'
 
@@ -203,18 +227,19 @@ tab_fhap_site %>%
     Northing,
     Comments
   ) %>% 
-  arrange('Site') %>% 
+  arrange(Site) %>% 
     fpr::fpr_kable(caption_text = my_caption,
                    scroll = F)
 ```
 
 <br>
 
-```{r tab_fhap_hu_sum}
+```{r tab-fhap-hu-sum}
 my_caption = 'Summary of results from fish habitat assessment within Weigert Creek.'
 
 
 tab_fhap_hu_sum %>% 
+  arrange(Site) %>% 
   fpr::fpr_kable(caption_text = my_caption,
                  footnote_text = 'Results for habitat units presented as percent of total area. LWD = large woody debris.',
                  scroll = F)
@@ -260,7 +285,7 @@ knitr::include_graphics(my_photo2)
 ```{r photo-197534-03-prep}
 my_photo1 = fpr::fpr_photo_pull_by_str(site = my_site, str_to_pull = '_u3_')
 
-my_caption1 = paste0('Typical habitat upstream of PSCIS crossing ', my_site, ' , in reach 3.')
+my_caption1 = paste0('Typical habitat upstream of PSCIS crossing ', my_site, ' in reach 3.')
 ```
 
 ```{r photo-197534-03, fig.cap= my_caption1, out.width = photo_width, eval=gitbook_on}
@@ -272,7 +297,7 @@ grid::grid.raster(jpeg::readJPEG(my_photo1))
 ```{r photo-197534-04-prep}
 my_photo2 = fpr::fpr_photo_pull_by_str(site = my_site, str_to_pull = '_u4_')
 
-my_caption2 = paste0('Typical habitat upstream of PSCIS crossing ', my_site, ' , in reach 4.')
+my_caption2 = paste0('Typical habitat upstream of PSCIS crossing ', my_site, ' in reach 4.')
 
 ```
 
@@ -294,7 +319,7 @@ knitr::include_graphics(my_photo2)
 ```{r photo-197534-05-prep, eval=T}
 my_photo1 = fpr::fpr_photo_pull_by_str(site = my_site, str_to_pull = '_u5_')
 
-my_caption1 = paste0('Typical habitat upstream of PSCIS crossing ', my_site, ' , in reach 5.')
+my_caption1 = paste0('Typical habitat upstream of PSCIS crossing ', my_site, ' in reach 5.')
 
 
 ```
@@ -308,7 +333,7 @@ grid::grid.raster(jpeg::readJPEG(my_photo1))
 ```{r photo-197534-06-prep}
 my_photo2 = fpr::fpr_photo_pull_by_str(site = my_site, str_to_pull = '_ef1_')
 
-my_caption2 = paste0('Brook Trout captured downstream of PSCIS crossing ', my_site, ' , in reach 1.')
+my_caption2 = paste0('Brook Trout captured downstream of PSCIS crossing ', my_site, ' in reach 1.')
 
 ```
 
@@ -330,7 +355,7 @@ knitr::include_graphics(my_photo2)
 ```{r photo-197534-07-prep, eval=T}
 my_photo1 = fpr::fpr_photo_pull_by_str(site = my_site, str_to_pull = '_ef2_')
 
-my_caption1 = paste0('Mountain Whitefish captured downstream of PSCIS crossing ', my_site, ' , in reach 1.')
+my_caption1 = paste0('Mountain Whitefish captured downstream of PSCIS crossing ', my_site, ' in reach 1.')
 
 
 ```
@@ -344,7 +369,7 @@ grid::grid.raster(jpeg::readJPEG(my_photo1))
 ```{r photo-197534-08-prep}
 my_photo2 = fpr::fpr_photo_pull_by_str(site = my_site, str_to_pull = '_ef3_')
 
-my_caption2 = paste0('Westslope Cutthroat Trout captured upstream of PSCIS crossing ', my_site, ' , in reach 2.')
+my_caption2 = paste0('Westslope Cutthroat Trout captured upstream of PSCIS crossing ', my_site, ' in reach 2.')
 
 ```
 
@@ -385,14 +410,14 @@ fpr::fpr_table_wshd_sum(site_id = my_site) %>%
 
 ```
 
-A summary of habitat modelling outputs is presented in Table \@ref(tab:tab-culvert-bcfp-197559) and a map of the watershed is
-provided in map attachment [`r fpr::fpr_my_bcfishpass(col_pull = dbm_mof_50k_grid)`](`r fpr::fpr_my_mapsheet(wshd = "elkr", archive_date = "2022-03-17")`).
+A map of the watershed is provided in attachment [`r fpr::fpr_my_bcfishpass(col_pull = dbm_mof_50k_grid)`](`r fpr::fpr_my_mapsheet(wshd = "elkr", archive_date = "2022-03-17")`).
 
 `r if(identical(gitbook_on, FALSE)){knitr::asis_output("\\pagebreak")}`
 
 <br>
 
-```{r tab-culvert-bcfp-197559, eval = T}
+```{r tab-culvert-bcfp-197559, eval = F}
+# A summary of habitat modelling outputs is presented in Table \@ref(tab:tab-culvert-bcfp-197559) and a
 fpr::fpr_table_bcfp(scroll = gitbook_on) 
 ```
 
@@ -413,9 +438,9 @@ hydrometrics %>%
 
 <br>
 
-### Stream Characteristics Upstream
+### Stream Characteristics 
 
-Habitat characteristics were gathered at two sites where electrofishing was conducted in 2022 (Figure \@ref(fig:survey-site-map)). Habitat details are summarised in Table \@ref(tab:tab-habitat-summary-197559).
+Habitat characteristics were gathered at two sites upstream of Highway 43 where electrofishing was conducted in 2022 (Figure \@ref(fig:survey-site-map) and Table \@ref(tab:tab-habitat-summary-197559).
 
 <br>
 
@@ -423,9 +448,11 @@ The first site was located approximately 1km upstream from the culvert. This sec
 
 <br>
 
-The second site electrofished was located approximately 1km upstream of PSCIS crossing 197536. This section was surveyed for `r fpr::fpr_my_priority_info(loc = 'us_ef2', col_pull = 'length_surveyed')`m to the location of a waterfall shown in `r if(gitbook_on){knitr::asis_output("Figure \\@ref(fig:photo-197559-04).")}else(knitr::asis_output("Figure \\@ref(fig:photo-197559-u04)."))` This waterfall was approximately 7m in height, and blocks the upstream migration of all fish. This obstacle is listed in the BC Provincial Obstacles to Fish Passage catalogue [@ministryofwaterlandandresourcestewardship2023ProvincialObstacles]. At the time of survey, the average channel width was 7.5m, the average wetted width was 4.9m, and the average gradient was 2.1%. The dominant substrate was cobbles with boulders sub dominant. The habitat quality was considered moderate with abundant gravels suitable for resident and fluvial westslope cutthroat and bull trout spawning but few pools present that would be suitable for overwintering. 
+The second site electrofished on Brule Creek was located approximately 3.2km upstream of Highway 43. This section was surveyed for `r fpr::fpr_my_priority_info(loc = 'us_ef2', col_pull = 'length_surveyed')`m to the location of a waterfall shown in `r if(gitbook_on){knitr::asis_output("Figure \\@ref(fig:photo-197559-04).")}else(knitr::asis_output("Figure \\@ref(fig:photo-197559-u04)."))` This waterfall was approximately 7m in height, and blocks upstream migration for all species and life stages potentially present. At the time of survey, the average channel width was 7.5m, the average wetted width was 4.9m, and the average gradient was 2.1%. The dominant substrate was cobbles with boulders sub dominant. The habitat quality was considered moderate with abundant gravels suitable for resident and fluvial westslope cutthroat and bull trout spawning but few pools present that would be suitable for overwintering. 
 
 <br>
+
+Monitoring of the stream immediately upstream of Highway 43 was conducted throughout 2022 to give an indication for the amount of time that dewatering occurs at this location.  In 2022, dewatering was noted within the first approximatley 400m from May 5th to October 15th. Upstream of the first 400m the stream was noted as flowing year round.
 
 ```{r tab-habitat-summary-197559, eval=T}
 tab_hab_summary %>% 
@@ -438,7 +465,7 @@ tab_hab_summary %>%
 
 ### Fish Sampling 
 
-The stream was electrofished at two sites upstream of crossing `r as.character(my_site)` in 2022 with no fish captured at either site (Tables \@ref(tab:ef-site-brule) - \@ref(tab:tab-fish-dens-197559)).
+The stream was electrofished at two sites upstream of crossing `r as.character(my_site)` in 2022 with no fish captured at either site (Tables \@ref(tab:ef-site-brule) - \@ref(tab:tab-fish-dens-197559)). However, an adult fish (approximately 30m long) was observed in an isolated pool on August 4, 2022 approximately 350m upstream of the Highway 43 culverts within an area that was primarily dewatered area.
 
 
 ```{r ef-site-brule}
