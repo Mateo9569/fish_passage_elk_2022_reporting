@@ -694,10 +694,12 @@ ave_temp
 <span id="cb21-6"><a href="results.html#cb21-6" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">location =</span> <span class="fu">str_to_title</span>(location)) <span class="sc">%&gt;%</span> </span>
 <span id="cb21-7"><a href="results.html#cb21-7" tabindex="-1"></a>  purrr<span class="sc">::</span><span class="fu">set_names</span>(<span class="fu">c</span>(<span class="st">&#39;Location&#39;</span>, <span class="st">&#39;Discharge (m3/s)&#39;</span>, <span class="st">&#39;Zone&#39;</span>, <span class="st">&#39;Easting&#39;</span>, <span class="st">&#39;Northing&#39;</span>)) <span class="sc">%&gt;%</span> </span>
 <span id="cb21-8"><a href="results.html#cb21-8" tabindex="-1"></a>  <span class="fu">relocate</span>(<span class="st">`</span><span class="at">Discharge (m3/s)</span><span class="st">`</span>, <span class="at">.after =</span> <span class="fu">last_col</span>()) <span class="sc">%&gt;%</span> </span>
-<span id="cb21-9"><a href="results.html#cb21-9" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">scroll =</span> F)</span></code></pre></div>
+<span id="cb21-9"><a href="results.html#cb21-9" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">scroll =</span> F,</span>
+<span id="cb21-10"><a href="results.html#cb21-10" tabindex="-1"></a>                 <span class="at">caption_text =</span> my_caption,</span>
+<span id="cb21-11"><a href="results.html#cb21-11" tabindex="-1"></a>                 )</span></code></pre></div>
 <table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
-<span id="tab:tab-weigert-discharge">Table 4.3: </span>
+<span id="tab:tab-weigert-discharge">Table 4.3: </span>Discharge recorded at Weigert Creek upstream and downstream of Highway 43.
 </caption>
 <thead>
 <tr>
