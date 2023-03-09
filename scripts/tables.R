@@ -156,7 +156,9 @@ hab_features <- left_join(
   habitat_confirmations %>%
     purrr::pluck("step_4_stream_site_data") %>%
     select(reference_number,local_name, feature_type:utm_northing) %>%
-    filter(!is.na(feature_type)),
+    filter(!is.na(feature_type)) %>%
+    # filter out features without utms for now, they seem a little suspect
+    filter(!is.na(utm_easting)),
 
   fpr_xref_obstacles,
 
