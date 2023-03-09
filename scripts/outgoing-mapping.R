@@ -16,7 +16,7 @@ make_geopackage <- function(dat, gpkg_name = 'fishpass_mapping', utm_zone = 11){
 make_geopackage(dat = hab_fish_collect)
 make_geopackage(dat = hab_fiss_site)
 make_geopackage(dat = hydrometrics)
-# make_geopackage(dat = hab_features)
+make_geopackage(dat = hab_features)
 # make_geopackage(dat = hab_site_priorities)
 # make_geopackage(dat = phase1_priorities)
 # make_geopackage(dat = tab_dams_raw)
