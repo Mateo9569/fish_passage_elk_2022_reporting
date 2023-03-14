@@ -1,3 +1,8 @@
+# fish_passage_elk_2022_reporting 0.0.3
+20230313
+Remove redundant ef table
+minor text revisions and spelling error corrections
+
 # fish_passage_elk_2022_reporting 0.0.2
 20230309 - updates to map
 update hydrometric and temp methods
