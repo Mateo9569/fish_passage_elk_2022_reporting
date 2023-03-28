@@ -2,7 +2,7 @@
 
 A map showing sample sites for fish sampling, fish habitat assessments and discharge in Weigert Creek and Brule Creek are summarized in Figure \@ref(fig:survey-site-map).
 
-```{r survey-site-map, fig.cap = 'Map of Survey Sites',eval=T}
+```{r survey-site-map, fig.cap = 'Top: Weigert Creek survey sites <br> Bottom: Brule Creek survey sites ',eval=T}
 knitr::include_graphics("fig/elk_fish_passage_2022.png")
 
 # **Habitat Model Parameters** 
@@ -406,7 +406,7 @@ my_site2 <- 197533
 ```
 
 
-PSCIS crossings `r as.character(my_site2)` and `r as.character(my_site)` are located on Brule Creek approximately 20km north of the town of Sparwood.  Crossing `r as.character(my_site2)` is located on Busato Road 600m upstream from the confluece with the Elk River and crossing `r as.character(my_site)` is located approximately 725m upstream from the confluence with the Elk River.  Both crossings are the responsibility of the Ministry of Transportation and Infrastructure. Both crossings on Brule Creek as well as habiatt upstream and downstream was assessed in 2020 by [@irvine2021UpperElk]. Two fords (PSCIS 197535 and 197536) were documented 700m and 2km upstream of crossing 197559 respectively. 
+PSCIS crossings `r as.character(my_site2)` and `r as.character(my_site)` are located on Brule Creek approximately 20km north of the town of Sparwood.  Crossing `r as.character(my_site2)` is located on Busato Road 600m upstream from the confluence with the Elk River and crossing `r as.character(my_site)` is located approximately 725m upstream from the confluence with the Elk River.  Both crossings are the responsibility of the Ministry of Transportation and Infrastructure. Both crossings on Brule Creek as well as habitat upstream and downstream was assessed in 2020 by [@irvine2021UpperElk]. Two fords (PSCIS 197535 and 197536) were documented 700m and 2km upstream of crossing 197559 respectively. 
 
 
 At the highway, Brule Creek is a 5th order stream with watershed characteristics detailed in Table \@ref(tab:tab-wshd-197559). Brule Creek is known to contain westslope cutthrout trout, rainbow trout and bull trout downstream of the subject culverts and westslope cutthrout trout and rainbow trout above (MoE 2020b). On the south side of the upper watershed, at an elevation of 2000m, is the 5ha Josephine Lake (also known as Big Lake). The lake was stocked with westslope cutthrout trout from 1983 - 2000 (MoE 2020b; “Fish Inventories Data Queries” 2020).  PSCIS stream crossings 197533 and 197559 were ranked as high priorities for follow up with new structures designs following habitat confirmations by @irvine2021UpperElk due to the large size of the stream network upstream of the highway. Detailed reporting can be found [here](https://newgraphenvironment.github.io/fish_passage_elk_2020_reporting_cwf/appendix---197533-197559---brule-creek.html).  In 2020, the channel was noted as dewatered immediately upstream of Highway 43 with intermittent pools only to a distance approximately 670 m upstream. Assessments in 2022 demonstrated that the culvert on Busato Road was in extremely poor condition with deformations of the inlet and extensive corrosion. Both the Busato Road and Highway 43 culverts are extremely undersized which is evidenced by the severe down cutting below their outlets, the large outlet drops (>1m) and the deep and wide outlet pools.
