@@ -1073,25 +1073,26 @@ Downstream
 <div id="fish-sampling-1" class="section level3 hasAnchor" number="4.1.5">
 <h3><span class="header-section-number">4.1.5</span> Fish Sampling<a href="results.html#fish-sampling-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Electrofishing was conducted at eight sites with results summarised in Tables <a href="results.html#tab:tab-ef-site-weigert">4.4</a> - <a href="results.html#tab:tab-fish-dens-197534">4.7</a> and Figure <a href="results.html#fig:plot-fish-box-197534">4.4</a>. Habitat details are summarized in Table <a href="results.html#tab:tab-habitat-summary-197534">4.6</a>. Although westslope cutthrout trout, mountain whitefish, bull trout and brook trout were captured downstream of the Highway, only westslope cutthrout were captured above. Also of note, numerous westslope cuthrout trout were captured downstream and upstream of the crossing with a notable presence of only adult fish upstream of the crossing and also a significant increase in the density of adult fish upstream of the crossing. Fish were captured upstream of the highway only to within the first two reaches to within 300m upstream of the first ford on the Weigert Creek FSR that is located at an elevation of 1320m approximately 1.5km above Highway 43. Above this location, although significant electrofishing effort was conducted at a location approximately 3km upstream of the highway within Reach 3 and at a site located approximately 6km upstream of the highway within Reach 4, no fish were captured.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="results.html#cb22-1" tabindex="-1"></a><span class="co"># `r if(gitbook_on){knitr::asis_output(&quot;&lt;br&gt;&quot;)} else knitr::asis_output(&quot;\\pagebreak&quot;)`</span></span>
-<span id="cb22-2"><a href="results.html#cb22-2" tabindex="-1"></a><span class="co"># A total of `r hab_site %&gt;% filter(str_detect(alias_local_name, &#39;_ef&#39;)) %&gt;% nrow()` sites were electrofished within `r hab_site %&gt;% filter(str_detect(alias_local_name, &#39;_ef&#39;)) %&gt;% distinct(gazetted_name) %&gt;% nrow()` streams.</span></span>
-<span id="cb22-3"><a href="results.html#cb22-3" tabindex="-1"></a>hab_site <span class="sc">%&gt;%</span> </span>
-<span id="cb22-4"><a href="results.html#cb22-4" tabindex="-1"></a>  <span class="fu">select</span>(gazetted_name,</span>
-<span id="cb22-5"><a href="results.html#cb22-5" tabindex="-1"></a>         alias_local_name,</span>
-<span id="cb22-6"><a href="results.html#cb22-6" tabindex="-1"></a>         reach_number,</span>
-<span id="cb22-7"><a href="results.html#cb22-7" tabindex="-1"></a>         utm_easting,</span>
-<span id="cb22-8"><a href="results.html#cb22-8" tabindex="-1"></a>         utm_northing,</span>
-<span id="cb22-9"><a href="results.html#cb22-9" tabindex="-1"></a>         comments</span>
-<span id="cb22-10"><a href="results.html#cb22-10" tabindex="-1"></a>         ) <span class="sc">%&gt;%</span> </span>
-<span id="cb22-11"><a href="results.html#cb22-11" tabindex="-1"></a>  <span class="co"># filter out two sites that weren&#39;t electrofished</span></span>
-<span id="cb22-12"><a href="results.html#cb22-12" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(alias_local_name, <span class="st">&quot;ef&quot;</span>, <span class="at">negate =</span> <span class="cn">FALSE</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb22-13"><a href="results.html#cb22-13" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(gazetted_name, <span class="st">&quot;Weigert&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb22-14"><a href="results.html#cb22-14" tabindex="-1"></a>  <span class="fu">arrange</span>(alias_local_name) <span class="sc">%&gt;%</span> </span>
-<span id="cb22-15"><a href="results.html#cb22-15" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="results.html#cb22-1" tabindex="-1"></a>my_caption <span class="ot">=</span> <span class="st">&#39;Electrofishing site summary for Weigert Creek.&#39;</span></span>
+<span id="cb22-2"><a href="results.html#cb22-2" tabindex="-1"></a><span class="co"># `r if(gitbook_on){knitr::asis_output(&quot;&lt;br&gt;&quot;)} else knitr::asis_output(&quot;\\pagebreak&quot;)`</span></span>
+<span id="cb22-3"><a href="results.html#cb22-3" tabindex="-1"></a><span class="co"># A total of `r hab_site %&gt;% filter(str_detect(alias_local_name, &#39;_ef&#39;)) %&gt;% nrow()` sites were electrofished within `r hab_site %&gt;% filter(str_detect(alias_local_name, &#39;_ef&#39;)) %&gt;% distinct(gazetted_name) %&gt;% nrow()` streams.</span></span>
+<span id="cb22-4"><a href="results.html#cb22-4" tabindex="-1"></a>hab_site <span class="sc">%&gt;%</span> </span>
+<span id="cb22-5"><a href="results.html#cb22-5" tabindex="-1"></a>  <span class="fu">select</span>(gazetted_name,</span>
+<span id="cb22-6"><a href="results.html#cb22-6" tabindex="-1"></a>         alias_local_name,</span>
+<span id="cb22-7"><a href="results.html#cb22-7" tabindex="-1"></a>         reach_number,</span>
+<span id="cb22-8"><a href="results.html#cb22-8" tabindex="-1"></a>         utm_easting,</span>
+<span id="cb22-9"><a href="results.html#cb22-9" tabindex="-1"></a>         utm_northing,</span>
+<span id="cb22-10"><a href="results.html#cb22-10" tabindex="-1"></a>         comments</span>
+<span id="cb22-11"><a href="results.html#cb22-11" tabindex="-1"></a>         ) <span class="sc">%&gt;%</span> </span>
+<span id="cb22-12"><a href="results.html#cb22-12" tabindex="-1"></a>  <span class="co"># filter out two sites that weren&#39;t electrofished</span></span>
+<span id="cb22-13"><a href="results.html#cb22-13" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(alias_local_name, <span class="st">&quot;ef&quot;</span>, <span class="at">negate =</span> <span class="cn">FALSE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb22-14"><a href="results.html#cb22-14" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(gazetted_name, <span class="st">&quot;Weigert&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb22-15"><a href="results.html#cb22-15" tabindex="-1"></a>  <span class="fu">arrange</span>(alias_local_name) <span class="sc">%&gt;%</span> </span>
+<span id="cb22-16"><a href="results.html#cb22-16" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> my_caption)</span></code></pre></div>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:100%; ">
 <table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
-<span id="tab:tab-ef-site-weigert">Table 4.4: </span>
+<span id="tab:tab-ef-site-weigert">Table 4.4: </span>Electrofishing site summary for Weigert Creek.
 </caption>
 <thead>
 <tr>
@@ -1254,26 +1255,6 @@ Weigert Creek
 </td>
 <td style="text-align:left;">
 Moderate value habitat. Steep stream at some parts but wide channel, good flow. Many deep pools suitable for rearing. Some gravels suitable for spawning. A couple of high cascades and LWD jams that could be barrier to smaller fish. Good riparian veg but not a lot of overhanging cover. 13:17
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Weigert Creek
-</td>
-<td style="text-align:left;">
-197534_us_ef6
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-644615
-</td>
-<td style="text-align:right;">
-5535912
-</td>
-<td style="text-align:left;">
-Stream was dry throughout reach five so surveyors worked their way back to where the water began and surveyed to 300m upstream of that point. 13:48:40
 </td>
 </tr>
 </tbody>
@@ -1527,32 +1508,6 @@ Weigert Creek
 0.0
 </td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Weigert Creek
-</td>
-<td style="text-align:left;">
-197534_us_ef6
-</td>
-<td style="text-align:right;">
-5
-</td>
-<td style="text-align:right;">
-300
-</td>
-<td style="text-align:right;">
-1.5
-</td>
-<td style="text-align:right;">
-–
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-–
-</td>
-</tr>
 </tbody>
 <tfoot>
 <tr>
@@ -1646,6 +1601,32 @@ medium
 </td>
 <td style="text-align:left;">
 moderate
+</td>
+<td style="text-align:left;">
+–
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+197534_us6
+</td>
+<td style="text-align:right;">
+–
+</td>
+<td style="text-align:right;">
+4.9
+</td>
+<td style="text-align:right;">
+–
+</td>
+<td style="text-align:right;">
+–
+</td>
+<td style="text-align:right;">
+–
+</td>
+<td style="text-align:left;">
+abundant
 </td>
 <td style="text-align:left;">
 –
@@ -1779,32 +1760,6 @@ moderate
 </td>
 <td style="text-align:left;">
 medium
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-197534_us_ef6
-</td>
-<td style="text-align:right;">
-300
-</td>
-<td style="text-align:right;">
-4.9
-</td>
-<td style="text-align:right;">
-–
-</td>
-<td style="text-align:right;">
-–
-</td>
-<td style="text-align:right;">
-–
-</td>
-<td style="text-align:left;">
-abundant
-</td>
-<td style="text-align:left;">
-–
 </td>
 </tr>
 </tbody>
@@ -2139,26 +2094,6 @@ NFC
 TRUE
 </td>
 </tr>
-<tr>
-<td style="text-align:left;">
-197534_us_ef6
-</td>
-<td style="text-align:left;">
-NFC
-</td>
-<td style="text-align:left;">
-–
-</td>
-<td style="text-align:right;">
-0
-</td>
-<td style="text-align:right;">
-0.0
-</td>
-<td style="text-align:left;">
-TRUE
-</td>
-</tr>
 </tbody>
 <tfoot>
 <tr>
@@ -2234,7 +2169,7 @@ Comments
 5532436
 </td>
 <td style="text-align:left;">
-Start approximately Elk River
+Start of site is where Weigert almost touches Elk River then redirects to the south (approximately 210m upstream of mapped confluence).
 </td>
 </tr>
 <tr>
@@ -2285,7 +2220,7 @@ Discharge Estimated
 5532684
 </td>
 <td style="text-align:left;">
-–
+Hiked in from road to unconfined low gradient area.
 </td>
 </tr>
 </tbody>
@@ -2478,23 +2413,23 @@ Riffle
 <p><br></p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="results.html#cb30-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">site =</span> my_site, <span class="at">str_to_pull =</span> <span class="st">&#39;_d1_&#39;</span>)</span>
 <span id="cb30-2"><a href="results.html#cb30-2" tabindex="-1"></a></span>
-<span id="cb30-3"><a href="results.html#cb30-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;, in reach 1.&#39;</span>)</span></code></pre></div>
+<span id="cb30-3"><a href="results.html#cb30-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat downstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;, in Reach 1 of Weigert Creek.&#39;</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="results.html#cb31-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-197534-01"></span>
-<img src="Elk2022_files/figure-html/photo-197534-01-1.png" alt="Typical habitat downstream of PSCIS crossing 197534, in reach 1." width="100%" />
+<img src="Elk2022_files/figure-html/photo-197534-01-1.png" alt="Typical habitat downstream of PSCIS crossing 197534, in Reach 1 of Weigert Creek." width="100%" />
 <p class="caption">
-Figure 4.5: Typical habitat downstream of PSCIS crossing 197534, in reach 1.
+Figure 4.5: Typical habitat downstream of PSCIS crossing 197534, in Reach 1 of Weigert Creek.
 </p>
 </div>
 <p><br></p>
 <div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="results.html#cb32-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">site =</span> my_site, <span class="at">str_to_pull =</span> <span class="st">&#39;_u2_&#39;</span>)</span>
 <span id="cb32-2"><a href="results.html#cb32-2" tabindex="-1"></a></span>
-<span id="cb32-3"><a href="results.html#cb32-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39; , in reach 2.&#39;</span>)</span></code></pre></div>
+<span id="cb32-3"><a href="results.html#cb32-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39; , in Reach 2 of Weigert Creek.&#39;</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="results.html#cb33-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-197534-02"></span>
-<img src="Elk2022_files/figure-html/photo-197534-02-1.png" alt="Typical habitat upstream of PSCIS crossing 197534 , in reach 2." width="100%" />
+<img src="Elk2022_files/figure-html/photo-197534-02-1.png" alt="Typical habitat upstream of PSCIS crossing 197534 , in Reach 2 of Weigert Creek." width="100%" />
 <p class="caption">
-Figure 4.6: Typical habitat upstream of PSCIS crossing 197534 , in reach 2.
+Figure 4.6: Typical habitat upstream of PSCIS crossing 197534 , in Reach 2 of Weigert Creek.
 </p>
 </div>
 <div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="results.html#cb34-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
@@ -2505,23 +2440,23 @@ Figure 4.6: Typical habitat upstream of PSCIS crossing 197534 , in reach 2.
 <p><br></p>
 <div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="results.html#cb35-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">site =</span> my_site, <span class="at">str_to_pull =</span> <span class="st">&#39;_u3_&#39;</span>)</span>
 <span id="cb35-2"><a href="results.html#cb35-2" tabindex="-1"></a></span>
-<span id="cb35-3"><a href="results.html#cb35-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39; in reach 3.&#39;</span>)</span></code></pre></div>
+<span id="cb35-3"><a href="results.html#cb35-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39; in Reach 3 of Weigert Creek.&#39;</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="results.html#cb36-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-197534-03"></span>
-<img src="Elk2022_files/figure-html/photo-197534-03-1.png" alt="Typical habitat upstream of PSCIS crossing 197534 in reach 3." width="100%" />
+<img src="Elk2022_files/figure-html/photo-197534-03-1.png" alt="Typical habitat upstream of PSCIS crossing 197534 in Reach 3 of Weigert Creek." width="100%" />
 <p class="caption">
-Figure 4.7: Typical habitat upstream of PSCIS crossing 197534 in reach 3.
+Figure 4.7: Typical habitat upstream of PSCIS crossing 197534 in Reach 3 of Weigert Creek.
 </p>
 </div>
 <p><br></p>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="results.html#cb37-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">site =</span> my_site, <span class="at">str_to_pull =</span> <span class="st">&#39;_u4_&#39;</span>)</span>
 <span id="cb37-2"><a href="results.html#cb37-2" tabindex="-1"></a></span>
-<span id="cb37-3"><a href="results.html#cb37-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39; in reach 4.&#39;</span>)</span></code></pre></div>
+<span id="cb37-3"><a href="results.html#cb37-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39; in Reach 4 of Weigert Creek.&#39;</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="results.html#cb38-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-197534-04"></span>
-<img src="Elk2022_files/figure-html/photo-197534-04-1.png" alt="Typical habitat upstream of PSCIS crossing 197534 in reach 4." width="100%" />
+<img src="Elk2022_files/figure-html/photo-197534-04-1.png" alt="Typical habitat upstream of PSCIS crossing 197534 in Reach 4 of Weigert Creek." width="100%" />
 <p class="caption">
-Figure 4.8: Typical habitat upstream of PSCIS crossing 197534 in reach 4.
+Figure 4.8: Typical habitat upstream of PSCIS crossing 197534 in Reach 4 of Weigert Creek.
 </p>
 </div>
 <div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="results.html#cb39-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
@@ -2678,27 +2613,27 @@ SSE
 <span id="cb53-5"><a href="results.html#cb53-5" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>gazetted_name, <span class="sc">-</span><span class="st">`</span><span class="at">dd/mm/yy &amp; time</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb53-6"><a href="results.html#cb53-6" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">location =</span> <span class="fu">str_to_title</span>(location)) <span class="sc">%&gt;%</span> </span>
 <span id="cb53-7"><a href="results.html#cb53-7" tabindex="-1"></a>  purrr<span class="sc">::</span><span class="fu">set_names</span>(<span class="fu">c</span>(<span class="st">&#39;Location&#39;</span>, <span class="st">&#39;Discharge (m3/s)&#39;</span>, <span class="st">&#39;Zone&#39;</span>, <span class="st">&#39;Easting&#39;</span>, <span class="st">&#39;Northing&#39;</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb53-8"><a href="results.html#cb53-8" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>()</span></code></pre></div>
-<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:100%; ">
+<span id="cb53-8"><a href="results.html#cb53-8" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> my_caption,</span>
+<span id="cb53-9"><a href="results.html#cb53-9" tabindex="-1"></a>                 <span class="at">scroll =</span> F)</span></code></pre></div>
 <table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
-<span id="tab:tab-brule-discharge">Table 4.11: </span>
+<span id="tab:tab-brule-discharge">Table 4.11: </span>Discharge recorded at Weigert Creek upstream and downstream of Highway 43.
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:left;">
 Location
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:right;">
 Discharge (m3/s)
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:right;">
 Zone
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:right;">
 Easting
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:right;">
 Northing
 </th>
 </tr>
@@ -2740,7 +2675,6 @@ Downstream
 </tr>
 </tbody>
 </table>
-</div>
 <p><br></p>
 </div>
 <div id="stream-characteristics" class="section level3 hasAnchor" number="4.2.2">
@@ -2751,14 +2685,14 @@ Downstream
 <p><br></p>
 <p>The second site electrofished on Brule Creek was located approximately 3.2km upstream of Highway 43. This section was surveyed for 310m to the location of a waterfall shown in Figure <a href="results.html#fig:photo-197559-04">4.16</a>. This waterfall was approximately 7m in height, and blocks upstream migration for all species and life stages potentially present. At the time of survey, the average channel width was 7.5m, the average wetted width was 4.9m, and the average gradient was 2.1%. The dominant substrate was cobbles with boulders sub dominant. The habitat quality was considered moderate with abundant gravels suitable for resident and fluvial westslope cutthroat and bull trout spawning but few pools present that would be suitable for overwintering.</p>
 <p><br></p>
-<p>Monitoring of the stream immediately upstream of Highway 43 was conducted throughout 2022 to give an indication for the amount of time that dewatering occurs at this location. In 2022, dewatering was noted within the first approximatley 400m from May 5th to October 15th. Upstream of the first 400m the stream was noted as flowing year round.</p>
+<p>Monitoring of the stream immediately upstream of Highway 43 was conducted throughout 2022 to give an indication for the amount of time that dewatering occurs at this location. In 2022, dewatering was noted within the first approximately 400m from May 5th to October 15th. Upstream of the first 400m the stream was noted as flowing year round.</p>
 <div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="results.html#cb54-1" tabindex="-1"></a>tab_hab_summary <span class="sc">%&gt;%</span> </span>
 <span id="cb54-2"><a href="results.html#cb54-2" tabindex="-1"></a>  <span class="fu">filter</span>(Site <span class="sc">%like%</span> my_site) <span class="sc">%&gt;%</span> </span>
-<span id="cb54-3"><a href="results.html#cb54-3" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="fu">paste0</span>(<span class="st">&#39;Summary of habitat details for electrofishing sites upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>),</span>
+<span id="cb54-3"><a href="results.html#cb54-3" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> <span class="fu">paste0</span>(<span class="st">&#39;Summary of habitat details for electrofishing sites upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39; on Brule Creek.&#39;</span>),</span>
 <span id="cb54-4"><a href="results.html#cb54-4" tabindex="-1"></a>                 <span class="at">scroll =</span> F) </span></code></pre></div>
 <table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
-<span id="tab:tab-habitat-summary-197559">Table 4.12: </span>Summary of habitat details for electrofishing sites upstream of PSCIS crossing 197559.
+<span id="tab:tab-habitat-summary-197559">Table 4.12: </span>Summary of habitat details for electrofishing sites upstream of PSCIS crossing 197559 on Brule Creek.
 </caption>
 <thead>
 <tr>
@@ -2846,41 +2780,42 @@ high
 </div>
 <div id="fish-sampling-2" class="section level3 hasAnchor" number="4.2.3">
 <h3><span class="header-section-number">4.2.3</span> Fish Sampling<a href="results.html#fish-sampling-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>The stream was electrofished at two sites upstream of crossing 197559 in 2022 with no fish captured at either site (Tables <a href="results.html#tab:ef-site-brule">4.13</a> - <a href="results.html#tab:tab-fish-dens-197559">4.15</a>). However, an adult fish (approximately 30cm long) was observed in an isolated pool on August 4, 2022 approximately 350m upstream of the Highway 43 culverts within a pool within and area that was primarily dewatered.</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="results.html#cb55-1" tabindex="-1"></a><span class="co"># `r if(gitbook_on){knitr::asis_output(&quot;&lt;br&gt;&quot;)} else knitr::asis_output(&quot;\\pagebreak&quot;)`</span></span>
-<span id="cb55-2"><a href="results.html#cb55-2" tabindex="-1"></a><span class="co"># A total of `r hab_site %&gt;% filter(str_detect(alias_local_name, &#39;_ef&#39;)) %&gt;% nrow()` sites were electrofished within `r hab_site %&gt;% filter(str_detect(alias_local_name, &#39;_ef&#39;)) %&gt;% distinct(gazetted_name) %&gt;% nrow()` streams.</span></span>
-<span id="cb55-3"><a href="results.html#cb55-3" tabindex="-1"></a>hab_site <span class="sc">%&gt;%</span> </span>
-<span id="cb55-4"><a href="results.html#cb55-4" tabindex="-1"></a>  <span class="fu">select</span>(gazetted_name,</span>
-<span id="cb55-5"><a href="results.html#cb55-5" tabindex="-1"></a>         alias_local_name,</span>
-<span id="cb55-6"><a href="results.html#cb55-6" tabindex="-1"></a>         utm_easting,</span>
-<span id="cb55-7"><a href="results.html#cb55-7" tabindex="-1"></a>         utm_northing,</span>
-<span id="cb55-8"><a href="results.html#cb55-8" tabindex="-1"></a>         comments</span>
-<span id="cb55-9"><a href="results.html#cb55-9" tabindex="-1"></a>         ) <span class="sc">%&gt;%</span> </span>
-<span id="cb55-10"><a href="results.html#cb55-10" tabindex="-1"></a>  <span class="co"># filter out two sites that weren&#39;t electrofished</span></span>
-<span id="cb55-11"><a href="results.html#cb55-11" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(alias_local_name, <span class="st">&quot;ef&quot;</span>, <span class="at">negate =</span> <span class="cn">FALSE</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb55-12"><a href="results.html#cb55-12" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(gazetted_name, <span class="st">&quot;Brule&quot;</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb55-13"><a href="results.html#cb55-13" tabindex="-1"></a>  <span class="fu">arrange</span>(alias_local_name) <span class="sc">%&gt;%</span> </span>
-<span id="cb55-14"><a href="results.html#cb55-14" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>()</span></code></pre></div>
-<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:100%; ">
+<p>The stream was electrofished at two sites upstream of crossing 197559 in 2022 with no fish captured at either site (Tables <a href="results.html#tab:ef-site-brule">4.13</a> - <a href="results.html#tab:tab-fish-dens-197559">4.16</a>). However, an adult fish (approximately 30cm long) was observed in an isolated pool on August 4, 2022 approximately 350m upstream of the Highway 43 culvert within a pool within and area that was primarily dewatered.</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="results.html#cb55-1" tabindex="-1"></a>my_caption <span class="ot">=</span> <span class="st">&#39;Electrofishing site summary for Brule Creek.&#39;</span></span>
+<span id="cb55-2"><a href="results.html#cb55-2" tabindex="-1"></a><span class="co"># `r if(gitbook_on){knitr::asis_output(&quot;&lt;br&gt;&quot;)} else knitr::asis_output(&quot;\\pagebreak&quot;)`</span></span>
+<span id="cb55-3"><a href="results.html#cb55-3" tabindex="-1"></a><span class="co"># A total of `r hab_site %&gt;% filter(str_detect(alias_local_name, &#39;_ef&#39;)) %&gt;% nrow()` sites were electrofished within `r hab_site %&gt;% filter(str_detect(alias_local_name, &#39;_ef&#39;)) %&gt;% distinct(gazetted_name) %&gt;% nrow()` streams.</span></span>
+<span id="cb55-4"><a href="results.html#cb55-4" tabindex="-1"></a>hab_site <span class="sc">%&gt;%</span> </span>
+<span id="cb55-5"><a href="results.html#cb55-5" tabindex="-1"></a>  <span class="fu">select</span>(gazetted_name,</span>
+<span id="cb55-6"><a href="results.html#cb55-6" tabindex="-1"></a>         alias_local_name,</span>
+<span id="cb55-7"><a href="results.html#cb55-7" tabindex="-1"></a>         utm_easting,</span>
+<span id="cb55-8"><a href="results.html#cb55-8" tabindex="-1"></a>         utm_northing,</span>
+<span id="cb55-9"><a href="results.html#cb55-9" tabindex="-1"></a>         comments</span>
+<span id="cb55-10"><a href="results.html#cb55-10" tabindex="-1"></a>         ) <span class="sc">%&gt;%</span> </span>
+<span id="cb55-11"><a href="results.html#cb55-11" tabindex="-1"></a>  <span class="co"># filter out two sites that weren&#39;t electrofished</span></span>
+<span id="cb55-12"><a href="results.html#cb55-12" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(alias_local_name, <span class="st">&quot;ef&quot;</span>, <span class="at">negate =</span> <span class="cn">FALSE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb55-13"><a href="results.html#cb55-13" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(gazetted_name, <span class="st">&quot;Brule&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb55-14"><a href="results.html#cb55-14" tabindex="-1"></a>  <span class="fu">arrange</span>(alias_local_name) <span class="sc">%&gt;%</span> </span>
+<span id="cb55-15"><a href="results.html#cb55-15" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> my_caption,</span>
+<span id="cb55-16"><a href="results.html#cb55-16" tabindex="-1"></a>                 <span class="at">scroll =</span> F)</span></code></pre></div>
 <table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
-<span id="tab:ef-site-brule">Table 4.13: </span>
+<span id="tab:ef-site-brule">Table 4.13: </span>Electrofishing site summary for Brule Creek.
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:left;">
 gazetted_name
 </th>
-<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:left;">
 alias_local_name
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:right;">
 utm_easting
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:right;">
 utm_northing
 </th>
-<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:left;">
 comments
 </th>
 </tr>
@@ -2917,14 +2852,13 @@ Brule Creek
 5527392
 </td>
 <td style="text-align:left;">
-High value habitat. Abundant gravels suitable for residential and fluvial WCT and BT. Few pools suitable for overwintering. Top of site is 7m high cascade waterfall not passable in an upstream direction. 12:12:58
+High value habitat. Abundant gravels suitable for resident and fluvial WCT and BT. Few pools suitable for overwintering. Top of site is 7m high cascade waterfall not passable in an upstream direction. 12:12:58
 </td>
 </tr>
 </tbody>
 </table>
-</div>
 <p><br></p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="results.html#cb56-1" tabindex="-1"></a>my_caption <span class="ot">=</span> <span class="st">&#39;Summary of results of electrofishing in Weigert Creek.&#39;</span></span>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="results.html#cb56-1" tabindex="-1"></a>my_caption <span class="ot">=</span> <span class="st">&#39;Summary of results of electrofishing in Brule Creek.&#39;</span></span>
 <span id="cb56-2"><a href="results.html#cb56-2" tabindex="-1"></a></span>
 <span id="cb56-3"><a href="results.html#cb56-3" tabindex="-1"></a> <span class="co"># sum of all the fish per site and the electrofishing seconds</span></span>
 <span id="cb56-4"><a href="results.html#cb56-4" tabindex="-1"></a>fish_samp_sum <span class="ot">&lt;-</span> <span class="fu">left_join</span>(</span>
@@ -2950,37 +2884,35 @@ High value habitat. Abundant gravels suitable for residential and fluvial WCT an
 <span id="cb56-24"><a href="results.html#cb56-24" tabindex="-1"></a></span>
 <span id="cb56-25"><a href="results.html#cb56-25" tabindex="-1"></a>fish_samp_sum <span class="sc">%&gt;%</span> </span>
 <span id="cb56-26"><a href="results.html#cb56-26" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(gazetted_name, <span class="st">&#39;Brule&#39;</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb56-27"><a href="results.html#cb56-27" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> my_caption,</span>
-<span id="cb56-28"><a href="results.html#cb56-28" tabindex="-1"></a>                 <span class="at">footnote_text =</span> <span class="st">&#39;CPUE = Catch per unit effort (fish captured/1000s of electrofishing).&#39;</span>)</span></code></pre></div>
-<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:500px; overflow-x: scroll; width:100%; ">
+<span id="cb56-27"><a href="results.html#cb56-27" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>reach_number) <span class="sc">%&gt;%</span> </span>
+<span id="cb56-28"><a href="results.html#cb56-28" tabindex="-1"></a>  fpr<span class="sc">::</span><span class="fu">fpr_kable</span>(<span class="at">caption_text =</span> my_caption,</span>
+<span id="cb56-29"><a href="results.html#cb56-29" tabindex="-1"></a>                 <span class="at">footnote_text =</span> <span class="st">&#39;CPUE = Catch per unit effort (fish captured/1000s of electrofishing).&#39;</span>,</span>
+<span id="cb56-30"><a href="results.html#cb56-30" tabindex="-1"></a>                 <span class="at">scroll =</span> F)</span></code></pre></div>
 <table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;border-bottom: 0;">
 <caption style="font-size: initial !important;">
-(#tab:fish_samp_sum-brule)Summary of results of electrofishing in Weigert Creek.
+<span id="tab:fish-samp-sum-brule">Table 4.14: </span>Summary of results of electrofishing in Brule Creek.
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:left;">
 gazetted_name
 </th>
-<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:left;">
 local_name
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
-reach_number
-</th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:right;">
 ef_length_m
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:right;">
 ef_width_m
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:right;">
 ef_seconds
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:right;">
 count_fish
 </th>
-<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+<th style="text-align:right;">
 CPUE
 </th>
 </tr>
@@ -2992,9 +2924,6 @@ Brule Creek
 </td>
 <td style="text-align:left;">
 197559_us_ef1
-</td>
-<td style="text-align:right;">
-–
 </td>
 <td style="text-align:right;">
 600
@@ -3018,9 +2947,6 @@ Brule Creek
 </td>
 <td style="text-align:left;">
 197559_us_ef2
-</td>
-<td style="text-align:right;">
-–
 </td>
 <td style="text-align:right;">
 310
@@ -3047,12 +2973,11 @@ Brule Creek
 </tr>
 </tfoot>
 </table>
-</div>
 <p><br></p>
 <div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="results.html#cb57-1" tabindex="-1"></a><span class="fu">fpr_table_fish_site</span>()</span></code></pre></div>
 <table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
-<span id="tab:tab-fish-site-197559">Table 4.14: </span>Fish sampling site summary for 197559.
+<span id="tab:tab-fish-site-197559">Table 4.15: </span>Fish sampling site summary for 197559.
 </caption>
 <thead>
 <tr>
@@ -3123,7 +3048,7 @@ open
 <div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="results.html#cb58-1" tabindex="-1"></a><span class="fu">fpr_table_fish_density</span>()</span></code></pre></div>
 <table class="table table-condensed table-responsive" style="font-size: 11px; margin-left: auto; margin-right: auto;border-bottom: 0;">
 <caption style="font-size: initial !important;">
-<span id="tab:tab-fish-dens-197559">Table 4.15: </span>Fish sampling density results summary for 197559.
+<span id="tab:tab-fish-dens-197559">Table 4.16: </span>Fish sampling density results summary for 197559.
 </caption>
 <thead>
 <tr>
@@ -3200,23 +3125,23 @@ TRUE
 <p><br></p>
 <div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="results.html#cb59-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">site =</span> my_site, <span class="at">str_to_pull =</span> <span class="st">&#39;_u1_&#39;</span>)</span>
 <span id="cb59-2"><a href="results.html#cb59-2" tabindex="-1"></a></span>
-<span id="cb59-3"><a href="results.html#cb59-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;, on first electrofishing survey.&#39;</span>)</span></code></pre></div>
+<span id="cb59-3"><a href="results.html#cb59-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;, within first electrofishing site on Brule Creek.&#39;</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="results.html#cb60-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-197559-01"></span>
-<img src="Elk2022_files/figure-html/photo-197559-01-1.png" alt="Typical habitat upstream of PSCIS crossing 197559, on first electrofishing survey." width="100%" />
+<img src="Elk2022_files/figure-html/photo-197559-01-1.png" alt="Typical habitat upstream of PSCIS crossing 197559, within first electrofishing site on Brule Creek." width="100%" />
 <p class="caption">
-Figure 4.13: Typical habitat upstream of PSCIS crossing 197559, on first electrofishing survey.
+Figure 4.13: Typical habitat upstream of PSCIS crossing 197559, within first electrofishing site on Brule Creek.
 </p>
 </div>
 <p><br></p>
 <div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="results.html#cb61-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">site =</span> my_site, <span class="at">str_to_pull =</span> <span class="st">&#39;_u2_&#39;</span>)</span>
 <span id="cb61-2"><a href="results.html#cb61-2" tabindex="-1"></a></span>
-<span id="cb61-3"><a href="results.html#cb61-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39; , on second electrofishing survey.&#39;</span>)</span></code></pre></div>
+<span id="cb61-3"><a href="results.html#cb61-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Typical habitat upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;, within second electrofishing site on Brule Creek&#39;</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="results.html#cb62-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-197559-02"></span>
-<img src="Elk2022_files/figure-html/photo-197559-02-1.png" alt="Typical habitat upstream of PSCIS crossing 197559 , on second electrofishing survey." width="100%" />
+<img src="Elk2022_files/figure-html/photo-197559-02-1.png" alt="Typical habitat upstream of PSCIS crossing 197559, within second electrofishing site on Brule Creek" width="100%" />
 <p class="caption">
-Figure 4.14: Typical habitat upstream of PSCIS crossing 197559 , on second electrofishing survey.
+Figure 4.14: Typical habitat upstream of PSCIS crossing 197559, within second electrofishing site on Brule Creek
 </p>
 </div>
 <div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="results.html#cb63-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>
@@ -3227,23 +3152,23 @@ Figure 4.14: Typical habitat upstream of PSCIS crossing 197559 , on second elect
 <p><br></p>
 <div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="results.html#cb64-1" tabindex="-1"></a>my_photo1 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">site =</span> my_site, <span class="at">str_to_pull =</span> <span class="st">&#39;_u3_&#39;</span>)</span>
 <span id="cb64-2"><a href="results.html#cb64-2" tabindex="-1"></a></span>
-<span id="cb64-3"><a href="results.html#cb64-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Habitat immediately downstream of waterfall.&#39;</span>)</span></code></pre></div>
+<span id="cb64-3"><a href="results.html#cb64-3" tabindex="-1"></a>my_caption1 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Habitat immediately downstream of 7m high waterfall on Brule Creek approximatley 3.6km upstream of Highway 43.&#39;</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="results.html#cb65-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo1))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-197559-03"></span>
-<img src="Elk2022_files/figure-html/photo-197559-03-1.png" alt="Habitat immediately downstream of waterfall." width="100%" />
+<img src="Elk2022_files/figure-html/photo-197559-03-1.png" alt="Habitat immediately downstream of 7m high waterfall on Brule Creek approximatley 3.6km upstream of Highway 43." width="100%" />
 <p class="caption">
-Figure 4.15: Habitat immediately downstream of waterfall.
+Figure 4.15: Habitat immediately downstream of 7m high waterfall on Brule Creek approximatley 3.6km upstream of Highway 43.
 </p>
 </div>
 <p><br></p>
 <div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="results.html#cb66-1" tabindex="-1"></a>my_photo2 <span class="ot">=</span> fpr<span class="sc">::</span><span class="fu">fpr_photo_pull_by_str</span>(<span class="at">site =</span> my_site, <span class="at">str_to_pull =</span> <span class="st">&#39;_u4_&#39;</span>)</span>
 <span id="cb66-2"><a href="results.html#cb66-2" tabindex="-1"></a></span>
-<span id="cb66-3"><a href="results.html#cb66-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Waterfall at end of second electrofishing survey, upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39;.&#39;</span>)</span></code></pre></div>
+<span id="cb66-3"><a href="results.html#cb66-3" tabindex="-1"></a>my_caption2 <span class="ot">=</span> <span class="fu">paste0</span>(<span class="st">&#39;Waterfall at end of second electrofishing survey, upstream of PSCIS crossing &#39;</span>, my_site, <span class="st">&#39; on Brule Creek approximatley 3.6km upstream of Highway 43.&#39;</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="results.html#cb67-1" tabindex="-1"></a>grid<span class="sc">::</span><span class="fu">grid.raster</span>(jpeg<span class="sc">::</span><span class="fu">readJPEG</span>(my_photo2))</span></code></pre></div>
 <div class="figure"><span style="display:block;" id="fig:photo-197559-04"></span>
-<img src="Elk2022_files/figure-html/photo-197559-04-1.png" alt="Waterfall at end of second electrofishing survey, upstream of PSCIS crossing 197559." width="100%" />
+<img src="Elk2022_files/figure-html/photo-197559-04-1.png" alt="Waterfall at end of second electrofishing survey, upstream of PSCIS crossing 197559 on Brule Creek approximatley 3.6km upstream of Highway 43." width="100%" />
 <p class="caption">
-Figure 4.16: Waterfall at end of second electrofishing survey, upstream of PSCIS crossing 197559.
+Figure 4.16: Waterfall at end of second electrofishing survey, upstream of PSCIS crossing 197559 on Brule Creek approximatley 3.6km upstream of Highway 43.
 </p>
 </div>
 <div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="results.html#cb68-1" tabindex="-1"></a>my_caption <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&#39;Left: &#39;</span>, my_caption1, <span class="st">&#39; Right: &#39;</span>, my_caption2)</span>

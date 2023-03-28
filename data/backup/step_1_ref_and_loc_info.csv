@@ -11,7 +11,7 @@ reference_number,gazetted_name,alias_local_name,waterbody_type,waterbody_id_iden
 10,Tributary to Bighorn Creek,197844_us_ef1,stream,00000ELKR,,,,10,44834,geographic information system (GIS),11,657923,5452805,visible channel,
 11,Tributary to Bighorn Creek,197844_us_ef2,stream,00000ELKR,,,,11,44834,geographic information system (GIS),11,658239,5453038,visible channel,
 12,Weigert Creek,197534_us_ef5,stream,00000ELKR,,,4,12,44838,geographic information system (GIS),11,646408,5535604,visible channel,
-13,Weigert Creek,197534_us_ef6,stream,00000ELKR,,,5,13,44838,geographic information system (GIS),11,644615,5535912,visible channel,
+13,Weigert Creek,197534_us6,stream,00000ELKR,,,5,13,44838,geographic information system (GIS),11,644615,5535912,visible channel,
 14,Brule Creek,197559_us_ef2,stream,00000ELKR,,,,14,44839,geographic information system (GIS),11,648968,5527392,visible channel,
 15,Brule Creek,197559_us_ef1,stream,00000ELKR,,,,15,44839,geographic information system (GIS),11,650662,5528524,visible channel,
 16,Weigert Creek,197534_us_ef3,stream,00000ELKR,,,2,16,44840,geographic information system (GIS),11,649050,5531760,visible channel,
