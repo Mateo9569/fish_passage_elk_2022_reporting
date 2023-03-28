@@ -262,7 +262,7 @@ tab_fhap_hu_sum %>%
 
 my_photo1 = fpr::fpr_photo_pull_by_str(site = my_site, str_to_pull = '_d1_')
 
-my_caption1 = paste0('Typical habitat downstream of PSCIS crossing ', my_site, ', in reach 1.')
+my_caption1 = paste0('Typical habitat downstream of PSCIS crossing ', my_site, ', in Reach 1 of Weigert Creek.')
 ```
 
 ```{r photo-197534-01, fig.cap= my_caption1, out.width = photo_width, eval=gitbook_on}
@@ -274,7 +274,7 @@ grid::grid.raster(jpeg::readJPEG(my_photo1))
 ```{r photo-197534-02-prep}
 my_photo2 = fpr::fpr_photo_pull_by_str(site = my_site, str_to_pull = '_u2_')
 
-my_caption2 = paste0('Typical habitat upstream of PSCIS crossing ', my_site, ' , in reach 2.')
+my_caption2 = paste0('Typical habitat upstream of PSCIS crossing ', my_site, ' , in Reach 2 of Weigert Creek.')
 
 ```
 
@@ -296,7 +296,7 @@ knitr::include_graphics(my_photo2)
 ```{r photo-197534-03-prep}
 my_photo1 = fpr::fpr_photo_pull_by_str(site = my_site, str_to_pull = '_u3_')
 
-my_caption1 = paste0('Typical habitat upstream of PSCIS crossing ', my_site, ' in reach 3.')
+my_caption1 = paste0('Typical habitat upstream of PSCIS crossing ', my_site, ' in Reach 3 of Weigert Creek.')
 ```
 
 ```{r photo-197534-03, fig.cap= my_caption1, out.width = photo_width, eval=gitbook_on}
@@ -308,7 +308,7 @@ grid::grid.raster(jpeg::readJPEG(my_photo1))
 ```{r photo-197534-04-prep}
 my_photo2 = fpr::fpr_photo_pull_by_str(site = my_site, str_to_pull = '_u4_')
 
-my_caption2 = paste0('Typical habitat upstream of PSCIS crossing ', my_site, ' in reach 4.')
+my_caption2 = paste0('Typical habitat upstream of PSCIS crossing ', my_site, ' in Reach 4 of Weigert Creek.')
 
 ```
 
@@ -464,12 +464,12 @@ The second site electrofished on Brule Creek was located approximately 3.2km ups
 
 <br>
 
-Monitoring of the stream immediately upstream of Highway 43 was conducted throughout 2022 to give an indication for the amount of time that dewatering occurs at this location.  In 2022, dewatering was noted within the first approximatley 400m from May 5th to October 15th. Upstream of the first 400m the stream was noted as flowing year round.
+Monitoring of the stream immediately upstream of Highway 43 was conducted throughout 2022 to give an indication for the amount of time that dewatering occurs at this location.  In 2022, dewatering was noted within the first approximately 400m from May 5th to October 15th. Upstream of the first 400m the stream was noted as flowing year round.
 
 ```{r tab-habitat-summary-197559, eval=T}
 tab_hab_summary %>% 
   filter(Site %like% my_site) %>% 
-  fpr::fpr_kable(caption_text = paste0('Summary of habitat details for electrofishing sites upstream of PSCIS crossing ', my_site, '.'),
+  fpr::fpr_kable(caption_text = paste0('Summary of habitat details for electrofishing sites upstream of PSCIS crossing ', my_site, ' on Brule Creek.'),
                  scroll = F) 
 
 ```
@@ -477,7 +477,7 @@ tab_hab_summary %>%
 
 ### Fish Sampling 
 
-The stream was electrofished at two sites upstream of crossing `r as.character(my_site)` in 2022 with no fish captured at either site (Tables \@ref(tab:ef-site-brule) - \@ref(tab:tab-fish-dens-197559)). However, an adult fish (approximately 30cm long) was observed in an isolated pool on August 4, 2022 approximately 350m upstream of the Highway 43 culverts within a pool within and area that was primarily dewatered.
+The stream was electrofished at two sites upstream of crossing `r as.character(my_site)` in 2022 with no fish captured at either site (Tables \@ref(tab:ef-site-brule) - \@ref(tab:tab-fish-dens-197559)). However, an adult fish (approximately 30cm long) was observed in an isolated pool on August 4, 2022 approximately 350m upstream of the Highway 43 culvert within a pool within and area that was primarily dewatered.
 
 
 ```{r ef-site-brule}
@@ -529,6 +529,7 @@ fish_samp_sum <- left_join(
 
 fish_samp_sum %>% 
   filter(str_detect(gazetted_name, 'Brule')) %>% 
+  select(-reach_number) %>% 
   fpr::fpr_kable(caption_text = my_caption,
                  footnote_text = 'CPUE = Catch per unit effort (fish captured/1000s of electrofishing).',
                  scroll = F)
@@ -557,7 +558,7 @@ fpr_table_fish_density()
 
 my_photo1 = fpr::fpr_photo_pull_by_str(site = my_site, str_to_pull = '_u1_')
 
-my_caption1 = paste0('Typical habitat upstream of PSCIS crossing ', my_site, ', on first electrofishing survey.')
+my_caption1 = paste0('Typical habitat upstream of PSCIS crossing ', my_site, ', within first electrofishing site on Brule Creek.')
 ```
 
 ```{r photo-197559-01, fig.cap= my_caption1, out.width = photo_width, eval=gitbook_on}
@@ -569,7 +570,7 @@ grid::grid.raster(jpeg::readJPEG(my_photo1))
 ```{r photo-197559-02-prep}
 my_photo2 = fpr::fpr_photo_pull_by_str(site = my_site, str_to_pull = '_u2_')
 
-my_caption2 = paste0('Typical habitat upstream of PSCIS crossing ', my_site, ' , on second electrofishing survey.')
+my_caption2 = paste0('Typical habitat upstream of PSCIS crossing ', my_site, ', within second electrofishing site on Brule Creek')
 
 ```
 
@@ -591,7 +592,7 @@ knitr::include_graphics(my_photo2)
 ```{r photo-197559-03-prep}
 my_photo1 = fpr::fpr_photo_pull_by_str(site = my_site, str_to_pull = '_u3_')
 
-my_caption1 = paste0('Habitat immediately downstream of waterfall.')
+my_caption1 = paste0('Habitat immediately downstream of 7m high waterfall on Brule Creek approximatley 3.6km upstream of Highway 43.')
 ```
 
 ```{r photo-197559-03, fig.cap= my_caption1, out.width = photo_width, eval=gitbook_on}
@@ -603,7 +604,7 @@ grid::grid.raster(jpeg::readJPEG(my_photo1))
 ```{r photo-197559-04-prep}
 my_photo2 = fpr::fpr_photo_pull_by_str(site = my_site, str_to_pull = '_u4_')
 
-my_caption2 = paste0('Waterfall at end of second electrofishing survey, upstream of PSCIS crossing ', my_site, '.')
+my_caption2 = paste0('Waterfall at end of second electrofishing survey, upstream of PSCIS crossing ', my_site, ' on Brule Creek approximatley 3.6km upstream of Highway 43.')
 
 ```
 
