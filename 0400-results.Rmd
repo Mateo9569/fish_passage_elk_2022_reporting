@@ -592,7 +592,7 @@ knitr::include_graphics(my_photo2)
 ```{r photo-197559-03-prep}
 my_photo1 = fpr::fpr_photo_pull_by_str(site = my_site, str_to_pull = '_u3_')
 
-my_caption1 = paste0('Habitat immediately downstream of 7m high waterfall on Brule Creek approximatley 3.6km upstream of Highway 43.')
+my_caption1 = paste0('Habitat immediately downstream of 7.5m high waterfall on Brule Creek approximatley 3.6km upstream of Highway 43.')
 ```
 
 ```{r photo-197559-03, fig.cap= my_caption1, out.width = photo_width, eval=gitbook_on}
@@ -604,7 +604,7 @@ grid::grid.raster(jpeg::readJPEG(my_photo1))
 ```{r photo-197559-04-prep}
 my_photo2 = fpr::fpr_photo_pull_by_str(site = my_site, str_to_pull = '_u4_')
 
-my_caption2 = paste0('Waterfall at end of second electrofishing survey, upstream of PSCIS crossing ', my_site, ' on Brule Creek approximatley 3.6km upstream of Highway 43.')
+my_caption2 = paste0('Waterfall (7.5m high) at end of second electrofishing survey, upstream of PSCIS crossing ', my_site, ' on Brule Creek approximatley 3.6km upstream of Highway 43.')
 
 ```
 
