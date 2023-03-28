@@ -1,3 +1,9 @@
+# fish_passage_elk_2022_reporting 0.0.4 (20230328)
+
+  * clean up tables in results
+  * update FHAP site comments
+
+
 # fish_passage_elk_2022_reporting 0.0.3
 20230313
 Remove redundant ef table
