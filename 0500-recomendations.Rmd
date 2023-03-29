@@ -23,6 +23,8 @@ Although difficult to determine cause, presence of only adult fish upstream of t
 
 Recommendations going forward include:
 
+  * Acquisition of a lidar generated digital elevation model for the a 500m x 500m square area centred over the culvert at Highway 43.  This data can provide insight into historic alignment of the floodplain and past  realignments of the stream due to road infrastructure.  This information can also be extremely valuable for informing future works including not only infrastructure upgrades but restorative actions to increase watershed health.
+  
   * To understand current patterns of movement within the stream, conduct electrofishing within currently fish bearing reaches both upstream and downstream of the crossing, pit tag all captured fish (>50mm long) and resample in future years. As there are extensive tagging programs throughout the Elk River watershed including tagging programs conducted by Nupqu as well as numerous guiding companies, this could give an idea of fish movement not only within Weigert Creek but also allow confirmation of habitat use within the mainstem of the Elk River by fish tagged in Weigert Creek as well as of utilization of habitat in Weigert Creek by fish originally tagged in the Elk River.
   
 
@@ -51,6 +53,8 @@ As cold water temperatures could be limiting within stream habitats upstream of 
 
 Recommendations going forward include:
 
+  * Acquisition of a lidar generated digital elevation model for the a 500m x 500m square area centred over the culvert at Highway 43.  This data can provide insight into historic alignment of the floodplain and past  realignments of the stream due to road infrastructure.  This information can also be extremely valuable for informing future works including not only infrastructure upgrades but restorative actions to increase watershed health.
+  
   * Collection of temperature data at points known to support westslope cutthrout trout (ie. within the outlet pools of Bosato Road and Highway 43 culverts) as well as at areas of potential access (below the falls at 3.6km) if fish passage were to be remediated at the sites.
 
   * Capture and pit tagging of fish holding in the pools below Highway 43 and transplanting to underneath the falls at 3.6km.  Following one or two growing seasons, attempts could be made to recapture these fish from the vicinity of where they have been transplanted.  This would provide valuable insight into fish movement as well as the ability of upstream habitats to support westsloope cutthrout rearing and overwintering.
