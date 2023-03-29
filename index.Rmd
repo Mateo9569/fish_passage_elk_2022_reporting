@@ -14,7 +14,7 @@ author: |
 
 date: |
  |
- | Version 0.0.4 DRAFT
+ | Version 0.0.5 DRAFT
  | `r format(Sys.Date(), "%Y-%m-%d")`
 toc-title: Table of Contents
 site: bookdown::bookdown_site
