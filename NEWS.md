@@ -1,3 +1,9 @@
+# fish_passage_elk_2022_reporting 0.0.5 (20230329)
+
+  * seperate maps for brule and weigert
+  * add lidar recommendation
+  * fix brule fish count error in table 4.14
+
 # fish_passage_elk_2022_reporting 0.0.4 (20230328)
 
   * clean up tables in results
