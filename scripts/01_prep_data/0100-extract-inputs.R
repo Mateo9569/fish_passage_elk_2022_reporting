@@ -1226,4 +1226,19 @@ hab_loc_utm <- left_join(
       )
     )
 
+# UTMs Habitat Confirmations -----------------------------------------------------
 
+# prep for submission of habitat_confirmations.xls sheet
+# extract locations of habitat confirmation sites and burn to csv to upload to Habitat Wizard to get watershed codes
+habitat_confirmations <- fpr_import_hab_con(row_empty_remove = T)
+hab_loc <- habitat_confirmations %>%
+  purrr::pluck("step_1_ref_and_loc_info") %>%
+  dplyr::filter(!is.na(site_number))%>%
+  sf::st_as_sf(coords = c("utm_easting", "utm_northing"),
+               crs = 26911) %>%
+  sf::st_transform(crs = 4326) %>%  ## convert to CRS of habitat wizard
+  mutate(
+    longitude = sf::st_coordinates(.)[,1],
+    latitude = sf::st_coordinates(.)[,2]) %>%
+  readr::write_csv(file = paste0(getwd(), '/data/inputs_extracted/hab_loc.csv'),
+                 na = '')
